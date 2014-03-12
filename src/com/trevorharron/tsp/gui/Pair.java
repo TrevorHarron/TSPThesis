@@ -1,20 +1,20 @@
 package com.trevorharron.tsp.gui;
 
 public class Pair<T1,T2> {
-	private double x;
-	private double y;
+	private T1 left;
+	private T2 right;
 	
-	public Pair(double x, double y){
-		this.x = x;
-		this.y = y;
+	public Pair(T1 left, T2 right){
+		this.left = left;
+		this.right = right;
 	}
-	public double getX(){
-		return x;
+	public T2 getRight(){
+		return right;
 	}
-	public double getY(){
-		return y;
+	public T1 getLeft(){
+		return left;
 	}
 	public String toString(){
-		return x+","+y;
+		return left+","+right;
 	}
 }

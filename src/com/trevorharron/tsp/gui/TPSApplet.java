@@ -119,10 +119,10 @@ public class TPSApplet extends Applet{
 			g2.setStroke(new BasicStroke(3));
 			for(int index = 0; index < result.size()-4;index++){
 				Edge e = graph.getRoad(result.get(index), result.get(index+1));
-				g2.drawLine((int)(START_X+3+points.get(e.getTo()).getX()*MAX_X),
-						(int)(START_Y+3 +(points.get(e.getTo()).getY())*MAX_Y),
-						(int)(START_X+3+points.get(e.getFrom()).getX()*MAX_X),
-						(int)(START_Y+3+(points.get(e.getFrom()).getY())*MAX_Y));
+				g2.drawLine((int)(START_X+3+points.get(e.getTo()).getLeft()*MAX_X),
+						(int)(START_Y+3 +(points.get(e.getTo()).getRight())*MAX_Y),
+						(int)(START_X+3+points.get(e.getFrom()).getLeft()*MAX_X),
+						(int)(START_Y+3+(points.get(e.getFrom()).getRight())*MAX_Y));
 			}
 			g2.setStroke(new BasicStroke(1));
 		}
@@ -138,22 +138,22 @@ public class TPSApplet extends Applet{
 	private void drawCities(Graphics g) {
 		for(String key:points.keySet()){
 			g.setColor(Color.BLACK);
-			g.drawOval((int)(START_X+points.get(key).getX()*MAX_X),
-					(int)(START_Y +(points.get(key).getY())*MAX_Y), 6, 6);
-			g.fillOval((int)(START_X+points.get(key).getX()*MAX_X),
-					(int)(START_Y +(points.get(key).getY())*MAX_Y), 6, 6);
-			g.drawString(key, (int)(START_X+points.get(key).getX()*MAX_X)-10, 
-					(int)(START_Y +(points.get(key).getY())*MAX_Y) +15);
+			g.drawOval((int)(START_X+points.get(key).getLeft()*MAX_X),
+					(int)(START_Y +(points.get(key).getRight())*MAX_Y), 6, 6);
+			g.fillOval((int)(START_X+points.get(key).getLeft()*MAX_X),
+					(int)(START_Y +(points.get(key).getRight())*MAX_Y), 6, 6);
+			g.drawString(key, (int)(START_X+points.get(key).getLeft()*MAX_X)-10, 
+					(int)(START_Y +(points.get(key).getRight())*MAX_Y) +15);
 		}
 		
 	}
 
 	private void drawRoads(Graphics g, List<Edge> list) {
 		for(Edge e: list){
-			g.drawLine((int)(START_X+3+points.get(e.getTo()).getX()*MAX_X),
-					(int)(START_Y+3 +(points.get(e.getTo()).getY()*MAX_Y)),
-					(int)(START_X+3+points.get(e.getFrom()).getX()*MAX_X),
-					(int)(START_Y+3+(points.get(e.getFrom()).getY()*MAX_Y)));
+			g.drawLine((int)(START_X+3+points.get(e.getTo()).getLeft()*MAX_X),
+					(int)(START_Y+3 +(points.get(e.getTo()).getRight()*MAX_Y)),
+					(int)(START_X+3+points.get(e.getFrom()).getLeft()*MAX_X),
+					(int)(START_Y+3+(points.get(e.getFrom()).getRight()*MAX_Y)));
 		}	
 	}
 
