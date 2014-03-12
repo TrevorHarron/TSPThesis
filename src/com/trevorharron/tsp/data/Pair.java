@@ -1,4 +1,4 @@
-package com.trevorharron.tsp.gui;
+package com.trevorharron.tsp.data;
 
 public class Pair<T1,T2> {
 	private T1 left;

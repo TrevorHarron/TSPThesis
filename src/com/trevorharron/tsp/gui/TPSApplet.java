@@ -11,12 +11,12 @@ import java.awt.Event;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Image;
-import java.awt.Stroke;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
 import com.trevorharron.tsp.data.FileNames;
+import com.trevorharron.tsp.data.Pair;
 import com.trevorharron.tsp.graph.Graph;
 import com.trevorharron.tsp.graph.GraphSymmetric;
 import com.trevorharron.tsp.graph.edge.Edge;
