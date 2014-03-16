@@ -4,8 +4,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 import com.trevorharron.tsp.graph.edge.Edge;
+import com.trevorharron.tsp.graph.node.ListNode;
 import com.trevorharron.tsp.graph.node.Node;
-import com.trevorharron.tsp.graph.node.SimpleNode;
 
 public class GraphBasic implements Graph {
 	
@@ -17,7 +17,7 @@ public class GraphBasic implements Graph {
 	
 	@Override
 	public void addCity(Node city) {
-		cities.put(city.getName(), new SimpleNode(city));
+		cities.put(city.getName(), new ListNode(city));
 	}
 
 	@Override
@@ -27,16 +27,16 @@ public class GraphBasic implements Graph {
 
 	@Override
 	public void addEdge(Edge road) {
-		SimpleNode c = (SimpleNode) cities.get(road.getFrom());
-		c.addRoad((SimpleNode)cities.get(road.getTo()), road.getDistance());
+		ListNode c = (ListNode) cities.get(road.getFrom());
+		c.addRoad((ListNode)cities.get(road.getTo()), road.getDistance());
 	}
 
 	@Override
 	public ArrayList<Edge> getRoads() {
-		SimpleNode c;
+		ListNode c;
 		ArrayList<Edge> rds = new ArrayList<Edge>();
 		for(String key: cities.keySet()){
-			c = (SimpleNode)cities.get(key);
+			c = (ListNode)cities.get(key);
 			for(Edge e: c.getRoads())
 				if(!rds.contains(e))
 					rds.add(e);
@@ -57,7 +57,7 @@ public class GraphBasic implements Graph {
 
 	@Override
 	public ArrayList<Edge> getRoadsByCity(String name) {
-		SimpleNode n =(SimpleNode) cities.get(name);
+		ListNode n =(ListNode) cities.get(name);
 		return n.getRoads();
 	}
 
@@ -68,7 +68,7 @@ public class GraphBasic implements Graph {
 
 	@Override
 	public Edge getRoad(String to, String from) {
-		SimpleNode n =(SimpleNode) cities.get(from);
+		ListNode n =(ListNode) cities.get(from);
 		for(Edge e: n.getRoads()){
 			if(e.getFrom().equals(to))
 				return e;
