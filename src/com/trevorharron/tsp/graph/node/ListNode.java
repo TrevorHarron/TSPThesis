@@ -15,9 +15,7 @@ public class ListNode extends Node {
 		
 		super(name, xCor, yCor, id, readPos);
 		//get all connections TODO
-		roads= new ArrayList<Pair<ListNode, Double>>();
-
-		
+		roads= new ArrayList<Pair<ListNode, Double>>();	
 	}
 	
 	public ListNode(Node city) {
