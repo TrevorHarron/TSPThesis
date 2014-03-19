@@ -5,12 +5,14 @@ import java.util.Collections;
 import java.util.HashMap;
 
 import com.trevorharron.tsp.graph.Graph;
+import com.trevorharron.tsp.graph.GraphFactory;
 import com.trevorharron.tsp.graph.edge.Edge;
 import com.trevorharron.tsp.graph.node.Node;
 
 public class GreedySolver implements Solver {
 
 	private Graph graph;
+	private Graph pathGraph;
 	private ArrayList<Edge> roads;
 	private ArrayList<Edge> route;
 	private int maxEdges;
@@ -19,14 +21,27 @@ public class GreedySolver implements Solver {
 		this.setGraph(graph);
 		for(Edge e: graph.getRoads())
 			roads.add(e);
+		try{
+			pathGraph = new GraphFactory().getGraph(graph.getClass());
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+		for(String name : graph.getCities().keySet())
+			pathGraph.addCity(graph.getCity(name));
 	}
 	
 	public GreedySolver(){
 		roads = new ArrayList<Edge>();
 	}
+	
 	@Override
 	public void setGraph(Graph graph) {
 		this.graph = graph;
+		try{
+			pathGraph = new GraphFactory().getGraph(graph.getClass());
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 	
 	@Override

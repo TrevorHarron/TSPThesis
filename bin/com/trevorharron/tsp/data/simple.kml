@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+<Document>
+	<Folder><name>simple_data</name>
+		<Schema name="simple_data" id="simple_data">
+			<SimpleField name="Name" type="string"></SimpleField>
+			<SimpleField name="Description" type="string"></SimpleField>
+			<SimpleField name="CITIESX020" type="float"></SimpleField>
+			<SimpleField name="FEATURE" type="string"></SimpleField>
+			<SimpleField name="POP_RANGE" type="string"></SimpleField>
+			<SimpleField name="POP_2000" type="int"></SimpleField>
+			<SimpleField name="FIPS55" type="string"></SimpleField>
+			<SimpleField name="COUNTY" type="string"></SimpleField>
+			<SimpleField name="FIPS" type="string"></SimpleField>
+			<SimpleField name="STATE" type="string"></SimpleField>
+			<SimpleField name="STATE_FIPS" type="string"></SimpleField>
+			<SimpleField name="DISPLAY" type="int"></SimpleField>
+		</Schema>
+		  <Placemark>
+			<name>A</name>
+			<ExtendedData><SchemaData schemaUrl="#simple_data">
+				<SimpleData name="Name">A</SimpleData>
+				<SimpleData name="CITIESX020">1</SimpleData>
+				<SimpleData name="FEATURE">Populated Place</SimpleData>
+				<SimpleData name="POP_RANGE">Undetermined</SimpleData>
+				<SimpleData name="POP_2000">-99999</SimpleData>
+				<SimpleData name="FIPS55">04540</SimpleData>
+				<SimpleData name="COUNTY">Foo</SimpleData>
+				<SimpleData name="FIPS">02016</SimpleData>
+				<SimpleData name="STATE">A</SimpleData>
+				<SimpleData name="STATE_FIPS">02</SimpleData>
+				<SimpleData name="DISPLAY">1</SimpleData>
+				</SchemaData></ExtendedData>
+		      <Point><coordinates>1,1</coordinates></Point>
+		  </Placemark>
+		  <Placemark>
+			<name>B</name>
+			<ExtendedData><SchemaData schemaUrl="#simple_data">
+				<SimpleData name="Name">B</SimpleData>
+				<SimpleData name="CITIESX020">2</SimpleData>
+				<SimpleData name="FEATURE">Populated Place</SimpleData>
+				<SimpleData name="POP_RANGE">0 - 9,999</SimpleData>
+				<SimpleData name="POP_2000">757</SimpleData>
+				<SimpleData name="FIPS55">61630</SimpleData>
+				<SimpleData name="COUNTY">Foobar</SimpleData>
+				<SimpleData name="FIPS">02185</SimpleData>
+				<SimpleData name="STATE">A</SimpleData>
+				<SimpleData name="STATE_FIPS">02</SimpleData>
+				<SimpleData name="DISPLAY">0</SimpleData>
+			</SchemaData></ExtendedData>
+		      <Point><coordinates>1,0</coordinates></Point>
+		  </Placemark>
+		  <Placemark>
+			<name>C</name>
+			<ExtendedData><SchemaData schemaUrl="#simple_data">
+				<SimpleData name="Name">C</SimpleData>
+				<SimpleData name="CITIESX020">4</SimpleData>
+				<SimpleData name="FEATURE">Populated Place</SimpleData>
+				<SimpleData name="POP_RANGE">0 - 9,999</SimpleData>
+				<SimpleData name="POP_2000">146</SimpleData>
+				<SimpleData name="FIPS55">19060</SimpleData>
+				<SimpleData name="COUNTY">Baz</SimpleData>
+				<SimpleData name="FIPS">02180</SimpleData>
+				<SimpleData name="STATE">A</SimpleData>
+				<SimpleData name="STATE_FIPS">02</SimpleData>
+				<SimpleData name="DISPLAY">0</SimpleData>
+			</SchemaData></ExtendedData>
+		      <Point><coordinates>0,0</coordinates></Point>
+		  </Placemark>
+		  <Placemark>
+			<name>D</name>
+			<ExtendedData><SchemaData schemaUrl="#simple_data">
+				<SimpleData name="Name">D</SimpleData>
+				<SimpleData name="CITIESX020">3</SimpleData>
+				<SimpleData name="FEATURE">Populated Place</SimpleData>
+				<SimpleData name="POP_RANGE">Undetermined</SimpleData>
+				<SimpleData name="POP_2000">-99999</SimpleData>
+				<SimpleData name="FIPS55">61700</SimpleData>
+				<SimpleData name="COUNTY">Bar</SimpleData>
+				<SimpleData name="FIPS">02185</SimpleData>
+				<SimpleData name="STATE">A</SimpleData>
+				<SimpleData name="STATE_FIPS">02</SimpleData>
+				<SimpleData name="DISPLAY">1</SimpleData>
+			</SchemaData></ExtendedData>
+		      <Point><coordinates>0,1</coordinates></Point>
+		  </Placemark>
+		  <Placemark>
+			<name>E</name>
+			<ExtendedData><SchemaData schemaUrl="#simple_data">
+				<SimpleData name="Name">E</SimpleData>
+				<SimpleData name="CITIESX020">5</SimpleData>
+				<SimpleData name="FEATURE">Populated Place</SimpleData>
+				<SimpleData name="POP_RANGE">Undetermined</SimpleData>
+				<SimpleData name="POP_2000">-99999</SimpleData>
+				<SimpleData name="FIPS55">61700</SimpleData>
+				<SimpleData name="COUNTY">Bar</SimpleData>
+				<SimpleData name="FIPS">02185</SimpleData>
+				<SimpleData name="STATE">A</SimpleData>
+				<SimpleData name="STATE_FIPS">02</SimpleData>
+				<SimpleData name="DISPLAY">1</SimpleData>
+			</SchemaData></ExtendedData>
+		      <Point><coordinates>.5,.5</coordinates></Point>
+		  </Placemark>
+	</Folder>
+</Document></kml>
