@@ -15,9 +15,17 @@ public class GraphBasic implements Graph {
 		cities =  new HashMap<String,Node>();
 	}
 	
+	public GraphBasic(Graph g){
+		cities = g.getCities();
+		for(Edge e: g.getRoads()){
+			addEdge(e);
+		}
+		finalize();
+	}
+	
 	@Override
 	public void addCity(Node city) {
-		cities.put(city.getName(), new ListNode(city));
+		cities.put(city.getName(), (Node) new ListNode(city));
 	}
 
 	@Override
@@ -27,8 +35,8 @@ public class GraphBasic implements Graph {
 
 	@Override
 	public void addEdge(Edge road) {
-		ListNode c = (ListNode) cities.get(road.getFrom());
-		c.addRoad((ListNode)cities.get(road.getTo()), road.getDistance());
+		ListNode c = new ListNode(cities.get(road.getFrom()));
+		c.addRoad(new ListNode(cities.get(road.getTo())), road.getDistance());
 	}
 
 	@Override

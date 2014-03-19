@@ -18,6 +18,12 @@ public class GraphSymmetric implements Graph{
 		roads = new ArrayList<Edge>();
 	}
 	
+	public GraphSymmetric(Graph g){
+		cities = g.getCities();
+		roads =  g.getRoads();
+		finalize();
+	}
+	
 	@Override
 	public void resetGraph(){
 		for(Edge road: roads){

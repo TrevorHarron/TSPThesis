@@ -123,29 +123,15 @@ public class GreedySolver implements Solver {
 	}
 
 	private boolean makesCycleLessThanN(final Edge r, final ArrayList<Edge> cRoute){
-		HashMap<String,Edge> fromCities = new HashMap<String,Edge>();
-		for(Edge road: cRoute)
-			fromCities.put(road.getFrom(), road);
-		fromCities.put(r.getFrom(), r);
-		String from = r.getFrom();
-		boolean hasCycle = false;
-		int n = 0;
-		while(fromCities.containsKey(from)){//check this
-			if(fromCities.get(from).isVisited()&&n<maxEdges){
-				hasCycle = true;
-				break;
-			} else if(n>=maxEdges&&fromCities.get(from).isVisited()){
-				break;
-			} else {
-				fromCities.get(from).setVisited(true);
-				from = fromCities.get(from).getTo();
-				n++;
-			}
-		}
-		//clean up
-		for(String key: fromCities.keySet())
-			fromCities.get(key).setVisited(false);
-		return hasCycle;
+		String to = r.getTo();
+		String from =  r.getFrom();
+		ArrayList<String> queue = breadthFirstSearch(r, from);
+		return true;
+	}
+
+	private ArrayList<String> breadthFirstSearch(Edge r, String start) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 	
 }

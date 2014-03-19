@@ -196,9 +196,10 @@ public class TPSApplet extends Applet{
 	public boolean action(Event e, Object args){
 		String choice = solvers.getSelectedItem();
 		if(e.target == solveButton){
-			if(choice.equals("Nearest Neighbor"))
+			if(choice.equals("Nearest Neighbor")){
+				graph =  new GraphSymmetric(graph);
 				factory.setChoice(0);
-			else if(choice.equals("Greedy")){}
+			} else if(choice.equals("Greedy")){}
 				//factory.setChoice(1);
 			else if(choice.equals("Minimum Spanning Tree")){}
 				//factory.setChoice(2);
