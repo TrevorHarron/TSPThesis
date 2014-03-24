@@ -24,6 +24,7 @@ import com.trevorharron.tsp.graph.node.Node;
 import com.trevorharron.tsp.reader.CSVReader;
 import com.trevorharron.tsp.reader.DataReader;
 import com.trevorharron.tsp.reader.KMLReader;
+import com.trevorharron.tsp.solvers.NoSolutionException;
 import com.trevorharron.tsp.solvers.Solver;
 import com.trevorharron.tsp.solvers.SolverFactory;
 
@@ -207,7 +208,11 @@ public class TPSApplet extends Applet{
 			Solver s = factory.getSolver();
 			graph.resetGraph();
 			s.setGraph(graph);
-			result = s.solve();
+			try {
+				result = s.solve();
+			} catch (NoSolutionException ex) {
+				ex.printStackTrace();
+			}
 		}
 		if(e.target ==resetButton){
 			graph.resetGraph();

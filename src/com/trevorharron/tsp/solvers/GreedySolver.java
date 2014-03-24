@@ -6,7 +6,6 @@ import java.util.HashMap;
 
 import com.trevorharron.tsp.graph.Graph;
 import com.trevorharron.tsp.graph.GraphFactory;
-import com.trevorharron.tsp.graph.GraphSymmetric;
 import com.trevorharron.tsp.graph.edge.Edge;
 import com.trevorharron.tsp.graph.node.Node;
 
@@ -50,9 +49,11 @@ public class GreedySolver implements Solver {
 		}
 	}
 	
-	@Override
-	public ArrayList<String> solve() {		
+
+	@SuppressWarnings("finally")
+	public ArrayList<String> solve() throws NoSolutionException {		
 		long startTime = System.nanoTime();
+		ArrayList<String> result = new ArrayList<String>();
 		//sorting and ensuring there are no duplicates
 		Collections.sort(roads);
 		Edge prev = null;
@@ -66,6 +67,7 @@ public class GreedySolver implements Solver {
 		maxEdges = graph.getCities().keySet().size();
 		route = new ArrayList<Edge>();
 		//getting the routes
+		try{
 			int numEdges = 0;
 			while(numEdges < maxEdges){
 				Edge road = roads.get(0);
@@ -79,19 +81,24 @@ public class GreedySolver implements Solver {
 				}
 				roads.remove(0);
 			}
-		//obtaining the result
-		ArrayList<String> result = new ArrayList<String>();
-		double distance = 0.0;
-		System.out.println(route);
-		findRoute(result,distance);
-		//final preparing of the data
-		result.add(result.get(0));
-		result.add(""+((System.nanoTime()-startTime)*1.0e-9));
-	    System.gc();
-	    double usedMB = (Runtime.getRuntime().totalMemory() - 
-	    		Runtime.getRuntime().freeMemory()) / 1024.0;
-	    result.add(""+usedMB);
-		result.add(""+distance);
+		} catch(Exception e){
+			throw new NoSolutionException(e.getMessage());
+		} finally{
+			
+			//obtaining the result
+			
+			double distance = 0.0;
+			System.out.println(route);
+			findRoute(result,distance);
+			//final preparing of the data
+			result.add(result.get(0));
+			result.add(""+((System.nanoTime()-startTime)*1.0e-9));
+		    System.gc();
+		    double usedMB = (Runtime.getRuntime().totalMemory() - 
+		    		Runtime.getRuntime().freeMemory()) / 1024.0;
+		    result.add(""+usedMB);
+			result.add(""+distance);
+		}
 		return result;
 	}
 

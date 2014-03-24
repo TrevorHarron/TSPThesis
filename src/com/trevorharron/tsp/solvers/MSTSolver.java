@@ -16,7 +16,7 @@ public class MSTSolver implements Solver {
 	}
 	
 	@Override
-	public ArrayList<String> solve() {
+	public ArrayList<String> solve() throws NoSolutionException{
 		// TODO Auto-generated method stub
 		return null;
 	}
