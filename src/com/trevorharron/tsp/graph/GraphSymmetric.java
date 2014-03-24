@@ -27,10 +27,9 @@ public class GraphSymmetric implements Graph{
 	@Override
 	public void resetGraph(){
 		for(Edge road: roads){
-			road.setVisited(false);
-			roadMatrix = null;
-			makeRoadMatrix();
+			road.setVisited(false);		
 		}
+		makeRoadMatrix();
 	}
 	
 	@Override
@@ -41,6 +40,8 @@ public class GraphSymmetric implements Graph{
 	@Override
 	public void addEdge(final Edge road){	
 		roads.add(road);
+		if (roadMatrix != null) 
+			roadMatrix[cities.get(road.getFrom()).getReadPos()][cities.get(road.getTo()).getReadPos()] = road;
 	}
 	
 	private void setDiagonal(){
@@ -55,19 +56,23 @@ public class GraphSymmetric implements Graph{
 	}
 	
 	public void makeRoadMatrix(){
-		roadMatrix = new Edge[cities.size()][cities.size()];
+		int numCities = cities.size();
+		roadMatrix = new Edge[numCities][numCities];
 		for(Edge road : roads)
 			roadMatrix[cities.get(road.getFrom()).getReadPos()][cities.get(road.getTo()).getReadPos()] = road;
+
 		setDiagonal();
 	}
 	
 	@Override
 	public ArrayList<Edge> getRoadsByCity(String name){
 		ArrayList<Edge> currentRoads = new ArrayList<Edge>();
-		for(Edge r: roadMatrix[cities.get(name).getReadPos()]){
+		int cityPos = cities.get(name).getReadPos();
+		for(Edge r: roadMatrix[cityPos]){
 			if(r != null && !r.isVisited())
 				currentRoads.add(r);
 		}
+
 		return currentRoads;	
 	}
 	

@@ -6,6 +6,7 @@ import java.util.HashMap;
 
 import com.trevorharron.tsp.graph.Graph;
 import com.trevorharron.tsp.graph.GraphFactory;
+import com.trevorharron.tsp.graph.GraphSymmetric;
 import com.trevorharron.tsp.graph.edge.Edge;
 import com.trevorharron.tsp.graph.node.Node;
 
@@ -23,11 +24,12 @@ public class GreedySolver implements Solver {
 			roads.add(e);
 		try{
 			pathGraph = new GraphFactory().getGraph(graph.getClass());
-		}catch (Exception e) {
+			for(String name: graph.getCities().keySet())
+				pathGraph.addCity(graph.getCity(name));
+			pathGraph.finalize();
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		for(String name : graph.getCities().keySet())
-			pathGraph.addCity(graph.getCity(name));
 	}
 	
 	public GreedySolver(){
@@ -39,6 +41,10 @@ public class GreedySolver implements Solver {
 		this.graph = graph;
 		try{
 			pathGraph = new GraphFactory().getGraph(graph.getClass());
+			for(String name: graph.getCities().keySet())
+				pathGraph.addCity(graph.getCity(name));
+			pathGraph.finalize();
+			roads =  graph.getRoads();
 		}catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -57,21 +63,26 @@ public class GreedySolver implements Solver {
 			prev = road;
 		}
 		roads = sRoads;
-		//getting the routes
 		maxEdges = graph.getCities().keySet().size();
 		route = new ArrayList<Edge>();
-		int numEdges = 0;
-		while(numEdges < maxEdges){
-			Edge road = roads.get(0);
-			if(!(makesCycleLessThanN(road, route) || moreThanTwoDegrees(road,route))){
-				route.add(road);
-				numEdges++;
+		//getting the routes
+			int numEdges = 0;
+			while(numEdges < maxEdges){
+				Edge road = roads.get(0);
+				
+				if(!moreThanTwoDegrees(road,route) && 
+						!makesCycleLessThanN(road, route)){
+					pathGraph.addEdge(road);
+					route.add(road);
+					System.out.println(route.size());
+					numEdges++;
+				}
+				roads.remove(0);
 			}
-			roads.remove(0);
-		}
 		//obtaining the result
 		ArrayList<String> result = new ArrayList<String>();
 		double distance = 0.0;
+		System.out.println(route);
 		findRoute(result,distance);
 		//final preparing of the data
 		result.add(result.get(0));
@@ -85,68 +96,66 @@ public class GreedySolver implements Solver {
 	}
 
 	private void findRoute(ArrayList<String> result, double distance) {
-		HashMap<String,Edge> fromCities = new HashMap<String,Edge>();
-		for(Edge road: route){
-			fromCities.put(road.getTo(), road);
+		String cityName = route.get(0).getFrom();
+		for(int count = 0; count < maxEdges; count ++){
+			result.add(cityName);
+			distance += pathGraph.getRoadsByCity(cityName).get(0).getDistance();
 		}
-		String city = route.get(0).getTo();
-		int edgeCount = 0;
-		System.out.println(route);
-		while(edgeCount < route.size()){
-			result.add(city);
-			Edge road = fromCities.get(city);
-			distance += road.getDistance();
-			city = fromCities.get(city).getFrom();
-			edgeCount++;
-		}
-		//Node start = graph.getCity(route.get(0).getFrom());
-		//Node last = graph.getCity(city);
-		//distance += graph.getRoad(last.getReadPos(),start.getReadPos()).getDistance();
-		//result.add(route.get(0).getFrom());
 	}
 
 	private boolean moreThanTwoDegrees(Edge road, ArrayList<Edge> route) {
 		
-		HashMap<String,Integer> toCount = new HashMap<String,Integer>();
-		HashMap<String,Integer> fromCount = new HashMap<String,Integer>();
+		HashMap<String,Integer> fromCounts = new HashMap<String,Integer>();
+		HashMap<String,Integer> toCounts = new HashMap<String,Integer>();
 		
-		String from = road.getFrom();
-		String to = road.getTo();
-		fromCount.put(from, 1);
-		toCount.put(to,1);
-		for(Edge r: route){
-			from = r.getFrom();
-			to = r.getTo();
-			
-			if(fromCount.containsKey(from))
-				fromCount.put(from, fromCount.get(from)+1);
+		fromCounts.put(road.getFrom(), 1);
+		toCounts.put(road.getTo(), 1);
+		
+		for(Edge e: pathGraph.getRoads()){
+			if(fromCounts.containsKey(e.getFrom()))
+				fromCounts.put(e.getFrom(), fromCounts.get(e.getFrom())+1);
 			else
-				fromCount.put(from, 1);
+				fromCounts.put(e.getFrom(), 1);
 			
-			if(toCount.containsKey(to))
-				toCount.put(to, toCount.get(to)+1);
+			if(toCounts.containsKey(e.getTo()))
+				toCounts.put(e.getTo(), toCounts.get(e.getTo())+1);
 			else
-				toCount.put(to, 1);
+				toCounts.put(e.getTo(), 1);
 		}
-		for(String r: toCount.keySet())
-			if(toCount.get(r) >= 2)
-				return true;
-		for(String r: fromCount.keySet())
-			if(fromCount.get(r) >= 2)
-				return true;
+		
+		for(String key: fromCounts.keySet())
+			if(fromCounts.get(key) > 1) return true;
+		
+		for(String key: toCounts.keySet())
+			if(toCounts.get(key) > 1) return true;
+		
 		return false;
 	}
 
 	private boolean makesCycleLessThanN(final Edge r, final ArrayList<Edge> cRoute){
 		String to = r.getTo();
 		String from =  r.getFrom();
-		ArrayList<String> queue = breadthFirstSearch(r, from);
-		return true;
+		ArrayList<String> queue = linearSearch(r, to);
+		return queue.contains(from) && queue.size() < maxEdges;
 	}
 
-	private ArrayList<String> breadthFirstSearch(Edge r, String start) {
-		// TODO Auto-generated method stub
-		return null;
+	private ArrayList<String> linearSearch(Edge r, String start) {
+		// this is assuming that there is one path to each node and one
+		// path from each node (by design)
+		Node current = pathGraph.getCity(start);
+		
+		ArrayList<String> queue = new ArrayList<String>();
+		
+		ArrayList<Edge> edges =  pathGraph.getRoadsByCity(current.getName());
+		while(!edges.isEmpty()){
+			if(edges.get(0).getTo().equals(start)) break;
+			Node next = pathGraph.getCity(edges.get(0).getTo());
+			queue.add(next.getName());
+			current = next;
+			edges =  pathGraph.getRoadsByCity(current.getName());
+		}
+		
+		return queue;
 	}
 	
 }

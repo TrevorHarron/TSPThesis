@@ -31,7 +31,7 @@ public class Experimenter {
 			@SuppressWarnings("resource")
 			PrintWriter printW = new PrintWriter(fileWriter);
 			
-			sGraph.makeRoadMatrix();
+			sGraph.finalize();
 			for(int solverNum = 0; solverNum<2;solverNum++){
 				factory.setChoice(solverNum);
 				for(int numTimes = 0; numTimes < 1; numTimes++){
