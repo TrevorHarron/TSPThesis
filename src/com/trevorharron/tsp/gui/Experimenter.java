@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import com.trevorharron.tsp.reader.CSVReader;
 import com.trevorharron.tsp.reader.DataReader;
 import com.trevorharron.tsp.reader.KMLReader;
+import com.trevorharron.tsp.solvers.NoSolutionException;
 import com.trevorharron.tsp.solvers.Solver;
 import com.trevorharron.tsp.solvers.SolverFactory;
 import com.trevorharron.tsp.data.FileNames;
@@ -52,6 +53,8 @@ public class Experimenter {
 			}
 
 		} catch (IOException e) {
+			e.printStackTrace();
+		} catch (NoSolutionException e) {
 			e.printStackTrace();
 		}
 		

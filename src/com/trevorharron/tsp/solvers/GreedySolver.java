@@ -50,33 +50,22 @@ public class GreedySolver implements Solver {
 	}
 	
 
-	@SuppressWarnings("finally")
 	public ArrayList<String> solve() throws NoSolutionException {		
 		long startTime = System.nanoTime();
 		ArrayList<String> result = new ArrayList<String>();
 		//sorting and ensuring there are no duplicates
 		Collections.sort(roads);
-		Edge prev = null;
-		ArrayList<Edge> sRoads = new ArrayList<Edge>();
-		for(Edge road:roads){
-			if(!road.equals(prev))
-				sRoads.add(road);
-			prev = road;
-		}
-		roads = sRoads;
 		maxEdges = graph.getCities().keySet().size();
 		route = new ArrayList<Edge>();
-		//getting the routes
+		//finding the route
 		try{
 			int numEdges = 0;
 			while(numEdges < maxEdges){
 				Edge road = roads.get(0);
-				
 				if(!moreThanTwoDegrees(road,route) && 
 						!makesCycleLessThanN(road, route)){
 					pathGraph.addEdge(road);
 					route.add(road);
-					System.out.println(route.size());
 					numEdges++;
 				}
 				roads.remove(0);
@@ -86,12 +75,8 @@ public class GreedySolver implements Solver {
 		} finally{
 			
 			//obtaining the result
-			
-			double distance = 0.0;
-			System.out.println(route);
-			findRoute(result,distance);
+			double distance = findRoute(result, route);
 			//final preparing of the data
-			result.add(result.get(0));
 			result.add(""+((System.nanoTime()-startTime)*1.0e-9));
 		    System.gc();
 		    double usedMB = (Runtime.getRuntime().totalMemory() - 
@@ -102,12 +87,18 @@ public class GreedySolver implements Solver {
 		return result;
 	}
 
-	private void findRoute(ArrayList<String> result, double distance) {
+	private double findRoute(ArrayList<String> result, ArrayList<Edge> route) {
+		double distance = 0.0;
+		HashMap<String,Edge> roads = new HashMap<String,Edge>();
+		for(Edge road: route)
+			roads.put(road.getFrom(), road);
 		String cityName = route.get(0).getFrom();
-		for(int count = 0; count < maxEdges; count ++){
+		while(result.size() <= maxEdges ){
 			result.add(cityName);
-			distance += pathGraph.getRoadsByCity(cityName).get(0).getDistance();
+			distance += roads.get(cityName).getDistance();
+			cityName = roads.get(cityName).getTo();
 		}
+		return distance;
 	}
 
 	private boolean moreThanTwoDegrees(Edge road, ArrayList<Edge> route) {
@@ -143,7 +134,8 @@ public class GreedySolver implements Solver {
 		String to = r.getTo();
 		String from =  r.getFrom();
 		ArrayList<String> queue = linearSearch(r, to);
-		return queue.contains(from) && queue.size() < maxEdges;
+		
+		return queue.contains(from) && !(queue.size() == maxEdges);
 	}
 
 	private ArrayList<String> linearSearch(Edge r, String start) {
@@ -154,6 +146,7 @@ public class GreedySolver implements Solver {
 		ArrayList<String> queue = new ArrayList<String>();
 		
 		ArrayList<Edge> edges =  pathGraph.getRoadsByCity(current.getName());
+		queue.add(start);
 		while(!edges.isEmpty()){
 			if(edges.get(0).getTo().equals(start)) break;
 			Node next = pathGraph.getCity(edges.get(0).getTo());
