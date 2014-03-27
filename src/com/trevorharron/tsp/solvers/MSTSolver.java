@@ -24,9 +24,13 @@ public class MSTSolver implements Solver {
 	@Override
 	public ArrayList<String> solve() throws NoSolutionException{
 		
-		
+		Tree mst = makeMST("");
 		ArrayList<String> result = new ArrayList<String>();
 		return result;
+	}
+	
+	private Tree makeMST(String start){
+		return new Tree(new TreeNode(graph.getCity(start)));
 	}
 	
 	private class Tree{
