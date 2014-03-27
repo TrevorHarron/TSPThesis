@@ -72,18 +72,17 @@ public class GreedySolver implements Solver {
 			}
 		} catch(Exception e){
 			throw new NoSolutionException(e.getMessage());
-		} finally{
 			
 			//obtaining the result
-			double distance = findRoute(result, route);
-			//final preparing of the data
-			result.add(""+((System.nanoTime()-startTime)*1.0e-9));
-		    System.gc();
-		    double usedMB = (Runtime.getRuntime().totalMemory() - 
-		    		Runtime.getRuntime().freeMemory()) / 1024.0;
-		    result.add(""+usedMB);
-			result.add(""+distance);
 		}
+		double distance = findRoute(result, route);
+			//final preparing of the data
+		result.add(""+((System.nanoTime()-startTime)*1.0e-9));
+		System.gc();
+		double usedMB = (Runtime.getRuntime().totalMemory() - 
+	    		Runtime.getRuntime().freeMemory()) / 1024.0;
+		result.add(""+usedMB);
+		result.add(""+distance);
 		return result;
 	}
 

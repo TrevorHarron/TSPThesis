@@ -9,9 +9,7 @@ public class MSTSolver implements Solver {
 
 	Graph graph;
 	
-	public MSTSolver(){
-		
-	}
+	public MSTSolver(){}
 	
 	public MSTSolver(Graph graph){
 		this.graph = graph;
@@ -23,12 +21,31 @@ public class MSTSolver implements Solver {
 	
 	@Override
 	public ArrayList<String> solve() throws NoSolutionException{
-		
-		Tree mst = makeMST("");
-		ArrayList<String> result = new ArrayList<String>();
+		long startTime = System.nanoTime();
+		ArrayList<String> result  = new ArrayList<String>();
+		try{
+			Tree mst = makeMST("");
+			result = mst.treeWalk();
+		} catch (Exception e){
+			throw new NoSolutionException(e.getMessage());
+		}
+		double distance = getResult(result);
+		result.add(""+((System.nanoTime()-startTime)*1.0e-9));
+		System.gc();
+		double usedMB = (Runtime.getRuntime().totalMemory() - 
+	    		Runtime.getRuntime().freeMemory()) / 1024.0;
+		result.add(""+usedMB);
+		result.add(""+distance);
 		return result;
 	}
 	
+	private double getResult(ArrayList<String> result) {
+		// TODO get the distances from routes
+		
+		//TODO get distance back to start
+		return 0.0;
+	}
+
 	private Tree makeMST(String start){
 		return new Tree(new TreeNode(graph.getCity(start)));
 	}
@@ -41,7 +58,7 @@ public class MSTSolver implements Solver {
 			this.root = root;
 		}
 		
-		ArrayList<String> treeWalk(){
+		public ArrayList<String> treeWalk(){
 			TreeNode current = root;
 			return new ArrayList<String>();
 		}
