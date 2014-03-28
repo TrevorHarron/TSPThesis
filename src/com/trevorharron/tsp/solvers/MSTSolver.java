@@ -1,9 +1,13 @@
 package com.trevorharron.tsp.solvers;
 
 import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.PriorityQueue;
+import java.util.Set;
 import java.util.Stack;
 
 import com.trevorharron.tsp.graph.Graph;
+import com.trevorharron.tsp.graph.edge.Edge;
 import com.trevorharron.tsp.graph.node.Node;
 
 public class MSTSolver implements Solver {
@@ -48,7 +52,18 @@ public class MSTSolver implements Solver {
 	}
 
 	private Tree makeMST(String start){
-		return new Tree(new TreeNode(graph.getCity(start)));
+		//based off of Primm's Algorithm
+		PriorityQueue<Edge> Q;
+		Set<String> mst =  new HashSet<String>();
+		Tree T = new Tree(new TreeNode(graph.getCity(start)));
+		graph.getCity(start).setVisited(true);
+		mst.add(start);
+		Set<String> cities = graph.getCities().keySet();
+		while(!mst.equals(cities)){
+			break;//tmp TODO
+		}
+		
+		return T;
 	}
 	
 	private class Tree{
