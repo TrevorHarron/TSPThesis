@@ -48,7 +48,13 @@ public class MSTSolver implements Solver {
 	
 	private double getResult(ArrayList<String> result) {
 		// TODO get the distances from routes
-		
+		double distance = 0.0;
+		for(int index = 0; index < result.size()-2; index++){
+			String  to = result.get(index);
+			String from =  result.get(index+1);
+			distance += graph.getRoad(to, from).getDistance();
+		}
+		distance += graph.getRoad(result.get(0), result.get(result.size()-1)).getDistance();
 		//TODO get distance back to start
 		return 0.0;
 	}
@@ -82,6 +88,7 @@ public class MSTSolver implements Solver {
 	
 	private Tree buildTree(Tree t, Set<String> V, Set<Edge> E) {
 		//given a set of Vertices and a set of edges build a MST
+		//TODO
 		HashMap<String, ArrayList<Edge>> edges =  new HashMap<String, ArrayList<Edge>>();
 		for(Edge e: E){
 			String from = e.getFrom();
@@ -92,9 +99,7 @@ public class MSTSolver implements Solver {
 		while(true){
 			break; //build tree from hash here
 		}
-		
 		return t;
-		// TODO Auto-generated method stub
 		
 	}
 

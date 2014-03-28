@@ -75,7 +75,7 @@ public class GraphBasic implements Graph {
 	}
 
 	@Override
-	public Edge getRoad(String to, String from) {
+	public Edge getRoad(String from, String to) {
 		ListNode n =(ListNode) cities.get(from);
 		for(Edge e: n.getRoads()){
 			if(e.getFrom().equals(to))

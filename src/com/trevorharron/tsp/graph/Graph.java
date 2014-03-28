@@ -21,7 +21,7 @@ public interface Graph {
 	
 	public ArrayList<Edge> getRoadsByCity(String name);
 	
-	public Edge getRoad(String to, String from);
+	public Edge getRoad(String from, String to);
 	
 	public void finalize();
 }

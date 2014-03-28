@@ -97,7 +97,7 @@ public class GraphSymmetric implements Graph{
 	}
 
 	@Override
-	public Edge getRoad(String to, String from) {
+	public Edge getRoad(String from, String to) {
 		return getRoad(cities.get(from).getReadPos(),
 				cities.get(to).getReadPos());
 	}
