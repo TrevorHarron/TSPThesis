@@ -36,7 +36,8 @@ public class MSTSolver implements Solver {
 		} catch (Exception e){
 			throw new NoSolutionException(e.getMessage());
 		}
-		double distance = getResult(result);
+		result.add(result.get(0));
+		double distance = getRouteDistance(result);
 		result.add(""+((System.nanoTime()-startTime)*1.0e-9));
 		System.gc();
 		double usedMB = (Runtime.getRuntime().totalMemory() - 
@@ -46,17 +47,15 @@ public class MSTSolver implements Solver {
 		return result;
 	}
 	
-	private double getResult(ArrayList<String> result) {
-		// TODO get the distances from routes
+	private double getRouteDistance(ArrayList<String> result) {
+		//get the distances from routes
 		double distance = 0.0;
 		for(int index = 0; index < result.size()-2; index++){
 			String  to = result.get(index);
 			String from =  result.get(index+1);
-			distance += graph.getRoad(to, from).getDistance();
+			distance += graph.getRoad(from, to).getDistance();
 		}
-		distance += graph.getRoad(result.get(0), result.get(result.size()-1)).getDistance();
-		//TODO get distance back to start
-		return 0.0;
+		return distance;
 	}
 
 	private Tree makeMST(String start){
