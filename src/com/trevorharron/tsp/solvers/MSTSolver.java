@@ -1,6 +1,7 @@
 package com.trevorharron.tsp.solvers;
 
 import java.util.ArrayList;
+import java.util.Stack;
 
 import com.trevorharron.tsp.graph.Graph;
 import com.trevorharron.tsp.graph.node.Node;
@@ -59,8 +60,29 @@ public class MSTSolver implements Solver {
 		}
 		
 		public ArrayList<String> treeWalk(){
+			
+			ArrayList<String> route = new ArrayList<String>();
 			TreeNode current = root;
-			return new ArrayList<String>();
+			Stack<TreeNode> stack = new Stack<TreeNode>();
+			stack.push(root);
+			boolean keepWorking = true;
+			while(!stack.isEmpty()){
+				while(current.getLeft() != null){
+					stack.push(current.getLeft());
+					current = current.getLeft();
+				}
+				while(keepWorking){
+					TreeNode node =  stack.pop();
+					route.add(node.getSelf().getName());
+					if(current.getRight() != null){
+						stack.push(current.getRight());
+						current = current.getRight();
+						keepWorking = false;
+					}
+				}
+				keepWorking = true;
+			}
+			return route;
 		}
 
 	}
