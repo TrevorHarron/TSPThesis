@@ -67,10 +67,14 @@ public class MSTSolver implements Solver {
 		Collections.sort(roads);
 		while(!V.equals(cities)){
 			Edge u = roads.get(0);
+			String from = u.getFrom();
 			if(!V.contains(u.getTo()) && 
-					!(counts.containsKey(u.getFrom()) && counts.get(u.getFrom()) >= 2) ){
+					!(counts.containsKey(from) && counts.get(from) >= 2) ){
 				E.add(u);
 				V.add(u.getTo());
+				if(!counts.containsKey(from))
+					counts.put(from, 0);
+				counts.put(from, counts.get(from)+1);
 			}
 		}
 		return buildTree(new Tree(new TreeNode(graph.getCity(start))), V, E);
@@ -78,6 +82,17 @@ public class MSTSolver implements Solver {
 	
 	private Tree buildTree(Tree t, Set<String> V, Set<Edge> E) {
 		//given a set of Vertices and a set of edges build a MST
+		HashMap<String, ArrayList<Edge>> edges =  new HashMap<String, ArrayList<Edge>>();
+		for(Edge e: E){
+			String from = e.getFrom();
+			if(!edges.containsKey(e.getFrom()))
+				edges.put(from, new ArrayList<Edge>());
+			edges.get(from).add(e);
+		}
+		while(true){
+			break; //build tree from hash here
+		}
+		
 		return t;
 		// TODO Auto-generated method stub
 		
