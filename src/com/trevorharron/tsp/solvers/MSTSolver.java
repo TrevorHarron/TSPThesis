@@ -1,6 +1,8 @@
 package com.trevorharron.tsp.solvers;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.PriorityQueue;
 import java.util.Set;
@@ -54,18 +56,33 @@ public class MSTSolver implements Solver {
 	private Tree makeMST(String start){
 		//based off of Primm's Algorithm
 		PriorityQueue<Edge> Q;
-		Set<String> mst =  new HashSet<String>();
-		Tree T = new Tree(new TreeNode(graph.getCity(start)));
+		Set<String> V =  new HashSet<String>();
 		graph.getCity(start).setVisited(true);
-		mst.add(start);
+		V.add(start);
 		Set<String> cities = graph.getCities().keySet();
-		while(!mst.equals(cities)){
-			break;//tmp TODO
+		Set<Edge> E =  new HashSet<Edge>();
+		ArrayList<Edge> roads = graph.getRoads();
+		HashMap<String, Integer> counts = new HashMap<String, Integer>();
+		counts.put(start, 0);
+		Collections.sort(roads);
+		while(!V.equals(cities)){
+			Edge u = roads.get(0);
+			if(!V.contains(u.getTo()) && 
+					!(counts.containsKey(u.getFrom()) && counts.get(u.getFrom()) >= 2) ){
+				E.add(u);
+				V.add(u.getTo());
+			}
 		}
-		
-		return T;
+		return buildTree(new Tree(new TreeNode(graph.getCity(start))), V, E);
 	}
 	
+	private Tree buildTree(Tree t, Set<String> V, Set<Edge> E) {
+		//given a set of Vertices and a set of edges build a MST
+		return t;
+		// TODO Auto-generated method stub
+		
+	}
+
 	private class Tree{
 		
 		TreeNode root;
