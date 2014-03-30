@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
-import java.util.PriorityQueue;
 import java.util.Set;
 import java.util.Stack;
 
@@ -60,7 +59,6 @@ public class MSTSolver implements Solver {
 
 	private Tree makeMST(String start){
 		//based off of Primm's Algorithm
-		PriorityQueue<Edge> Q;
 		Set<String> V =  new HashSet<String>();
 		graph.getCity(start).setVisited(true);
 		V.add(start);
@@ -87,7 +85,7 @@ public class MSTSolver implements Solver {
 	
 	private Tree buildTree(Tree t, Set<String> V, Set<Edge> E) {
 		//given a set of Vertices and a set of edges build a MST
-		//TODO
+		//TODO check test
 		HashMap<String, ArrayList<Edge>> edges =  new HashMap<String, ArrayList<Edge>>();
 		for(Edge e: E){
 			String from = e.getFrom();
@@ -95,11 +93,18 @@ public class MSTSolver implements Solver {
 				edges.put(from, new ArrayList<Edge>());
 			edges.get(from).add(e);
 		}
-		while(true){
-			break; //build tree from hash here
+		HashMap<String, TreeNode> nodes = new HashMap<String,TreeNode>();
+		for(String v: V){
+			nodes.put(v, new TreeNode(graph.getCity(v)));
 		}
+		for(String key: nodes.keySet()){
+			if(edges.containsKey(key)){
+				nodes.get(key).setLeft(nodes.get((edges.get(key).get(0).getTo())).getSelf());
+				nodes.get(key).setRight(nodes.get((edges.get(key).get(1).getTo())).getSelf());
+			}
+		}
+		t.setRoot(nodes.get(t.root.self.getName())); //TODO check this and ^^
 		return t;
-		
 	}
 
 	private class Tree{
@@ -108,6 +113,10 @@ public class MSTSolver implements Solver {
 
 		Tree(TreeNode root){
 			this.root = root;
+		}
+		
+		void setRoot(TreeNode root){
+			this.root =  root;
 		}
 		
 		public ArrayList<String> treeWalk(){
@@ -161,7 +170,4 @@ public class MSTSolver implements Solver {
 		Node getSelf(){ return self;}
 		
 	}
-
-
-
 }

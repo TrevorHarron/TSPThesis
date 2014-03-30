@@ -14,6 +14,12 @@ public class Edge implements Comparable<Edge>{
 		this.distance = distance;
 	}
 	
+	public Edge(Edge e){
+		this.toCity = e.getTo();
+		this.fromCity = e.getFrom();
+		this.distance = e.getDistance();
+	}
+	
 	public String toString(){
 		return fromCity+","+toCity+":"+distance;
 	}

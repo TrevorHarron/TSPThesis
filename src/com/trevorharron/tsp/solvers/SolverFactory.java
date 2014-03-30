@@ -1,9 +1,9 @@
 package com.trevorharron.tsp.solvers;
 
 public class SolverFactory {
-	private static int nn = 0;
-	private static int greedy = 1;
-	private static int mst = 2;
+	public static int NN = 0;
+	public static int GREEDY = 1;
+	public static int MST = 2;
 	
 	private int solver;
 
@@ -20,11 +20,11 @@ public class SolverFactory {
 	}
 	
 	public Solver getSolver(){
-		if(solver == nn)
+		if(solver == NN)
 			return new NNSolver();
-		else if(solver == greedy)
+		else if(solver == GREEDY)
 			return new GreedySolver();
-		else if(solver == mst)
+		else if(solver == MST)
 			return new MSTSolver();
 		else
 			return null;

@@ -43,7 +43,8 @@ public class GreedySolver implements Solver {
 			for(String name: graph.getCities().keySet())
 				pathGraph.addCity(graph.getCity(name));
 			pathGraph.finalize();
-			roads =  graph.getRoads();
+			for(Edge r: graph.getRoads())
+				roads.add(new Edge(r));
 		}catch (Exception e) {
 			e.printStackTrace();
 		}
