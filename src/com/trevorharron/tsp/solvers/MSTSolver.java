@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Random;
 import java.util.Set;
 import java.util.Stack;
 
@@ -29,12 +30,17 @@ public class MSTSolver implements Solver {
 	public ArrayList<String> solve() throws NoSolutionException{
 		long startTime = System.nanoTime();
 		ArrayList<String> result  = new ArrayList<String>();
-		try{
-			Tree mst = makeMST("");
+		//try{
+		ArrayList<String> V = new ArrayList<String>();
+		for(String v: graph.getCities().keySet())
+			V.add(v);
+		long seed = System.nanoTime();
+		Collections.shuffle(V,new Random(seed));//random start
+			Tree mst = makeMST(V.get(0));
 			result = mst.treeWalk();
-		} catch (Exception e){
-			throw new NoSolutionException(e.getMessage());
-		}
+		//} catch (Exception e){
+		//	throw new NoSolutionException(e.getMessage());
+		//}
 		result.add(result.get(0));
 		double distance = getRouteDistance(result);
 		result.add(""+((System.nanoTime()-startTime)*1.0e-9));
@@ -64,7 +70,9 @@ public class MSTSolver implements Solver {
 		V.add(start);
 		Set<String> cities = graph.getCities().keySet();
 		Set<Edge> E =  new HashSet<Edge>();
-		ArrayList<Edge> roads = graph.getRoads();
+		ArrayList<Edge> roads = new ArrayList<Edge>();
+		for(Edge r: graph.getRoads())
+			roads.add(new Edge(r));
 		HashMap<String, Integer> counts = new HashMap<String, Integer>();
 		counts.put(start, 0);
 		Collections.sort(roads);
@@ -79,6 +87,9 @@ public class MSTSolver implements Solver {
 					counts.put(from, 0);
 				counts.put(from, counts.get(from)+1);
 			}
+			roads.remove(0);
+			System.out.println("V: "+V);
+			System.out.println("Cities: "+cities);
 		}
 		return buildTree(new Tree(new TreeNode(graph.getCity(start))), V, E);
 	}
@@ -100,7 +111,8 @@ public class MSTSolver implements Solver {
 		for(String key: nodes.keySet()){
 			if(edges.containsKey(key)){
 				nodes.get(key).setLeft(nodes.get((edges.get(key).get(0).getTo())).getSelf());
-				nodes.get(key).setRight(nodes.get((edges.get(key).get(1).getTo())).getSelf());
+				if ( edges.get(key).size() >1)
+					nodes.get(key).setRight(nodes.get((edges.get(key).get(1).getTo())).getSelf());
 			}
 		}
 		t.setRoot(nodes.get(t.root.self.getName())); //TODO check this and ^^
@@ -124,23 +136,14 @@ public class MSTSolver implements Solver {
 			ArrayList<String> route = new ArrayList<String>();
 			TreeNode current = root;
 			Stack<TreeNode> stack = new Stack<TreeNode>();
-			stack.push(root);
-			boolean keepWorking = true;
-			while(!stack.isEmpty()){
-				while(current.getLeft() != null){
+			while(!stack.isEmpty()||current !=null){
+				if(current != null){
 					stack.push(current.getLeft());
 					current = current.getLeft();
+				}else{
+					route.add(stack.peek().getSelf().getName());
+					current = stack.pop().getRight();
 				}
-				while(keepWorking){
-					TreeNode node =  stack.pop();
-					route.add(node.getSelf().getName());
-					if(current.getRight() != null){
-						stack.push(current.getRight());
-						current = current.getRight();
-						keepWorking = false;
-					}
-				}
-				keepWorking = true;
 			}
 			return route;
 		}
