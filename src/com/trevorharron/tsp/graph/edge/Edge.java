@@ -2,26 +2,28 @@ package com.trevorharron.tsp.graph.edge;
 
 public class Edge implements Comparable<Edge>{
 	
-	protected String toCity;
-	protected String fromCity;
+	protected String to;
+	protected String from;
 	
 	protected double distance;
 	protected boolean visited;
 	
 	public Edge(String to, String from, double distance){
-		this.toCity = to;
-		this.fromCity = from;
+		this.to = to;
+		this.from = from;
 		this.distance = distance;
+		this.visited = false;
 	}
 	
 	public Edge(Edge e){
-		this.toCity = e.getTo();
-		this.fromCity = e.getFrom();
+		this.to = e.getTo();
+		this.from = e.getFrom();
 		this.distance = e.getDistance();
+		this.visited = e.isVisited();
 	}
 	
 	public String toString(){
-		return fromCity+","+toCity+":"+distance;
+		return from+","+to+":"+distance;
 	}
 	
 	public void setVisited(final boolean visited){
@@ -32,10 +34,10 @@ public class Edge implements Comparable<Edge>{
 	}
 	
 	public String getTo(){
-		return toCity;
+		return to;
 	}
 	public String getFrom(){
-		return fromCity;
+		return from;
 	}
 	
 	public double getDistance(){
@@ -43,10 +45,10 @@ public class Edge implements Comparable<Edge>{
 	}
 	
 	public boolean equals(Edge o){
-		return o!=null&&(toCity.equals(o.getTo()) && 
-				fromCity.equals(o.getFrom()) ||
-				toCity.equals(o.getFrom()) && 
-				fromCity.equals(o.getTo()));
+		return o!=null&&(to.equals(o.getTo()) && 
+				from.equals(o.getFrom()) ||
+				to.equals(o.getFrom()) && 
+				from.equals(o.getTo()));
 	}
 	
 	@Override
@@ -54,9 +56,9 @@ public class Edge implements Comparable<Edge>{
 		if(distance > o.getDistance())
 			return 1;
 		else if(distance == o.getDistance()){
-			if(toCity.equals(o.getFrom()))
+			if(to.equals(o.getFrom()))
 				return 1;
-			else if(fromCity.equals(o.getTo()))
+			else if(from.equals(o.getTo()))
 				return -1;
 			else
 				return 0;

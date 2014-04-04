@@ -88,8 +88,6 @@ public class MSTSolver implements Solver {
 				counts.put(from, counts.get(from)+1);
 			}
 			roads.remove(0);
-			System.out.println("V: "+V);
-			System.out.println("Cities: "+cities);
 		}
 		return buildTree(new Tree(new TreeNode(graph.getCity(start))), V, E);
 	}
@@ -97,6 +95,8 @@ public class MSTSolver implements Solver {
 	private Tree buildTree(Tree t, Set<String> V, Set<Edge> E) {
 		//given a set of Vertices and a set of edges build a MST
 		//TODO check test
+		System.out.println(V);
+		System.out.println(E);
 		HashMap<String, ArrayList<Edge>> edges =  new HashMap<String, ArrayList<Edge>>();
 		for(Edge e: E){
 			String from = e.getFrom();
@@ -119,58 +119,4 @@ public class MSTSolver implements Solver {
 		return t;
 	}
 
-	private class Tree{
-		
-		TreeNode root;
-
-		Tree(TreeNode root){
-			this.root = root;
-		}
-		
-		void setRoot(TreeNode root){
-			this.root =  root;
-		}
-		
-		public ArrayList<String> treeWalk(){
-			
-			ArrayList<String> route = new ArrayList<String>();
-			TreeNode current = root;
-			Stack<TreeNode> stack = new Stack<TreeNode>();
-			while(!stack.isEmpty()||current !=null){
-				if(current != null){
-					stack.push(current.getLeft());
-					current = current.getLeft();
-				}else{
-					route.add(stack.peek().getSelf().getName());
-					current = stack.pop().getRight();
-				}
-			}
-			return route;
-		}
-
-	}
-	
-	private class TreeNode{
-		
-		Node self;
-		TreeNode left;
-		TreeNode right;
-		
-		TreeNode(Node self){
-			this.self = self;
-			this.left = null;
-			this.right = null;
-		}
-		
-		void setLeft(Node left){this.left =  new TreeNode(left);}
-		
-		void setRight(Node right){this.right =  new TreeNode(right);}
-		
-		TreeNode getLeft(){	return left;}
-		
-		TreeNode getRight(){ return right;}
-		
-		Node getSelf(){ return self;}
-		
-	}
 }
