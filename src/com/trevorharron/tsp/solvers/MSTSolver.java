@@ -27,14 +27,18 @@ public class MSTSolver implements Solver {
 	@Override
 	public ArrayList<String> solve() throws NoSolutionException{
 		long startTime = System.nanoTime();
-		ArrayList<String> result  = new ArrayList<String>();
+
 		ArrayList<String> V = new ArrayList<String>();
 		for(String v: graph.getCities().keySet())
 			V.add(v);
 		long seed = System.nanoTime();
 		Collections.shuffle(V,new Random(seed));//random start
+		//make the Tree
 		Tree mst = makeMST(V.get(0));
-		result = mst.treeWalk();
+		//get the result
+		ArrayList<String> result = mst.treeWalk();
+		
+		//get the metrics
 		result.add(result.get(0));
 		double distance = getRouteDistance(result);
 		result.add(""+((System.nanoTime()-startTime)*1.0e-9));
