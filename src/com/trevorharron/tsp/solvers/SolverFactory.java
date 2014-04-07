@@ -4,6 +4,7 @@ public class SolverFactory {
 	public static int NN = 0;
 	public static int GREEDY = 1;
 	public static int MST = 2;
+	public static int GENETIC = 4;
 	
 	private int solver;
 

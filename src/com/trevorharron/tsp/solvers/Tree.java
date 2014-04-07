@@ -5,7 +5,7 @@ import java.util.Stack;
 
 public class Tree{
 	
-	TreeNode root;
+	private TreeNode root;
 
 	Tree(TreeNode root){
 		this.root = root;
@@ -13,6 +13,10 @@ public class Tree{
 	
 	void setRoot(TreeNode root){
 		this.root =  root;
+	}
+	
+	TreeNode getRoot(){
+		return this.root;
 	}
 	
 	public ArrayList<String> treeWalk(){

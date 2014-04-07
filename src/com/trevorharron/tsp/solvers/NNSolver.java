@@ -61,17 +61,16 @@ public class NNSolver implements Solver {
 			Edge road = findRouteToStart(U);
 			U.add(road.getTo());
 			distance += road.getDistance();
-		}catch(Exception e){
-			throw new NoSolutionException(e.getMessage());
-		} finally{
 			U.add(""+((System.nanoTime()-startTime)*1.0e-9));
 		    System.gc();
-		    double usedMB = (Runtime.getRuntime().totalMemory() - 
+		    double usedKB = (Runtime.getRuntime().totalMemory() - 
 		    		Runtime.getRuntime().freeMemory()) / 1024.0;
-		    U.add(""+(usedMB));
+		    U.add(""+(usedKB));
 			U.add(""+distance);	
+			return U;
+		}catch(Exception e){
+			throw new NoSolutionException(e.getMessage());
 		}
-		return U;
 	}
 	
 	private Edge findRouteToStart(ArrayList<String> U) {

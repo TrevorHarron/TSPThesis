@@ -71,20 +71,19 @@ public class GreedySolver implements Solver {
 				}
 				roads.remove(0);
 			}
+			//obtaining the result
+			double distance = findRoute(result, route);
+			//final preparing of the data
+			result.add(""+((System.nanoTime()-startTime)*1.0e-9));
+			System.gc();
+			double usedKB = (Runtime.getRuntime().totalMemory() - 
+		    		Runtime.getRuntime().freeMemory()) / 1024.0;
+			result.add(""+usedKB);
+			result.add(""+distance);
+			return result;
 		} catch(Exception e){
 			throw new NoSolutionException(e.getMessage());
-			
-			//obtaining the result
 		}
-		double distance = findRoute(result, route);
-			//final preparing of the data
-		result.add(""+((System.nanoTime()-startTime)*1.0e-9));
-		System.gc();
-		double usedMB = (Runtime.getRuntime().totalMemory() - 
-	    		Runtime.getRuntime().freeMemory()) / 1024.0;
-		result.add(""+usedMB);
-		result.add(""+distance);
-		return result;
 	}
 
 	private double findRoute(ArrayList<String> result, ArrayList<Edge> route) {

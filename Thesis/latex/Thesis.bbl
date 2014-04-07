@@ -1,0 +1,73 @@
+\begin{thebibliography}{1}
+
+\bibitem{htspm}
+Codenotti B., Margara L.
+\newblock Heuristics for the traveling salesman problem
+\newblock {\em Internal note}.
+\newblock IEI-B4-14, 1991.
+
+\bibitem{dsfts}
+M.L. Fredman, D.S. Johnson, L.A. McGeoch, G. Ostheimer.
+\newblock Data structures for traveling salesman.
+\newblock {\em Journal of Algorithms},
+\newblock 18, 1995, pp. 432-479.
+
+\bibitem{tch}
+C.-P. Hwang, B. Alidaee and J. D. Johnson.
+\newblock A Tour Construction Heuristic for the Traveling Salesman Problem.
+\newblock {\em The Journal of the Operational Research Society}, 
+\newblock Vol. 50, No. 8 (Aug., 1999), pp. 797-809.
+
+\bibitem{2opt}
+Levin, A. and Yovel, U.
+\newblock 2-Opt heuristics for the traveling salesman problem.
+\newblock {\em Nonoblivious},
+\newblock Networks 	62: 201–219, (2013),
+\newblock doi: 10.1002/net.21512.
+
+\bibitem{imp}
+D. Gamboa, C. Rego, F. Glover.
+\newblock Implementation analysis of efficient heuristic algorithms for the traveling salesman problem.
+\newblock {\em Computers and Operations Research},
+\newblock  33 (2006), pp. 1154–1172.
+
+\bibitem{imp}
+N. Christofides, S. Eilon.
+\newblock Algorithms for large-scale traveling salesman problems.
+\newblock {\em Operations Research Quarterly},
+\newblock 23 (1972), pp. 511–518.
+
+\bibitem{htspc}
+Nilsson, Christian.
+\newblock Heuristics for the Traveling Salesman Problem.
+\newblock {\em Linkoping University}. 
+\newblock http://web.tuke.sk/fei-cit/butka/hop/htsp.pdf.
+
+\bibitem{nha}
+Ayudhya, Wichitsawat Suksawat Na and Scott E. Grasman. 
+\newblock A new heuristic algorithm for the traveling salesman problem. 
+\newblock {\em IIE Annual Conference.Proceedings: 1-6},
+\newblock 2005.
+
+\bibitem{gis}
+\newblock Algorithms used by Network Analyst.
+\newblock {\em ArcGIS Resource Center},
+\newblock 2012. 
+\newblock Web.
+\newblock http://help.arcgis.com/en/arcgisdesktop/10.0/help/index.html
+
+\bibitem{ttps}
+E. L. Lawler, J. K. Lenstra, A. H. G. Rinnooy Kan and D. B. Shmoys.
+\newblock The Traveling Salesman Problem.
+\newblock 1985, John Wiley and Sons Ltd.
+
+\bibitem{gen}
+Valenzuela, Christine L. and Jones, Antonia J. 
+\newblock Evolutionary Divide and Conquer (I): a novel genetic approach to the TSP.
+\newblock{\em Evolutionary Computation},
+\newblock 313-333, 1994.
+\newblock Web.
+\newblock http://citeseerx.ist.psu.edu
+
+
+\end{thebibliography}

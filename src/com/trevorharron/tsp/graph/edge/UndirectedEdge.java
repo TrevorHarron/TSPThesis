@@ -15,23 +15,17 @@ public class UndirectedEdge extends Edge{
 			else
 				return -1;
 		}
-		@Override
-		public boolean equals(Edge o){
-			boolean isDistEqual = distance == o.getDistance();
-			
-			return o != null && 
-					(isDistEqual && 
-					(to.equals(o.getTo()) || to.equals(o.getFrom())) && 
-					(from.equals(o.getTo()) || from.equals(o.getFrom())));
-			
-		}
 		
-		public boolean equals(UndirectedEdge o){
-			boolean isDistEqual = distance == o.getDistance();		
-			return o != null && 
-					(isDistEqual && 
-					(to.equals(o.getTo()) || to.equals(o.getFrom())) && 
-					(from.equals(o.getTo()) || from.equals(o.getFrom())));
+		@Override
+		public boolean equals(Object o){
+			if(o instanceof Edge){
+				boolean isDistEqual = (distance == ((Edge) o).getDistance());
+				return o != null && 
+						(isDistEqual && 
+						(to.equals(((Edge) o).getTo()) || to.equals(((Edge) o).getFrom())) && 
+						(from.equals(((Edge) o).getTo()) || from.equals(((Edge) o).getFrom())));
+			} else
+				return false;
 			
 		}
 	}

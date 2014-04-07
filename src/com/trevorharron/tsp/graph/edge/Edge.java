@@ -44,11 +44,15 @@ public class Edge implements Comparable<Edge>{
 		return distance;
 	}
 	
-	public boolean equals(Edge o){
-		return o!=null&&(to.equals(o.getTo()) && 
-				from.equals(o.getFrom()) ||
-				to.equals(o.getFrom()) && 
-				from.equals(o.getTo()));
+	@Override
+	public boolean equals(Object o){
+		if(o instanceof Edge){
+			return o!=null&&(to.equals( ((Edge) o).getTo()) && 
+					from.equals( ((Edge) o).getFrom())) ||
+					to.equals( ((Edge) o).getFrom()) && 
+					from.equals( ((Edge) o).getTo());
+		} else
+			return false;
 	}
 	
 	@Override

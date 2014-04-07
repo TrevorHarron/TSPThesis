@@ -1,0 +1,12 @@
+\contentsline {chapter}{Introduction}{1}
+\contentsline {chapter}{The Data}{2}
+\contentsline {section}{Preprocessing}{2}
+\contentsline {chapter}{Algorithms}{3}
+\contentsline {section}{Nearest Neighbor}{3}
+\contentsline {section}{Greedy}{3}
+\contentsline {section}{Minimum Spanning Tree}{3}
+\contentsline {section}{Christofides}{3}
+\contentsline {chapter}{Possible Improvements}{3}
+\contentsline {chapter}{Results}{4}
+\contentsline {chapter}{Conclusions}{5}
+\contentsline {chapter}{Bibliography}{6}

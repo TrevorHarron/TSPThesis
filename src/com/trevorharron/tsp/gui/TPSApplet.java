@@ -201,8 +201,8 @@ public class TPSApplet extends Applet{
 				factory.setChoice(SolverFactory.NN);
 			else if(choice.equals("Greedy"))
 				factory.setChoice(SolverFactory.GREEDY);
-			else if(choice.equals("Minimum Spanning Tree")){}
-				//factory.setChoice(SolverFactory.MST);
+			else if(choice.equals("Minimum Spanning Tree"))
+				factory.setChoice(SolverFactory.MST);
 			
 			Solver s = factory.getSolver();
 			graph.resetGraph();

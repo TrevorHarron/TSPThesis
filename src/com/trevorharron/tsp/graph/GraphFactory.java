@@ -4,14 +4,14 @@ public class GraphFactory {
 
 	public GraphFactory(){}
 	
-	public Graph getGraph(Class<? extends Graph> class1) throws Exception{
+	public Graph getGraph(Class<? extends Graph> clazz) throws Exception{
 		
-		if(class1.equals(new GraphSymmetric().getClass())){
+		if(clazz.equals(new GraphSymmetric().getClass())){
 			return new GraphSymmetric();
-		} else if(class1.equals(new GraphBasic().getClass())) {
+		} else if(clazz.equals(new GraphBasic().getClass())) {
 			return new GraphBasic();
 		} else {
-			throw new Exception("The graph type " +class1+" was not found.");
+			throw new Exception("The graph type " +clazz+" was not found.");
 		}
 	}
 
