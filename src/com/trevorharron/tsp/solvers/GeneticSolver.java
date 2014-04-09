@@ -10,7 +10,7 @@ public class GeneticSolver implements Solver {
 	double percentMutation;
 	
 	public GeneticSolver(){
-		
+		graph = null;
 	}
 	
 	public GeneticSolver(Graph graph){
@@ -19,13 +19,30 @@ public class GeneticSolver implements Solver {
 
 	@Override
 	public ArrayList<String> solve() throws NoSolutionException {
-		// TODO 
+		
+		ArrayList<ArrayList<String>> population =  makePopulation();
+		
 		return new ArrayList<String>();
 	}
 
 	@Override
 	public void setGraph(Graph graph) {
 		this.graph = graph;
+	}
+	
+	private ArrayList<ArrayList<String>> makePopulation(){
+		//TODO
+		return new ArrayList<ArrayList<String>>();
+	}
+	
+	private int[] darwinsTheory(ArrayList<String> population){
+		//TODO
+		return new int[2];
+	}
+	
+	private ArrayList<String> breed(ArrayList<String> father, ArrayList<String> mother){
+		//TODO
+		return new ArrayList<String>();
 	}
 	
 	
