@@ -1,4 +1,4 @@
-package com.trevorharron.tsp.solvers;
+package com.trevorharron.tsp.aux;
 
 import java.util.ArrayList;
 import java.util.Stack;
@@ -7,15 +7,15 @@ public class Tree{
 	
 	private TreeNode root;
 
-	Tree(TreeNode root){
+	public Tree(TreeNode root){
 		this.root = root;
 	}
 	
-	void setRoot(TreeNode root){
+	public void setRoot(TreeNode root){
 		this.root =  root;
 	}
 	
-	TreeNode getRoot(){
+	public TreeNode getRoot(){
 		return this.root;
 	}
 	

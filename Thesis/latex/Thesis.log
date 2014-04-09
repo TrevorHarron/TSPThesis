@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.4.1)  7 APR 2014 17:47
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.4.1)  8 APR 2014 23:28
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -307,17 +307,17 @@ Underfull \hbox (badness 10000) in paragraph at lines 184--185
 
  []
 
-[28] [29]
+[28] [29] [30] [31]
 Chapter 4.
-[30
+[32
 
 ]
 Chapter 5.
-[31
+[33
 
 ]
 Chapter 6.
-(./Thesis.bbl [32
+(./Thesis.bbl [34
 
 ]
 Missing character: There is no â in font ptmr7t!
@@ -329,7 +329,7 @@ Missing character: There is no “ in font ptmr7t!
 Missing character: There is no â in font ptmr7t!
 Missing character: There is no € in font ptmr7t!
 Missing character: There is no “ in font ptmr7t!
-) [33
+) [35
 
 ] (./Thesis.aux)
 
@@ -352,10 +352,10 @@ ype1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/pub
 lic/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times
 /utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></u
 sr/share/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on Thesis.pdf (33 pages, 146687 bytes).
+Output written on Thesis.pdf (35 pages, 149568 bytes).
 PDF statistics:
- 143 PDF objects out of 1000 (max. 8388607)
- 99 compressed objects within 1 object stream
+ 150 PDF objects out of 1000 (max. 8388607)
+ 103 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 

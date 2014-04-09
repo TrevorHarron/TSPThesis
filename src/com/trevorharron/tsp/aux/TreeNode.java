@@ -1,4 +1,4 @@
-package com.trevorharron.tsp.solvers;
+package com.trevorharron.tsp.aux;
 
 import com.trevorharron.tsp.graph.node.Node;
 

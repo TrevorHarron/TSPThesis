@@ -68,7 +68,7 @@ public class NNSolver implements Solver {
 		    U.add(""+(usedKB));
 			U.add(""+distance);	
 			return U;
-		}catch(Exception e){
+		} catch(Exception e){
 			throw new NoSolutionException(e.getMessage());
 		}
 	}

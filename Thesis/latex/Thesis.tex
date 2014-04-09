@@ -137,7 +137,7 @@ $\proc{GreedyHeuristic}(G)$:
 \li\Return findRoute(R)
 \end{codebox}\
 The Java implementation:\\
-$\proc{public ArrayList<String> solve}()$ throws NoSolutionException\{
+$\proc{public ArrayList$<String>$ solve}()$ throws NoSolutionException\{
 \begin{codebox}
 \tab//Initializing variables\\
 \tab long startTime = System.nanoTime();\\	
@@ -188,15 +188,45 @@ $\proc{MSTHeuristic}(G)$:
 \li T $\gets$ make a MST of G
 \li \Return the inorder transversal of T
 \end{codebox}
-This is seen to be more complicated in practice as seen in the Java Implementation: 
-%TODO
-
+This is a little more complicated in practice as seen in the Java Implementation:\\
+$\proc{public ArrayList$<String>$ solve}()$ throws NoSolutionException \{
+\begin{codebox}
+\tab long startTime = System.nanoTime();\\
+\tab ArrayList$<$String$>$ V = new ArrayList<String>();\\
+\tab \For(String v: graph.getCities().keySet())\\
+\tab\tab V.add(v);\End\\
+\tab try \{
+\tab\tab long seed = System.nanoTime();\\
+\tab\tab Collections.shuffle(V,new Random(seed));//random start\\
+\tab\tab//make the Tree\\
+\tab\tab Tree mst = makeMST(V.get(0));\\\\
+\tab\tab//get the result\\
+\tab\tab ArrayList$<$String$>$ result = mst.treeWalk();\\\\	
+\tab\tab//get the metrics\\
+\tab\tab result.add(result.get(0));\\
+\tab\tab double distance = getRouteDistance(result);\\
+\tab\tab result.add(""+((System.nanoTime()-startTime)*1.0e-9));\\
+\tab\tab System.gc();\\
+\tab\tab double usedKB = (Runtime.getRuntime().totalMemory() - \\
+\tab\tab\tab Runtime.getRuntime().freeMemory()) / 1024.0;\\
+\tab\tab result.add(""+usedKB);\\
+\tab\tab result.add(""+distance);\\
+\tab \Return result;\\
+\end{codebox}
+\begin{codebox}
+\tab\} catch(Exception e)\{\\
+\tab\tab throw new NoSolutionException(e.getMessage());\\
+\tab\}\\
+\}
+\end{codebox}
+\tab As stated before, this is not an intuitive heustic; this appraoch involves a couple of more complex algorithms than in previous approaches. First of all this involves the makeMST function. For the purposes of this paper, the algorithm used was based off of Primm's MST algorithm. Primm's MST algorithm is a greedy algorithm, and with the implementation of this algorithm, there is a slight difference with the original algorithm. The original algorithm uses a data structure called a heap used as well as an adjacency list for the graph so it runs in $O(ElogN)$ time, but the implementation that is used collects the edges on the frontier and sorts them. While this takes $O(NElogE)$ time, it is a slightly simpler implementation then the use of a heap and estacting the values no longer applicable from it when the frontier changes. The time $O(NElogE)$ also is the upper bound time for this algorithm since the transversal of the tree takes $O(n)$ time since inorder to save space on the virtual stack uses an iterative traversal.\\
+\tab The benefits to this heuristic is that there is a gaurentee of a upper bound on the distance that the route produces of 2 times the optimal route. This is a nice change from the other heuristics that might have had better runtimes because the other algorithms explained thus far do not have a gaurentee making them potentially impractical for real time use. The second benifit is that if there are data structures and functions already in place that can be used such as a Tree, the function to make the MST, and the tree transversal function, then the actual code nessesary is unbelievably straight forward (as the psuedocode demostrated). However as was said before there werea fair number of additional classes that were created so that this function was possible which make the implementation more complex than the previous heuristics.
 
 \section{Genetic Algorithms}
 %TODO code and write
 
 \section{Christofides}
-
+%TODO code and write
 
 \chapter{Possible Improvements}
 \chapter{Results}
