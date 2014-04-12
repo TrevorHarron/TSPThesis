@@ -12,18 +12,17 @@ import com.trevorharron.tsp.aux.TreeNode;
 import com.trevorharron.tsp.graph.Graph;
 import com.trevorharron.tsp.graph.edge.Edge;
 
-public class MSTSolver implements Solver {
+public class MSTSolver extends BasicSolver {
 
-	Graph graph;
 	
 	public MSTSolver(){}
 	
 	public MSTSolver(Graph graph){
-		this.graph = graph;
+		setGraph(graph);
 	}
 	
 	public void setGraph(Graph graph) {
-		this.graph = graph;
+		super.setGraph(graph);
 	}
 	
 	@Override
@@ -54,17 +53,6 @@ public class MSTSolver implements Solver {
 		} catch(Exception e){
 			throw new NoSolutionException(e.getMessage());
 		}
-	}
-	
-	private double getRouteDistance(ArrayList<String> result) {
-		//get the distances from routes
-		double distance = 0.0;
-		for(int index = 0; index < result.size()-2; index++){
-			String  to = result.get(index);
-			String from =  result.get(index+1);
-			distance += graph.getRoad(from, to).getDistance();
-		}
-		return distance;
 	}
 
 	private Tree makeMST(String start){
@@ -105,5 +93,4 @@ public class MSTSolver implements Solver {
 		}
 		return t;
 	}
-
 }

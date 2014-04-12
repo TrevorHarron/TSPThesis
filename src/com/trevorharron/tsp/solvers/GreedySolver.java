@@ -9,9 +9,8 @@ import com.trevorharron.tsp.graph.GraphFactory;
 import com.trevorharron.tsp.graph.edge.Edge;
 import com.trevorharron.tsp.graph.node.Node;
 
-public class GreedySolver implements Solver {
+public class GreedySolver extends BasicSolver {
 
-	private Graph graph;
 	private Graph pathGraph;
 	private ArrayList<Edge> roads;
 	private ArrayList<Edge> route;
@@ -37,17 +36,17 @@ public class GreedySolver implements Solver {
 	
 	@Override
 	public void setGraph(Graph graph) {
-		this.graph = graph;
-		try{
+		super.setGraph(graph);
+		try {
 			pathGraph = new GraphFactory().getGraph(graph.getClass());
-			for(String name: graph.getCities().keySet())
-				pathGraph.addCity(graph.getCity(name));
-			pathGraph.finalize();
-			for(Edge r: graph.getRoads())
-				roads.add(new Edge(r));
-		}catch (Exception e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
+		for(String name: graph.getCities().keySet())
+			pathGraph.addCity(graph.getCity(name));
+		pathGraph.finalize();
+		for(Edge r: graph.getRoads())
+			roads.add(new Edge(r));
 	}
 	
 
