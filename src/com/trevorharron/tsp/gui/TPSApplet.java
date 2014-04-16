@@ -15,8 +15,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+import com.trevorharron.tsp.aux.Pair;
 import com.trevorharron.tsp.data.FileNames;
-import com.trevorharron.tsp.data.Pair;
 import com.trevorharron.tsp.graph.Graph;
 import com.trevorharron.tsp.graph.GraphSymmetric;
 import com.trevorharron.tsp.graph.edge.Edge;
@@ -39,7 +39,7 @@ public class TPSApplet extends Applet{
 	Button solveButton, resetButton;
 	Choice solvers;
 	
-	private static String[] solverList = {"Nearest Neighbor", "Greedy", "Minimum Spanning Tree"};
+	private static String[] solverList = {"Nearest Neighbor", "Greedy", "Minimum Spanning Tree", "Genetic"};
 	private static int MAX_X = 1024;
 	private static int MAX_Y = 512;
 	private static int SCREEN_X = 1250;
@@ -203,6 +203,8 @@ public class TPSApplet extends Applet{
 				factory.setChoice(SolverFactory.GREEDY);
 			else if(choice.equals("Minimum Spanning Tree"))
 				factory.setChoice(SolverFactory.MST);
+			else if(choice.equals("Genetic"))
+				factory.setChoice(SolverFactory.GENETIC);
 			
 			Solver s = factory.getSolver();
 			graph.resetGraph();

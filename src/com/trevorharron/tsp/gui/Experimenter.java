@@ -33,7 +33,7 @@ public class Experimenter {
 			PrintWriter printW = new PrintWriter(fileWriter);
 			
 			sGraph.finalize();
-			for(int solverNum = 0; solverNum < 3;solverNum++){
+			for(int solverNum = 0; solverNum < 4;solverNum++){
 				factory.setChoice(solverNum);
 				for(int numTimes = 0; numTimes < 1; numTimes++){
 					sGraph.resetGraph();

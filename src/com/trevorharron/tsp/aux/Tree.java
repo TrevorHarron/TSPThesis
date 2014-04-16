@@ -24,14 +24,16 @@ public class Tree{
 		ArrayList<String> route = new ArrayList<String>();
 		TreeNode current = root;
 		Stack<TreeNode> stack = new Stack<TreeNode>();
-		while(!stack.isEmpty()||current !=null){
-			if(current != null){
-				stack.push(current);
-				current = current.getLeft();
-			}else{
-				route.add(stack.peek().getSelf().getName());
-				current = stack.pop().getRight();
-			}
+		stack.push(current);
+		while(!stack.isEmpty()){
+			current = stack.peek();
+			route.add(current.getSelf().getName());
+			stack.pop();
+			if(current.getRight() != null)
+				stack.push(current.getRight());
+				
+			if(current.getLeft() != null)
+				stack.push(current.getLeft());
 		}
 		return route;
 	}

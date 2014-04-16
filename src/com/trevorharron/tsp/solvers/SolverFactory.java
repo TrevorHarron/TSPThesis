@@ -4,7 +4,7 @@ public class SolverFactory {
 	public static int NN = 0;
 	public static int GREEDY = 1;
 	public static int MST = 2;
-	public static int GENETIC = 4;
+	public static int GENETIC = 3;
 	
 	private int solver;
 
@@ -27,6 +27,8 @@ public class SolverFactory {
 			return new GreedySolver();
 		else if(solver == MST)
 			return new MSTSolver();
+		else if(solver == GENETIC)
+			return new GeneticSolver();
 		else
 			return null;
 	}

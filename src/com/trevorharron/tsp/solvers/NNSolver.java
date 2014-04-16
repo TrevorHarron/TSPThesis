@@ -9,18 +9,20 @@ import com.trevorharron.tsp.graph.GraphSymmetric;
 import com.trevorharron.tsp.graph.edge.Edge;
 import com.trevorharron.tsp.graph.node.Node;
 
-public class NNSolver implements Solver {
+public class NNSolver extends BasicSolver {
 	
 	private static final double INF = 1000000000.0;
 	
-	private Graph graph;
 	private ArrayList<String> V;
 	private ArrayList<String> U;
 	
 	public NNSolver(final Graph graph){
-		this.graph = graph;
+		setGraph(graph);
+		
 		this.V = new ArrayList<String>();
 		this.U = new ArrayList<String>();
+		for(String v: graph.getCities().keySet())
+			V.add(v);
 	}
 	
 	public NNSolver(){
@@ -29,7 +31,9 @@ public class NNSolver implements Solver {
 	}
 	
 	public void setGraph(final Graph graph){
-		this.graph = graph;
+		super.setGraph(graph);
+		for(String v: graph.getCities().keySet())
+			V.add(v);
 	}
 
 
@@ -38,8 +42,6 @@ public class NNSolver implements Solver {
 		//Initializing variables
 		long startTime = System.nanoTime();
 		
-		for(String v: graph.getCities().keySet())
-			V.add(v);
 		long seed = System.nanoTime();
 		Collections.shuffle(V,new Random(seed));//random start
 		double distance = 0.0;
