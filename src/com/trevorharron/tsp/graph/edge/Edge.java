@@ -39,6 +39,12 @@ public class Edge implements Comparable<Edge>{
 	public String getFrom(){
 		return from;
 	}
+	public void setTo(String to){
+		this.to = to;
+	}
+	public void setFrom(String from){
+		this.from= from;
+	}
 	
 	public double getDistance(){
 		return distance;

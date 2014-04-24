@@ -4,7 +4,7 @@
 \contentsline {section}{\numberline {2.2}Data Preprocessing}{16}
 \contentsline {section}{\numberline {2.3}Methods}{18}
 \contentsline {chapter}{\numberline {3}Algorithms}{21}
-\contentsline {section}{\numberline {3.1}Conventions of Pseudocode}{21}
+\contentsline {section}{\numberline {3.1}Conventions of Pseudo-code}{21}
 \contentsline {section}{\numberline {3.2}Nearest Neighbor}{21}
 \contentsline {section}{\numberline {3.3}Greedy}{24}
 \contentsline {section}{\numberline {3.4}Minimum Spanning Tree}{28}

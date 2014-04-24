@@ -1,8 +1,12 @@
 package com.trevorharron.tsp.graph;
 
 public class GraphFactory {
+	
+	Graph graphParam;
 
-	public GraphFactory(){}
+	public GraphFactory(){
+		graphParam = null;
+	}
 	
 	public Graph getGraph(Class<? extends Graph> clazz) throws Exception{
 		

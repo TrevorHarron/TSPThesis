@@ -86,33 +86,29 @@ $\proc{public ArrayList$<$String$>$ solve}()$ throws NoSolutionException\{
 \tab long startTime = System.nanoTime();\\
 \tab long seed = System.nanoTime();\\
 \tab Collections.shuffle(V,new Random(seed));\\
-\tab try \{
-\tab\tab U.add(V.get(0));//random start\\
-\tab\tab V.remove(0); double distance = 0.0;\\
-\tab\tab \While(!V.isEmpty())\{//The algorithm\\
-\tab\tab\tab String u = U.get(U.size()-1);\\
-\tab\tab\tab Edge e = findMinVertex(graph.getCity(u),graph);\\
-\tab\tab\tab graph.setRoadVisited(true,e);\\
+\tab U.add(V.get(0));//random start\\
+\tab V.remove(0); double distance = 0.0;\\
+\tab\While(!V.isEmpty())\{//The algorithm\\
+\tab\tab String u = U.get(U.size()-1);\\
+\tab\tab Edge e = findMinVertex(graph.getCity(u),graph);\\
+\tab\tab graph.setRoadVisited(true,e);\\
 \end{codebox}
 \begin{codebox}
-\tab\tab\tab String nextCity = e.getTo();\\
-\tab\tab\tab distance += e.getDistance();\\
-\tab\tab\tab U.add(nextCity); V.remove(nextCity);\\
-\tab\tab\}\\\End
-\tab\tab Edge road = findRouteToStart(U);\\
-\tab\tab U.add(road.getTo());\\
+\tab\tab String nextCity = e.getTo();\\
+\tab\tab distance += e.getDistance();\\
+\tab\tab U.add(nextCity); V.remove(nextCity);\\
+\tab\}\\\End
+\tab Edge road = findRouteToStart(U);\\
+\tab U.add(road.getTo());\\
 \end{codebox}
 \begin{codebox}
-\tab\tab distance += road.getDistance();\\
-\tab\tab U.add(""+((System.nanoTime()-startTime)*1.0e-9));\\
-\tab\tab System.gc();\\
-\tab\tab double usedMB = (Runtime.getRuntime().totalMemory() -\\
-\tab\tab\tab\tab Runtime.getRuntime().freeMemory()) / 1024.0;\\
-\tab\tab U.add(""+(usedMB)); U.add(""+distance);\\
-\tab\tab \Return U;\\
-\tab \} catch(Exception e)\{\\
-\tab\tab throw new NoSolutionException(e.getMessage());\\
-\tab\}\\
+\tab distance += road.getDistance();\\
+\tab U.add(""+((System.nanoTime()-startTime)*1.0e-9));\\
+\tab System.gc();\\
+\tab double usedMB = (Runtime.getRuntime().totalMemory() -\\
+\tab\tab Runtime.getRuntime().freeMemory()) / 1024.0;\\
+\tab U.add(""+(usedMB)); U.add(""+distance);\\
+\tab \Return U;\\
 \}
 \end{codebox}
 As the runtime of this algorithm is $O(n^2)$\cite{htspc} with a space complexity of $O(n)$ and in most cases though it will be within $25\%$ of the Held-Karp lower bound\cite{htspc}. The obvious issue is that due to the greedy local property of this heuristic, the final edge that could be used could be arbitrarily long. Due to this there is not a guarentee for there to be a upper bound that is a multiple of a constant $k$ of the optimal route. This is not optimal in terms of the distances the algorithm produces.\\
@@ -147,32 +143,28 @@ $\proc{public ArrayList$<String>$ solve}()$ throws NoSolutionException\{
 \tab//finding the route\\
 \end{codebox}
 \begin{codebox}
-\tab try\{\\
-\tab\tab int numEdges = 0;\\
-\tab\tab\While(numEdges $<$ maxEdges)\{\\
-\tab\tab\tab Edge road = roads.get(0);\\
-\tab\tab\tab \If(!moreThanTwoDegrees(road,route)\\
-\tab\tab\tab\tab \&\& !makesCycleLessThanN(road, route))\{\\
-\tab\tab\tab\tab pathGraph.addEdge(road);\\
-\tab\tab\tab\tab route.add(road);\\
-\tab\tab\tab\tab numEdges++;\\
-\tab\tab\tab\}\\\End
-\tab\tab\tab roads.remove(0);\\
+\tab int numEdges = 0;\\
+\tab\While(numEdges $<$ maxEdges)\{\\
+\tab\tab Edge road = roads.get(0);\\
+\tab\tab \If(!moreThanTwoDegrees(road,route)\\
+\tab\tab\tab \&\& !makesCycleLessThanN(road, route))\{\\
+\tab\tab\tab pathGraph.addEdge(road);\\
+\tab\tab\tab route.add(road);\\
+\tab\tab\tab numEdges++;\\
 \tab\tab\}\\\End
-\tab\tab //obtaining the result\\
-\tab\tab double distance = findRoute(result, route);\\
-\tab\tab //final preparing of the data\\
-\tab\tab result.add(""+((System.nanoTime()-startTime)*1.0e-9));\\
-\tab\tab System.gc();\\
-\tab\tab double usedKB = (Runtime.getRuntime().totalMemory() - \\
-\tab\tab\tab Runtime.getRuntime().freeMemory()) / 1024.0;\\
-\tab\tab result.add(""+usedKB);\\
-\tab\tab result.add(""+distance);\\
-\tab\tab return result;\\
-\tab\tab \} catch(Exception e)\{\\
-\tab\tab\tab throw new NoSolutionException(e.getMessage());\\
-\tab\tab\}\\
-\}\\
+\tab\tab roads.remove(0);\\
+\tab\}\\\End
+\tab //obtaining the result\\
+\tab double distance = findRoute(result, route);\\
+\tab //final preparing of the data\\
+\tab result.add(""+((System.nanoTime()-startTime)*1.0e-9));\\
+\tab System.gc();\\
+\tab double usedKB = (Runtime.getRuntime().totalMemory() - \\
+\tab\tab Runtime.getRuntime().freeMemory()) / 1024.0;\\
+\tab result.add(""+usedKB);\\
+\tab result.add(""+distance);\\
+\tab \Return result;\\
+\}
 \end{codebox}
 \tab As can be seen above this is also a very intuitive construction heuristic based of the theory that using the shortest edges will help create the shortest route. However, like Nearest Neighbor, this algorithm has no guarantee of a upper bound on the distance returned though the Greedy algorithm averages within 15-20\% of the Held-Karp lower bound\cite{htspc}.\\
 \tab Before moving forward with the analysis of this solution, it should be noted that there are two different graphs here. The first (named graph) is similar to the Nearest-Neighbor approach and is simply is the graph that the solver is working with. The second graph (named pathGraph) is just the vertexes of graph and is used to help simplify the examination of the edges added to the graph in the form of the functions makesCycleLessThanN() and moreThanTwoDegrees(). These functions each take $O(n)$ time in the worst case scenario. The check for making a cycle is simply an iterative linear-search since the graph used (the pathGraph) only has the set of roads in the route making checking for a cycle simply going from one node to the next and seeing if we have seen it before. The process of checking if an edge would increase the degree to be greater than two also relies on the path graph and count the instances that a edge is being used to go to a node and from a node and if the sum of any of counts for a city are more than 2 then returning true. This means that the overall runtime of the algorithm is at most $O(EN)$ where E is the number of Edges that the graph has. Now I say this in the instance that there is no guarantee that in the number of cities N a solution will be found but in iterating over the Edges we find the solution doing $O(N)$ work from the previously mentioned functions for each Edge. It should be noted however, that the sorting of the edges is done int $O(nlogn)$ time and thus in this case is $O(ElogE)$ time and $O(E)$ space used. Therefore the entire algorithm runs in $O(ElogE + NE)$ time and $O(E+N)$ space.\\
@@ -193,28 +185,22 @@ $\proc{public ArrayList$<String>$ solve}()$ throws NoSolutionException \{
 \tab ArrayList$<$String$>$ V = new ArrayList<String>();\\
 \tab \For(String v: graph.getCities().keySet())\\
 \tab\tab V.add(v);\End\\
-\tab try \{
-\tab\tab long seed = System.nanoTime();\\
-\tab\tab Collections.shuffle(V,new Random(seed));//random start\\
-\tab\tab//make the Tree\\
-\tab\tab Tree mst = makeMST(V.get(0));\\\\
-\tab\tab//get the result\\
-\tab\tab ArrayList$<$String$>$ result = mst.treeWalk();\\\\	
-\tab\tab//get the metrics\\
-\tab\tab result.add(result.get(0));\\
-\tab\tab double distance = getRouteDistance(result);\\
-\tab\tab result.add(""+((System.nanoTime()-startTime)*1.0e-9));\\
-\tab\tab System.gc();\\
-\tab\tab double usedKB = (Runtime.getRuntime().totalMemory() - \\
-\tab\tab\tab Runtime.getRuntime().freeMemory()) / 1024.0;\\
-\tab\tab result.add(""+usedKB);\\
-\tab\tab result.add(""+distance);\\
-\tab \Return result;\\
-\end{codebox}
-\begin{codebox}
-\tab\} catch(Exception e)\{\\
-\tab\tab throw new NoSolutionException(e.getMessage());\\
-\tab\}\\
+\tab long seed = System.nanoTime();\\
+\tab Collections.shuffle(V,new Random(seed));//random start\\
+\tab//make the Tree\\
+\tab Tree mst = makeMST(V.get(0));\\\\
+\tab//get the result\\
+\tab ArrayList$<$String$>$ result = mst.treeWalk();\\\\	
+\tab//get the metrics\\
+\tab result.add(result.get(0));\\
+\tab double distance = getRouteDistance(result);\\
+\tab result.add(""+((System.nanoTime()-startTime)*1.0e-9));\\
+\tab System.gc();\\
+\tab double usedKB = (Runtime.getRuntime().totalMemory() - \\
+\tab\tab Runtime.getRuntime().freeMemory()) / 1024.0;\\
+\tab result.add(""+usedKB);\\
+\tab result.add(""+distance);\\
+\Return result;\\
 \}
 \end{codebox}
 \tab As stated before, this is not an intuitive heuristic; this approach involves a couple of more complex algorithms than in previous approaches. First of all this involves the makeMST() function. For the purposes of this paper, the algorithm used was based off of Primm's MST algorithm. Primm's MST algorithm is a greedy algorithm, and with the implementation of this algorithm, there is a slight difference with the original algorithm. The original algorithm uses a data structure called a heap used as well as an adjacency list for the graph so it runs in $O(ElogN)$ time, but the implementation that is used collects the edges on the frontier and sorts them. While this takes $O(NElogE)$ time, it is a slightly simpler implementation then the use of a heap and exacting the values no longer applicable from it when the frontier changes. The time $O(NElogE)$ also is the upper bound time for this algorithm since the transversal of the tree takes $O(n)$ time since an iterative preorder to save space on the virtual stack uses an iterative traversal.\\
@@ -222,9 +208,43 @@ $\proc{public ArrayList$<String>$ solve}()$ throws NoSolutionException \{
 
 \section{Genetic Algorithms}
 \tab The only tour optimization heuristic that this paper examines is the popular family of algorithms called genetic algorithms. These algorithms mimic the evolutionary process by having a population, a fitness characteristic, a breeding mechanism, and a chance at mutation within individuals. The basic concept is to implement each of the characteristics and at the end of a number of iterations pick the fittest example as the result. This while not the most intuitive algorithm also makes a measure of sense if one thinks about it briefly. The psuedo-code for the algorithm helps show this approach below:\\
+$\proc{GeneticHueristic}(G)$:
+\begin{codebox}
+\li V $\gets$ G.vertices()
+\li population $\gets$ several random orderings of V
+\li \For $k$ times:
+\li find the best canidates from population
+\li breed those candates
+\li randomly mutate some of the offspring \End
+\li \Return the most fit member of the population
+\end{codebox}
+
+And the Java implementation below:\\
+$\proc{public ArrayList$<String>$ solve}()$\{
+\begin{codebox}
+long startTime = System.nanoTime();\\
+\tab ArrayList<ArrayList<String>> population =  makePopulation();\\
+\tab\For(int k = 0; $k < 500;$ k++)\{\\
+\tab\tab ArrayList<ArrayList<String>> parents = darwinsTheory(population);\\
+\tab\tab population = breed(parents, population.size());\\
+\tab\tab population =  mutate(population);\End\\
+\tab\}\\
+\tab ArrayList<String> result = findBest(population);\\
+\tab double distance = getRouteDistance(result);\\
+\tab result.add(""+((System.nanoTime()-startTime)*1.0e-9));\\
+\tab System.gc();\\
+\tab double usedKB = (Runtime.getRuntime().totalMemory() -\\ 
+\tab\tab Runtime.getRuntime().freeMemory()) / 1024.0;\\
+\tab result.add(""+(usedKB));\\
+\tab result.add(""+distance);\\
+\Return result;\\
+}\\
+\end{codebox}
+\tab This is a tour improvement heuristic focusing on trying to find the best route by combining aspects of the shrotest routes. This is clearly not a singularly definitive approach to this problem. To clarify some of the finer points of the of the implementation. The first is that the initial population is simply a list of randomly made routes with the restriction that there are no two routes in the orginal population. This is to better increase the chances that the heuristic will produce a good route. The second thing to focus on is the breeding fuction. What is implemented is called a moon breeding. With this approach, basically 2/3^{rds} of the first parent is used and then the rest is filled in with the second parent. This is done for every pairing of the best canidates before mutations can take place. The number of mutations and chance of mutation are also both random, alloing for at least 1 mutaiton to potentially take place.\\
+\tab In looking at this approach it is clear that there is a good chance for a good route to come out of this hueristic. The main issue lies in the fact that there is no guarentee of a decent result coming from this approach. In addition, the time it takes to run this heuristics is $O(kN^2)$ where k is a non-negliable constant. In short this hueristic has the potential to preform well but also does not make any guarentees of preformance.
 
 \section{Christofides}
-%TODO code and write
+%TODO fix and write
 
 \chapter{Possible Improvements}
 \chapter{Results}

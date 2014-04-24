@@ -15,6 +15,6 @@ public class Pair<T1,T2> {
 		return left;
 	}
 	public String toString(){
-		return left+","+right;
+		return left+":"+right;
 	}
 }

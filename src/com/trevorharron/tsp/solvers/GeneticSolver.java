@@ -31,7 +31,7 @@ public class GeneticSolver extends BasicSolver {
 	}
 
 	@Override
-	public ArrayList<String> solve() throws NoSolutionException {
+	public ArrayList<String> solve() {
 		long startTime = System.nanoTime();
 		ArrayList<ArrayList<String>> population =  makePopulation();
 		for(int k = 0; k < 500; k++){

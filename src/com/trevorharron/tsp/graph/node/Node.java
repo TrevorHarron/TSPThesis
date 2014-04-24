@@ -59,7 +59,7 @@ public class Node {
 	
 	
 	public String toString(){
-		return name+","+id +":"+getxCor()+","+getyCor();
+		return name+","+id +","+getReadPos()+":"+getxCor()+","+getyCor();
 	}
 	
 	

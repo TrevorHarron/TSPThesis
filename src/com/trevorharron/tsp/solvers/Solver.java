@@ -6,7 +6,7 @@ import com.trevorharron.tsp.graph.Graph;
 
 public interface Solver {
 	
-	public ArrayList<String> solve() throws NoSolutionException;
+	public ArrayList<String> solve();
 	
 	public void setGraph(final Graph graph);
 

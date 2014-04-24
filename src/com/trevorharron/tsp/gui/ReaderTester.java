@@ -18,8 +18,8 @@ public class ReaderTester {
 		DataReader csv = new CSVReader();
 		GraphSymmetric graph = new GraphSymmetric();
 		try{
-			kml.readFile(FileNames.testKML,graph,"A");
-			csv.readFile(FileNames.testCSV,graph,"A");
+			kml.readFile(FileNames.TEST_KML,graph,"A");
+			csv.readFile(FileNames.TEST_CSV,graph,"A");
 			graph.makeRoadMatrix();
 			Solver nn = new NNSolver(graph);
 			System.out.println(nn.solve());

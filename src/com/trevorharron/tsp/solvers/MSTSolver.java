@@ -26,13 +26,12 @@ public class MSTSolver extends BasicSolver {
 	}
 	
 	@Override
-	public ArrayList<String> solve() throws NoSolutionException{
+	public ArrayList<String> solve(){
 		long startTime = System.nanoTime();
 
 		ArrayList<String> V = new ArrayList<String>();
 		for(String v: graph.getCities().keySet())
 			V.add(v);
-		try{
 			long seed = System.nanoTime();
 			Collections.shuffle(V,new Random(seed));//random start
 			//make the Tree
@@ -50,12 +49,9 @@ public class MSTSolver extends BasicSolver {
 			result.add(""+usedKB);
 			result.add(""+distance);
 			return result;
-		} catch(Exception e){
-			throw new NoSolutionException(e.getMessage());
-		}
 	}
 
-	private Tree makeMST(String start){
+	protected Tree makeMST(String start){
 		//A variation of Primm's Algorithm
 		Tree t = new Tree(new TreeNode(graph.getCity(start)));
 		HashMap<String,TreeNode> inTree =  new HashMap<String,TreeNode>();
@@ -70,7 +66,7 @@ public class MSTSolver extends BasicSolver {
 		while(!unvisited.isEmpty()){
 			ArrayList<Edge> frontierRoads = new ArrayList<Edge>();
 			for(String node: frontier)
-				frontierRoads.addAll(graph.getRoadsByCity(node));
+				frontierRoads.addAll(graph.getRoadsFromCity(node));
 			ArrayList<Edge> roads = new ArrayList<Edge>();
 			for(Edge e: frontierRoads)
 				if(unvisited.contains(e.getTo()))

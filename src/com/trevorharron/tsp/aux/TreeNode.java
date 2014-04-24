@@ -27,7 +27,7 @@ public class TreeNode {
 	@Override
 	public boolean equals(Object o){
 		if(!(o instanceof TreeNode)) return false;
-		return this.self.equals(((TreeNode)o).getSelf());		
+		return this.self.equals( ((TreeNode)o).getSelf() );		
 	}
 	
 	@Override

@@ -24,7 +24,6 @@ import com.trevorharron.tsp.graph.node.Node;
 import com.trevorharron.tsp.reader.CSVReader;
 import com.trevorharron.tsp.reader.DataReader;
 import com.trevorharron.tsp.reader.KMLReader;
-import com.trevorharron.tsp.solvers.NoSolutionException;
 import com.trevorharron.tsp.solvers.Solver;
 import com.trevorharron.tsp.solvers.SolverFactory;
 
@@ -65,8 +64,8 @@ public class TPSApplet extends Applet{
 		points = new HashMap<String,Pair<Double,Double>>();
 		
 		try {
-			kml.readFile(FileNames.citiesKML,graph,"RI");
-			csv.readFile(FileNames.RICSV,graph,"RI");	
+			kml.readFile(FileNames.CITIES,graph,"RI");
+			csv.readFile(FileNames.ROADS.get(0),graph,"RI");	
 		} catch(Exception e) {
 			e.printStackTrace();
 		}
@@ -143,7 +142,7 @@ public class TPSApplet extends Applet{
 					(int)(START_Y +(points.get(key).getRight())*MAX_Y), 6, 6);
 			g.fillOval((int)(START_X+points.get(key).getLeft()*MAX_X),
 					(int)(START_Y +(points.get(key).getRight())*MAX_Y), 6, 6);
-			g.drawString(key, (int)(START_X+points.get(key).getLeft()*MAX_X)-10, 
+			g.drawString(graph.getCity(key).getName(), (int)(START_X+points.get(key).getLeft()*MAX_X)-10, 
 					(int)(START_Y +(points.get(key).getRight())*MAX_Y) +15);
 		}
 		
@@ -205,15 +204,13 @@ public class TPSApplet extends Applet{
 				factory.setChoice(SolverFactory.MST);
 			else if(choice.equals("Genetic"))
 				factory.setChoice(SolverFactory.GENETIC);
+			else if(choice.equals("Christofides"))
+				factory.setChoice(SolverFactory.CHRS);
 			
 			Solver s = factory.getSolver();
 			graph.resetGraph();
 			s.setGraph(graph);
-			try {
-				result = s.solve();
-			} catch (NoSolutionException ex) {
-				ex.printStackTrace();
-			}
+			result = s.solve();
 		}
 		if(e.target ==resetButton){
 			graph.resetGraph();

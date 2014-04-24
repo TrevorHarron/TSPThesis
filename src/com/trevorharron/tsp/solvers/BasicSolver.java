@@ -9,7 +9,7 @@ public class BasicSolver implements Solver {
 	protected Graph graph;
 
 	@Override
-	public ArrayList<String> solve() throws NoSolutionException {
+	public ArrayList<String> solve(){
 		return new ArrayList<String>();
 	}
 
