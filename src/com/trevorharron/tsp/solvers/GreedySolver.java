@@ -9,8 +9,9 @@ import com.trevorharron.tsp.graph.GraphFactory;
 import com.trevorharron.tsp.graph.edge.Edge;
 import com.trevorharron.tsp.graph.node.Node;
 
-public class GreedySolver extends BasicSolver {
+public class GreedySolver implements Solver {
 
+	private Graph graph;
 	private Graph pathGraph;
 	private ArrayList<Edge> roads;
 	private ArrayList<Edge> route;
@@ -36,16 +37,17 @@ public class GreedySolver extends BasicSolver {
 	
 	@Override
 	public void setGraph(Graph graph) {
-		super.setGraph(graph);
-		try {
+		this.graph = graph;
+		try{
 			pathGraph = new GraphFactory().getGraph(graph.getClass());
-		} catch (Exception e) {
+			for(String name: graph.getCities().keySet())
+				pathGraph.addCity(graph.getCity(name));
+			pathGraph.finalize();
+			for(Edge r: graph.getRoads())
+				roads.add(new Edge(r));
+		}catch (Exception e) {
 			e.printStackTrace();
 		}
-		pathGraph.getCitiesAndSize(graph);
-		pathGraph.finalize();
-		for(Edge r: graph.getRoads())
-			roads.add(new Edge(r));
 	}
 	
 
@@ -57,29 +59,28 @@ public class GreedySolver extends BasicSolver {
 		maxEdges = graph.getCities().keySet().size();
 		route = new ArrayList<Edge>();
 		//finding the route
-		int numEdges = 0;
-		while(numEdges < maxEdges){
-			Edge road = roads.get(0);
-			if(!moreThanTwoDegrees(road,route) && 
-					!makesCycleLessThanN(road, route)){
-				pathGraph.addEdge(road);
-				route.add(road);
-				numEdges++;
-				System.out.println(road);
+			int numEdges = 0;
+			while(numEdges < maxEdges){
+				Edge road = roads.get(0);
+				if(!moreThanTwoDegrees(road,route) && 
+						!makesCycleLessThanN(road, route)){
+					pathGraph.addEdge(road);
+					route.add(road);
+					numEdges++;
+				}
+				roads.remove(0);
 			}
-			roads.remove(0);
-		}
-		//obtaining the result
-		double distance = findRoute(result, route);
-		//final preparing of the data
-		result.add(""+((System.nanoTime()-startTime)*1.0e-9));
-		System.gc();
-		double usedKB = (Runtime.getRuntime().totalMemory() - 
-		   		Runtime.getRuntime().freeMemory()) / 1024.0;
-		result.add(""+usedKB);
-		result.add(""+distance);
-		System.out.println(result);
-		return result;
+			//obtaining the result
+			
+			double distance = findRoute(result, route);
+			//final preparing of the data
+			result.add(""+((System.nanoTime()-startTime)*1.0e-9));
+			System.gc();
+			double usedKB = (Runtime.getRuntime().totalMemory() - 
+		    		Runtime.getRuntime().freeMemory()) / 1024.0;
+			result.add(""+usedKB);
+			result.add(""+distance);
+			return result;
 	}
 
 	private double findRoute(ArrayList<String> result, ArrayList<Edge> route) {
@@ -87,13 +88,11 @@ public class GreedySolver extends BasicSolver {
 		HashMap<String,Edge> roads = new HashMap<String,Edge>();
 		for(Edge road: route)
 			roads.put(road.getFrom(), road);
-		String id = route.get(0).getFrom();
-		String cityName = graph.getCities().get(id).getName();
-		
+		String cityName = route.get(0).getFrom();
 		while(result.size() <= maxEdges ){
 			result.add(cityName);
-			distance += roads.get(id).getDistance();
-			cityName = roads.get(id).getTo();
+			distance += roads.get(cityName).getDistance();
+			cityName = roads.get(cityName).getTo();
 		}
 		return distance;
 	}
@@ -138,7 +137,6 @@ public class GreedySolver extends BasicSolver {
 	private ArrayList<String> linearSearch(Edge r, String start) {
 		// this is assuming that there is one path to each node and one
 		// path from each node (by design)
-		
 		Node current = pathGraph.getCity(start);
 		
 		ArrayList<String> queue = new ArrayList<String>();
