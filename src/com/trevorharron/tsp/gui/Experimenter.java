@@ -1,7 +1,6 @@
 package com.trevorharron.tsp.gui;
 
 import java.io.FileWriter;
-import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -13,6 +12,7 @@ import com.trevorharron.tsp.solvers.Solver;
 import com.trevorharron.tsp.solvers.SolverFactory;
 
 import com.trevorharron.tsp.graph.Graph;
+import com.trevorharron.tsp.graph.GraphFactory;
 import com.trevorharron.tsp.graph.GraphSymmetric;
 
 import static com.trevorharron.tsp.data.FileNames.RESULTS;
@@ -31,19 +31,20 @@ public class Experimenter {
 		SolverFactory factory = new SolverFactory();
 		FileWriter fileWriter;
 		PrintWriter printW;
+		GraphFactory gFactory =  new GraphFactory();
 		int maxTimes = 100;
 		try {
 		
-			for(int solverNum = 0; solverNum < 4;solverNum ++){
+			for(int solverNum = 4; solverNum < 5; solverNum++){
 				fileWriter = new FileWriter(RESULTS.get(solverNum));
 				printW = new PrintWriter(fileWriter);
 				factory.setChoice(solverNum);
 					
 				printW.print("STATE,TIME,MEMORY,DISTANCE\n");
 				printW.flush();
-				for(int fileNum = 0; fileNum<6;fileNum++){
+				for(int fileNum = 0; fileNum<1;fileNum++){
 					if(fileNum != 4){
-					graph = new GraphSymmetric();
+					graph = gFactory.getGraph(GraphSymmetric.class);
 					System.out.println(STATES.get(fileNum));
 					kml.readFile(CITIES,graph,STATES.get(fileNum));
 					csv.readFile(ROADS.get(fileNum),graph,"");
@@ -92,7 +93,7 @@ public class Experimenter {
 				}
 			}
 
-		} catch (IOException e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		

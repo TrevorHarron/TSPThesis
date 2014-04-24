@@ -7,17 +7,11 @@ public class Tree{
 	
 	private TreeNode root;
 
-	public Tree(TreeNode root){
-		this.root = root;
-	}
+	public Tree(TreeNode root){ this.root = root; }
 	
-	public void setRoot(TreeNode root){
-		this.root =  root;
-	}
+	public void setRoot(TreeNode root){ this.root =  root; }
 	
-	public TreeNode getRoot(){
-		return this.root;
-	}
+	public TreeNode getRoot(){ return this.root; }
 	
 	public ArrayList<String> treeWalk(){
 		
@@ -29,11 +23,9 @@ public class Tree{
 			current = stack.peek();
 			route.add(current.getSelf().getId());
 			stack.pop();
-			if(current.getRight() != null)
-				stack.push(current.getRight());
-				
-			if(current.getLeft() != null)
-				stack.push(current.getLeft());
+			
+			if(current.getRight() != null) stack.push(current.getRight());	
+			if(current.getLeft() != null) stack.push(current.getLeft());
 		}
 		return route;
 	}
@@ -50,13 +42,11 @@ public class Tree{
 			current = stack.peek();
 			if(isOddDegree(current, root) 
 					&& !oddNodes.contains(current.getSelf().getId()))
-				oddNodes.add(current.getSelf().getName());
+				oddNodes.add(current.getSelf().getId());
 			stack.pop();
-			if(current.getRight() != null)
-				stack.push(current.getRight());
-				
-			if(current.getLeft() != null)
-				stack.push(current.getLeft());
+			
+			if(current.getRight() != null) stack.push(current.getRight());	
+			if(current.getLeft() != null) stack.push(current.getLeft());
 		}
 		return oddNodes;
 	}
@@ -64,10 +54,8 @@ public class Tree{
 	private boolean isOddDegree(TreeNode current, TreeNode root) {
 		
 		int count = 0;
-		if(current.getLeft() != null)
-			count += 1;
-		if(current.getRight() !=null)
-			count += 1;
+		if(current.getLeft() != null) count += 1;
+		if(current.getRight() !=null) count += 1;
 		
 		if(!current.equals(root))
 			return count % 2 == 0;

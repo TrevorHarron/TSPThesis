@@ -40,9 +40,7 @@ public class GreedySolver implements Solver {
 		this.graph = graph;
 		try{
 			pathGraph = new GraphFactory().getGraph(graph.getClass());
-			for(String name: graph.getCities().keySet())
-				pathGraph.addCity(graph.getCity(name));
-			pathGraph.finalize();
+			pathGraph.getCitiesAndSize(graph);
 			for(Edge r: graph.getRoads())
 				roads.add(new Edge(r));
 		}catch (Exception e) {

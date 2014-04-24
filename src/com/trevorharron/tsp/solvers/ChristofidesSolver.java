@@ -18,9 +18,7 @@ public class ChristofidesSolver extends BasicSolver {
 
 	Graph eulerGraph;
 	
-	public ChristofidesSolver(){
-		
-	}
+	public ChristofidesSolver(){}
 	
 	public ChristofidesSolver(Graph graph){
 		setGraph(graph);
@@ -38,12 +36,14 @@ public class ChristofidesSolver extends BasicSolver {
 		Tree mst = makeMST(V.get(0));
 		
 		ArrayList<String> oddNodes = mst.getOddNodes();
-		System.out.println(eulerGraph.getRoads());
 		
 		ArrayList<Pair<String,String>> pairs = getMinimalPairs(oddNodes);
-		System.out.println(pairs);
 		
-		unionWithTree(pairs);
+		getNodeDegrees(eulerGraph);
+		
+		eulerGraph = unionWithTree(pairs, eulerGraph);
+		
+		getNodeDegrees(eulerGraph);
 		
 		ArrayList<String> cycle =  eurlerCycle(eulerGraph, V.get(0));
 		
@@ -52,14 +52,22 @@ public class ChristofidesSolver extends BasicSolver {
 		return result;
 		
 	}
+	
+	private void getNodeDegrees(Graph g){
+		System.out.println("--------------------------");
+		for(String key: g.getCities().keySet())
+			System.out.println(key+":"+(g.getRoadsFromCity(key).size()+ g.getRoadsToCity(key).size()) /2);
+		System.out.println("--------------------------");
+	}
 
-	private void unionWithTree(ArrayList<Pair<String, String>> pairs) {
+	private Graph unionWithTree(ArrayList<Pair<String, String>> pairs, Graph g) {
 		for(Pair<String,String> pair: pairs){
 			Edge e =  graph.getRoad(pair.getLeft(), pair.getRight());
-			eulerGraph.addEdge(e);
+			g.addEdge(e);
 			e = graph.getRoad(pair.getRight(),pair.getLeft());
-			eulerGraph.addEdge(e);
+			g.addEdge(e);
 		}
+		return g;
 	}
 
 	private ArrayList<String> eurlerCycle(Graph euler, String start) {
@@ -72,17 +80,15 @@ public class ChristofidesSolver extends BasicSolver {
 		while(used.size() < edges.size()){
 			ArrayList<Edge> roads = euler.getRoadsFromCity(current);
 			for(Edge e: roads){
-				if(!used.contains(e)){
+				Edge inverse = euler.getRoad(e.getTo(), e.getFrom());
+				if(!(used.contains(e) || used.contains(inverse))){
 					used.add(e);
-					used.add(euler.getRoad(e.getTo(), e.getFrom()));
+					used.add(inverse);
 					cycle.add(e.getTo());
 					current = e.getTo();
 					break;
 				}
 			}
-			System.out.println(current);
-			System.out.println(used.size());
-			System.out.println(edges.size());
 		}
 		return cycle;	
 	}
@@ -107,17 +113,23 @@ public class ChristofidesSolver extends BasicSolver {
 			}
 			
 		}
+
+		ArrayList<Edge> graphEdges = eulerGraph.getRoads();
+		ArrayList<Edge> newEdges = new ArrayList<Edge>();
+		for(Edge e: edges)
+			if(!graphEdges.contains(e)) newEdges.add(e);
+			
 		ArrayList<String> used = new ArrayList<String>();
 		ArrayList<Pair<String, String>> pairs = new ArrayList<Pair<String, String>>();
-		ArrayList<Edge> graphEdges = eulerGraph.getRoads();
+		edges = newEdges;
+		Collections.sort(edges);
 		for(Edge e: edges){
-			if(!used.contains(e.getTo()) && !used.contains(e.getFrom())
-					&& !graphEdges.contains(e)){
+			if(!used.contains(e.getTo()) && !used.contains(e.getFrom())){
 				pairs.add(new Pair<String,String>(e.getFrom(), e.getTo()));
 				used.add(e.getFrom());
 				used.add(e.getTo());
 			}
-		}	
+		}
 		return pairs;
 	}
 	
