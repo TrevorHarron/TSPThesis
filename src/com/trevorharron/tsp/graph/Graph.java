@@ -19,9 +19,13 @@ public interface Graph {
 	
 	public void setRoadVisited(final boolean visited, final Edge r);
 	
-	public ArrayList<Edge> getRoadsByCity(String name);
+	public ArrayList<Edge> getRoadsFromCity(String name);
+	
+	public ArrayList<Edge> getRoadsToCity(String name);
 	
 	public Edge getRoad(String from, String to);
 	
 	public void finalize();
+	public int getOriginalSize();
+	public void getCitiesAndSize(Graph graph);
 }

@@ -28,11 +28,12 @@ public class KMLReader implements DataReader{
 			String s = p.getExtendedData().getSchemaData().get(0).getSimpleData().get(8).getValue();
 			if(s.equals(state)){
 				Point point = (Point) p.getGeometry();
-				String name =p.getName();
-				Node city = new Node(p.getName(), 
+				String name = p.getName();
+				String id = name+"-"+idCount;
+				Node city = new Node(name, 
 						point.getCoordinates().get(0).getLongitude(), 
 						point.getCoordinates().get(0).getLatitude(),
-						name, idCount);
+						id, idCount);
 				graph.addCity(city);
 				idCount++;
 			}

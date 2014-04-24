@@ -51,7 +51,7 @@ public class GreedySolver implements Solver {
 	}
 	
 
-	public ArrayList<String> solve() throws NoSolutionException {		
+	public ArrayList<String> solve(){		
 		long startTime = System.nanoTime();
 		ArrayList<String> result = new ArrayList<String>();
 		//sorting and ensuring there are no duplicates
@@ -59,7 +59,6 @@ public class GreedySolver implements Solver {
 		maxEdges = graph.getCities().keySet().size();
 		route = new ArrayList<Edge>();
 		//finding the route
-		try{
 			int numEdges = 0;
 			while(numEdges < maxEdges){
 				Edge road = roads.get(0);
@@ -72,6 +71,7 @@ public class GreedySolver implements Solver {
 				roads.remove(0);
 			}
 			//obtaining the result
+			
 			double distance = findRoute(result, route);
 			//final preparing of the data
 			result.add(""+((System.nanoTime()-startTime)*1.0e-9));
@@ -81,9 +81,6 @@ public class GreedySolver implements Solver {
 			result.add(""+usedKB);
 			result.add(""+distance);
 			return result;
-		} catch(Exception e){
-			throw new NoSolutionException(e.getMessage());
-		}
 	}
 
 	private double findRoute(ArrayList<String> result, ArrayList<Edge> route) {
@@ -144,14 +141,14 @@ public class GreedySolver implements Solver {
 		
 		ArrayList<String> queue = new ArrayList<String>();
 		
-		ArrayList<Edge> edges =  pathGraph.getRoadsByCity(current.getName());
+		ArrayList<Edge> edges =  pathGraph.getRoadsFromCity(current.getId());
 		queue.add(start);
 		while(!edges.isEmpty()){
 			if(edges.get(0).getTo().equals(start)) break;
 			Node next = pathGraph.getCity(edges.get(0).getTo());
-			queue.add(next.getName());
+			queue.add(next.getId());
 			current = next;
-			edges =  pathGraph.getRoadsByCity(current.getName());
+			edges =  pathGraph.getRoadsFromCity(current.getId());
 		}
 		
 		return queue;

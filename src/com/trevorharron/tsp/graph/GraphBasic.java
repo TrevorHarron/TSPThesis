@@ -10,9 +10,11 @@ import com.trevorharron.tsp.graph.node.Node;
 public class GraphBasic implements Graph {
 	
 	private HashMap<String,Node> cities;
+	private int originalSize;
 
 	public GraphBasic(){
 		cities =  new HashMap<String,Node>();
+		originalSize = -1;
 	}
 	
 	public GraphBasic(Graph g){
@@ -20,6 +22,7 @@ public class GraphBasic implements Graph {
 		for(Edge e: g.getRoads()){
 			addEdge(e);
 		}
+		originalSize = g.getOriginalSize();
 		finalize();
 	}
 	
@@ -64,7 +67,7 @@ public class GraphBasic implements Graph {
 	}
 
 	@Override
-	public ArrayList<Edge> getRoadsByCity(String name) {
+	public ArrayList<Edge> getRoadsFromCity(String name) {
 		ListNode n =(ListNode) cities.get(name);
 		return n.getRoads();
 	}
@@ -85,6 +88,30 @@ public class GraphBasic implements Graph {
 	}
 
 	@Override
-	public void finalize(){}
+	public void finalize(){
+		for(String city: getCities().keySet()){
+			if(getRoadsFromCity(city).isEmpty() && !getRoads().isEmpty())
+				cities.remove(city);
+		}
+		if(originalSize == -1)
+			originalSize = cities.keySet().size();
+	}
+
+
+	@Override
+	public ArrayList<Edge> getRoadsToCity(String name) {
+		return new ArrayList<Edge>();
+	}
+
+	@Override
+	public int getOriginalSize() {
+		return originalSize;
+	}
+
+	@Override
+	public void getCitiesAndSize(Graph graph) {
+		originalSize = graph.getOriginalSize();
+		cities =  graph.getCities();
+	}
 
 }

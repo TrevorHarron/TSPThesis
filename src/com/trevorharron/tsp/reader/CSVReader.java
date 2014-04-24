@@ -17,12 +17,18 @@ public class CSVReader implements DataReader{
 		String[] rows = csv.split("\n");
 		//Assuming pattern #,city1 - city2,...,distance
 		String row;
+		int originId = -1;
+		int destId = -1;
 		for(int index = 1; index <rows.length; index++){
 			row = rows[index];
 			String[] contents = row.split(",");
-			
-			String ci = contents[1].split(" - ")[0];
-			String cj = contents[1].split(" - ")[1];
+			if(index == 1){
+				originId = Integer.parseInt(contents[2]);
+				destId = Integer.parseInt(contents[3]);
+			}//TODO
+			//System.out.println(index+" "+contents[2]+" "+contents[3]);
+			String ci = (contents[1].split(" - ")[0])+"-"+(Integer.parseInt(contents[2])-originId);
+			String cj = (contents[1].split(" - ")[1])+"-"+(Integer.parseInt(contents[3])-destId);
 			
 			double distance = Double.parseDouble((contents[contents.length-1]));
 			if(!ci.equals(cj)){

@@ -2,7 +2,7 @@ package com.trevorharron.tsp.graph.node;
 
 import java.util.ArrayList;
 
-import com.trevorharron.tsp.data.Pair;
+import com.trevorharron.tsp.aux.Pair;
 import com.trevorharron.tsp.graph.edge.Edge;
 
 public class ListNode extends Node {
