@@ -41,12 +41,9 @@ public class GeneticSolver extends BasicSolver {
 		}
 		ArrayList<String> result = findBest(population);
 		double distance = getRouteDistance(result);
-		result.add(""+((System.nanoTime()-startTime)*1.0e-9));
-	    System.gc();
-	    double usedKB = (Runtime.getRuntime().totalMemory() - 
-	    		Runtime.getRuntime().freeMemory()) / 1024.0;
-	    result.add(""+(usedKB));
-		result.add(""+distance);
+		
+		result =  getMetrics(result,startTime,distance);
+
 		return result;
 	}
 

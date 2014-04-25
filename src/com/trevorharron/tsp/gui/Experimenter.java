@@ -32,7 +32,7 @@ public class Experimenter {
 		FileWriter fileWriter;
 		PrintWriter printW;
 		GraphFactory gFactory =  new GraphFactory();
-		int maxTimes = 100;
+		int maxTimes = 1;
 		try {
 		
 			for(int solverNum = 4; solverNum < 5; solverNum++){

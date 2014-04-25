@@ -28,4 +28,14 @@ public class BasicSolver implements Solver {
 		}
 		return distance;
 	}
+	
+	protected ArrayList<String> getMetrics(ArrayList<String> result, long startTime, double distance) {
+		result.add(String.valueOf((System.nanoTime()-startTime)*1.0e-9));
+		System.gc();
+		double usedKB = (Runtime.getRuntime().totalMemory() - 
+		    		Runtime.getRuntime().freeMemory()) / 1024.0;
+		result.add(String.valueOf(usedKB));
+		result.add(String.valueOf(distance));
+		return result;
+	}
 }

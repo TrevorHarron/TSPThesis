@@ -9,7 +9,7 @@ import com.trevorharron.tsp.graph.GraphFactory;
 import com.trevorharron.tsp.graph.edge.Edge;
 import com.trevorharron.tsp.graph.node.Node;
 
-public class GreedySolver implements Solver {
+public class GreedySolver extends BasicSolver {
 
 	private Graph graph;
 	private Graph pathGraph;
@@ -68,16 +68,13 @@ public class GreedySolver implements Solver {
 				}
 				roads.remove(0);
 			}
-			//obtaining the result
 			
+			//obtaining the result
 			double distance = findRoute(result, route);
+			
 			//final preparing of the data
-			result.add(""+((System.nanoTime()-startTime)*1.0e-9));
-			System.gc();
-			double usedKB = (Runtime.getRuntime().totalMemory() - 
-		    		Runtime.getRuntime().freeMemory()) / 1024.0;
-			result.add(""+usedKB);
-			result.add(""+distance);
+			result = getMetrics(result,startTime,distance);
+			
 			return result;
 	}
 

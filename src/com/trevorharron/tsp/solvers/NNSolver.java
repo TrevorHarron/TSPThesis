@@ -60,13 +60,10 @@ public class NNSolver extends BasicSolver {
 		
 		Edge road = findRouteToStart(U);
 		U.add(road.getTo());
-		distance += road.getDistance();
-		U.add(""+((System.nanoTime()-startTime)*1.0e-9));
-		System.gc();
-		double usedKB = (Runtime.getRuntime().totalMemory() - 
-		    		Runtime.getRuntime().freeMemory()) / 1024.0;
-		U.add(""+(usedKB));
-		U.add(""+distance);	
+		distance += road.getDistance(); 
+		
+		U = getMetrics(U, startTime,distance);
+		
 		return U;
 	}
 	

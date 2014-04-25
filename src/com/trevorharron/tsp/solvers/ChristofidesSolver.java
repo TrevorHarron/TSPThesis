@@ -27,49 +27,34 @@ public class ChristofidesSolver extends BasicSolver {
 	@Override
 	public ArrayList<String> solve(){
 		
+		long startTime = System.nanoTime();
 		ArrayList<String> V = new ArrayList<String>();
-		for(String v: graph.getCities().keySet())
-			V.add(v);
+		for(String v: graph.getCities().keySet()) V.add(v);
 		long seed = System.nanoTime();
 		Collections.shuffle(V,new Random(seed));//random start
 		//make the Tree
 		Tree mst = makeMST(V.get(0));
-		
 		ArrayList<String> oddNodes = mst.getOddNodes();
-		
 		ArrayList<Pair<String,String>> pairs = getMinimalPairs(oddNodes);
-		
-		getNodeDegrees(eulerGraph);
-		
 		eulerGraph = unionWithTree(pairs, eulerGraph);
-		
-		getNodeDegrees(eulerGraph);
-		
 		ArrayList<String> cycle =  eurlerCycle(eulerGraph, V.get(0));
-		
 		ArrayList<String> result = takeShortcuts(cycle);
-		
+		double distance = getRouteDistance(result);
+		result = getMetrics(result, startTime, distance);
 		return result;
-		
+	}
+
+	private ArrayList<String> takeShortcuts(ArrayList<String> cycle) {
+		ArrayList<String> route  = new ArrayList<String>();
+		String start = cycle.get(0);
+		for(String city: cycle){
+			if(!route.contains(city))
+				route.add(city);
+		}
+		route.add(start);
+		return route;
 	}
 	
-	private void getNodeDegrees(Graph g){
-		System.out.println("--------------------------");
-		for(String key: g.getCities().keySet())
-			System.out.println(key+":"+(g.getRoadsFromCity(key).size()+ g.getRoadsToCity(key).size()) /2);
-		System.out.println("--------------------------");
-	}
-
-	private Graph unionWithTree(ArrayList<Pair<String, String>> pairs, Graph g) {
-		for(Pair<String,String> pair: pairs){
-			Edge e =  graph.getRoad(pair.getLeft(), pair.getRight());
-			g.addEdge(e);
-			e = graph.getRoad(pair.getRight(),pair.getLeft());
-			g.addEdge(e);
-		}
-		return g;
-	}
-
 	private ArrayList<String> eurlerCycle(Graph euler, String start) {
 		
 		ArrayList<Edge> used = new ArrayList<Edge>();
@@ -93,53 +78,48 @@ public class ChristofidesSolver extends BasicSolver {
 		return cycle;	
 	}
 	
-	private ArrayList<Pair<String, String>> getMinimalPairs(
-			ArrayList<String> oddNodes) {
+	private ArrayList<Pair<String, String>> getMinimalPairs(ArrayList<String> oddNodes) {
 		
-		ArrayList<Edge> edges = new ArrayList<Edge>();	
+		ArrayList<Edge> edges = new ArrayList<Edge>();
+		ArrayList<Edge> graphEdges = eulerGraph.getRoads();
 		for(String node: oddNodes){
-			double dist = 900000000000.0;
 			Edge e = null;
 			for(String otherNode:oddNodes){
 				Edge r = graph.getRoad(node, otherNode);
-				if(!node.equals(otherNode) && r.getDistance() < dist){
-					dist =  r.getDistance();
-					e = r;
+				if(!node.equals(otherNode)){
+					e = r;						
+					if(!graphEdges.contains(e)){
+						edges.add(e);
+						edges.add(graph.getRoad(e.getTo(), e.getFrom()));
+					}
 				}
-			}
-			if(e!=null){
-				edges.add(e);
-				edges.add(graph.getRoad(e.getTo(), e.getFrom()));
-			}
-			
+			}	
 		}
-
-		ArrayList<Edge> graphEdges = eulerGraph.getRoads();
-		ArrayList<Edge> newEdges = new ArrayList<Edge>();
-		for(Edge e: edges)
-			if(!graphEdges.contains(e)) newEdges.add(e);
-			
-		ArrayList<String> used = new ArrayList<String>();
 		ArrayList<Pair<String, String>> pairs = new ArrayList<Pair<String, String>>();
-		edges = newEdges;
 		Collections.sort(edges);
+
+		ArrayList<String> used = new ArrayList<String>();
 		for(Edge e: edges){
-			if(!used.contains(e.getTo()) && !used.contains(e.getFrom())){
-				pairs.add(new Pair<String,String>(e.getFrom(), e.getTo()));
-				used.add(e.getFrom());
-				used.add(e.getTo());
+			String to = e.getTo();
+			String from = e.getFrom();
+			if(!(used.contains(to) || used.contains(from))){
+				used.add(from);
+				used.add(to);
+				pairs.add(new Pair<String,String>(from,to));
 			}
 		}
+		
 		return pairs;
 	}
 	
-	private ArrayList<String> takeShortcuts(ArrayList<String> cycle) {
-		ArrayList<String> route  = new ArrayList<String>();
-		for(String city: cycle){
-			if(!route.contains(city))
-				route.add(city);
+	private Graph unionWithTree(ArrayList<Pair<String, String>> pairs, Graph g) {
+		for(Pair<String,String> pair: pairs){
+			Edge e =  graph.getRoad(pair.getLeft(), pair.getRight());
+			g.addEdge(e);
+			e = graph.getRoad(pair.getRight(),pair.getLeft());
+			g.addEdge(e);
 		}
-		return route;
+		return g;
 	}
 	
 	private Tree makeMST(String start){
@@ -174,9 +154,11 @@ public class ChristofidesSolver extends BasicSolver {
 				frontier.remove(e.getFrom());
 			}
 			frontier.add(e.getTo());
+			
 			inTree.put(e.getFrom(), fNode);
 			inTree.put(e.getTo(), tNode);
 			unvisited.remove(e.getTo());
+			
 			eulerGraph.addEdge(e);
 			eulerGraph.addEdge(graph.getRoad(e.getTo(), e.getFrom()));
 		}
@@ -188,9 +170,8 @@ public class ChristofidesSolver extends BasicSolver {
 		super.setGraph(graph);
 		try {
 			eulerGraph = new GraphFactory().getGraph(graph.getClass());
-			for(String name: graph.getCities().keySet())
-				eulerGraph.addCity(graph.getCity(name));
-			eulerGraph.finalize();
+			eulerGraph.getCitiesAndSize(graph);
+			eulerGraph.finalize();		
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

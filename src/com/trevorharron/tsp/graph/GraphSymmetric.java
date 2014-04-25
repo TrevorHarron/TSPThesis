@@ -49,12 +49,12 @@ public class GraphSymmetric implements Graph{
 		}
 		Node to = cities.get(road.getTo());
 		if(to == null){
-			e = fixRoad(road, true);
+			e = fixRoad(road, false);
 			to = cities.get(e.getTo());
 		}
 		roads.add(e);
 		if (roadMatrix != null) 
-			roadMatrix[from.getReadPos()][to.getReadPos()] = road;
+			roadMatrix[from.getReadPos()][to.getReadPos()] = e;
 	}
 	
 	private void setDiagonal(){

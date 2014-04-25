@@ -38,7 +38,9 @@ public class TPSApplet extends Applet{
 	Button solveButton, resetButton;
 	Choice solvers;
 	
-	private static String[] solverList = {"Nearest Neighbor", "Greedy", "Minimum Spanning Tree", "Genetic"};
+	private static String[] SOLVER_LIST = {"Nearest Neighbor", "Greedy", 
+			"Minimum Spanning Tree", "Genetic","Christofides"};
+	private static String[] CITY_LIST = {};
 	private static int MAX_X = 1024;
 	private static int MAX_Y = 512;
 	private static int SCREEN_X = 1250;
@@ -84,7 +86,7 @@ public class TPSApplet extends Applet{
 		add(resetButton);
 		
 		solvers = new Choice();
-		for(String solver: solverList)
+		for(String solver: SOLVER_LIST)
 			solvers.add(solver);
 		solvers.setBounds(SCREEN_X-150, START_Y+30, 150,30);
 		add(solvers);

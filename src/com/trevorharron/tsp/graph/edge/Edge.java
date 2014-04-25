@@ -75,5 +75,10 @@ public class Edge implements Comparable<Edge>{
 		} else
 			return -1;
 	}
-
+	
+	public int hashCode(){
+		String hashKey = from+to;
+		return hashKey.hashCode();
+	}
+	
 }

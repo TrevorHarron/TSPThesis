@@ -42,12 +42,9 @@ public class MSTSolver extends BasicSolver {
 			//get the metrics
 			result.add(result.get(0));
 			double distance = getRouteDistance(result);
-			result.add(""+((System.nanoTime()-startTime)*1.0e-9));
-			System.gc();
-			double usedKB = (Runtime.getRuntime().totalMemory() - 
-		    		Runtime.getRuntime().freeMemory()) / 1024.0;
-			result.add(""+usedKB);
-			result.add(""+distance);
+			
+			result =  getMetrics(result, startTime, distance);
+			
 			return result;
 	}
 

@@ -18,13 +18,6 @@ C.-P. Hwang, B. Alidaee and J. D. Johnson.
 \newblock {\em The Journal of the Operational Research Society}, 
 \newblock Vol. 50, No. 8 (Aug., 1999), pp. 797-809.
 
-\bibitem{2opt}
-Levin, A. and Yovel, U.
-\newblock 2-Opt heuristics for the traveling salesman problem.
-\newblock {\em Nonoblivious},
-\newblock Networks 	62: 201–219, (2013),
-\newblock doi: 10.1002/net.21512.
-
 \bibitem{imp}
 D. Gamboa, C. Rego, F. Glover.
 \newblock Implementation analysis of efficient heuristic algorithms for the traveling salesman problem.
