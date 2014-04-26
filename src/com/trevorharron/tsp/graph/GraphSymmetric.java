@@ -8,7 +8,7 @@ import com.trevorharron.tsp.graph.node.Node;
 
 public class GraphSymmetric implements Graph{
 	
-	private ArrayList<Edge> roads;
+	private ArrayList<Edge> edges;
 	private HashMap<String, Node> cities;
 	
 	private Edge[][] roadMatrix;
@@ -16,21 +16,21 @@ public class GraphSymmetric implements Graph{
 	
 	public GraphSymmetric(){
 		cities =  new HashMap<String,Node>();
-		roads = new ArrayList<Edge>();
+		edges = new ArrayList<Edge>();
 		originalSize = -1;
 	}
 	
 	public GraphSymmetric(Graph g){
 		cities = g.getCities();
-		roads =  g.getRoads();
+		edges =  g.getRoads();
 		originalSize = g.getOriginalSize();
 		finalize();
 	}
 	
 	@Override
 	public void resetGraph(){
-		for(Edge road: roads)
-			road.setVisited(false);		
+		for(Edge edge: edges)
+			edge.setVisited(false);		
 		makeRoadMatrix();
 	}
 	
@@ -40,19 +40,19 @@ public class GraphSymmetric implements Graph{
 	}
 	
 	@Override
-	public void addEdge(final Edge road){	
-		Edge e =  new Edge(road);
-		Node from = cities.get(road.getFrom());
+	public void addEdge(final Edge edge){	
+		Edge e =  new Edge(edge);
+		Node from = cities.get(edge.getFrom());
 		if(from == null){
-			e = fixRoad(road, true);
+			e = fixRoad(edge, true);
 			from = cities.get(e.getFrom());
 		}
-		Node to = cities.get(road.getTo());
+		Node to = cities.get(edge.getTo());
 		if(to == null){
-			e = fixRoad(road, false);
+			e = fixRoad(edge, false);
 			to = cities.get(e.getTo());
 		}
-		roads.add(e);
+		edges.add(e);
 		if (roadMatrix != null) 
 			roadMatrix[from.getReadPos()][to.getReadPos()] = e;
 	}
@@ -62,23 +62,23 @@ public class GraphSymmetric implements Graph{
 			roadMatrix[city.getReadPos()][city.getReadPos()] = null;
 	}
 	
-	public void setRoadVisited(final boolean visited, final Edge r){
-		r.setVisited(visited);
-		roadMatrix[cities.get(r.getTo()).getReadPos()]
-				[cities.get(r.getFrom()).getReadPos()].setVisited(visited);
+	public void setRoadVisited(final boolean visited, final Edge edge){
+		edge.setVisited(visited);
+		roadMatrix[cities.get(edge.getTo()).getReadPos()]
+				[cities.get(edge.getFrom()).getReadPos()].setVisited(visited);
 	}
 	
 	public void makeRoadMatrix(){
 		roadMatrix = new Edge[originalSize][originalSize];
-		for(Edge road : roads){
+		for(Edge edge : edges){
 			
-			Node from =cities.get(road.getFrom());
-			Edge e = road;
+			Node from =cities.get(edge.getFrom());
+			Edge e = edge;
 			if(from == null){
 				e = fixRoad(e,true);
 				from = cities.get(e.getFrom());
 			}
-			Node to = cities.get(road.getTo());
+			Node to = cities.get(edge.getTo());
 			if(to == null){
 				e = fixRoad(e,false);
 				to = cities.get(e.getTo());
@@ -114,9 +114,9 @@ public class GraphSymmetric implements Graph{
 	public ArrayList<Edge> getRoadsFromCity(String name){
 		ArrayList<Edge> currentRoads = new ArrayList<Edge>();
 		int cityPos = cities.get(name).getReadPos();
-		for(Edge r: roadMatrix[cityPos]){
-			if(r != null && !r.isVisited())
-				currentRoads.add(r);
+		for(Edge edge: roadMatrix[cityPos]){
+			if(edge != null && !edge.isVisited())
+				currentRoads.add(edge);
 		}
 
 		return currentRoads;	
@@ -131,7 +131,7 @@ public class GraphSymmetric implements Graph{
 	}
 	
 	public ArrayList<Edge> getRoads(){
-		return roads;
+		return edges;
 	}
 	
 	public Node getCity(String key){
@@ -144,15 +144,14 @@ public class GraphSymmetric implements Graph{
 
 	@Override
 	public Edge getRoad(String from, String to) {
-		return getRoad(cities.get(from).getReadPos(),
-				cities.get(to).getReadPos());
+		return getRoad(cities.get(from).getReadPos(),cities.get(to).getReadPos());
 	}
 	
 	@Override
 	public void finalize(){
-		if(originalSize == -1){
+		if(originalSize == -1)
 			originalSize = getCities().keySet().size();
-		}
+		
 		makeRoadMatrix();
 		HashMap<String, Node> newCities = new HashMap<String, Node>();
 		for(String city: getCities().keySet()){
@@ -171,9 +170,9 @@ public class GraphSymmetric implements Graph{
 	}
 
 	@Override
-	public ArrayList<Edge> getRoadsToCity(String name) {
+	public ArrayList<Edge> getRoadsToCity(String id) {
 		ArrayList<Edge> currentRoads = new ArrayList<Edge>();
-		int cityPos = cities.get(name).getReadPos();
+		int cityPos = cities.get(id).getReadPos();
 		for(int i = 0; i < roadMatrix[cityPos].length; i++){
 			Edge r =  roadMatrix[i][cityPos];
 			if(r != null && !r.isVisited())

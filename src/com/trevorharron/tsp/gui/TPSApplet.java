@@ -40,7 +40,7 @@ public class TPSApplet extends Applet{
 	
 	private static String[] SOLVER_LIST = {"Nearest Neighbor", "Greedy", 
 			"Minimum Spanning Tree", "Genetic","Christofides"};
-	private static String[] CITY_LIST = {};
+	//private static String[] CITY_LIST = {};
 	private static int MAX_X = 1024;
 	private static int MAX_Y = 512;
 	private static int SCREEN_X = 1250;

@@ -32,17 +32,17 @@ public class Experimenter {
 		FileWriter fileWriter;
 		PrintWriter printW;
 		GraphFactory gFactory =  new GraphFactory();
-		int maxTimes = 1;
+		int maxTimes = 100;
 		try {
 		
-			for(int solverNum = 4; solverNum < 5; solverNum++){
+			for(int solverNum = 0; solverNum < 5; solverNum++){
 				fileWriter = new FileWriter(RESULTS.get(solverNum));
 				printW = new PrintWriter(fileWriter);
 				factory.setChoice(solverNum);
 					
 				printW.print("STATE,TIME,MEMORY,DISTANCE\n");
 				printW.flush();
-				for(int fileNum = 0; fileNum<1;fileNum++){
+				for(int fileNum = 0; fileNum<6;fileNum++){
 					if(fileNum != 4){
 					graph = gFactory.getGraph(GraphSymmetric.class);
 					System.out.println(STATES.get(fileNum));

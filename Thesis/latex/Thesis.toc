@@ -8,9 +8,9 @@
 \contentsline {section}{\numberline {3.2}Nearest Neighbor}{21}
 \contentsline {section}{\numberline {3.3}Greedy}{24}
 \contentsline {section}{\numberline {3.4}Minimum Spanning Tree}{28}
-\contentsline {section}{\numberline {3.5}Genetic Algorithms}{31}
-\contentsline {section}{\numberline {3.6}Christofides}{31}
-\contentsline {chapter}{\numberline {4}Possible Improvements}{32}
-\contentsline {chapter}{\numberline {5}Results}{33}
-\contentsline {chapter}{\numberline {6}Conclusions}{34}
-\contentsline {chapter}{Bibliography}{35}
+\contentsline {section}{\numberline {3.5}Genetic Algorithms}{30}
+\contentsline {section}{\numberline {3.6}Christofides}{32}
+\contentsline {chapter}{\numberline {4}Possible Improvements}{36}
+\contentsline {chapter}{\numberline {5}Results}{37}
+\contentsline {chapter}{\numberline {6}Conclusions}{38}
+\contentsline {chapter}{Bibliography}{39}

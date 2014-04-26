@@ -21,14 +21,21 @@ public class CSVReader implements DataReader{
 		int destId = -1;
 		for(int index = 1; index <rows.length; index++){
 			row = rows[index];
+			String[] rowContents = row.split("\"");
+			//System.out.println(rowContents);
+			int idANum = 2;
+			int idBNum = 3;
+			if(rowContents.length > 1){
+				idANum = 4;
+				idBNum = 5;
+			}
 			String[] contents = row.split(",");
 			if(index == 1){
-				originId = Integer.parseInt(contents[2]);
-				destId = Integer.parseInt(contents[3]);
+				originId = Integer.parseInt(contents[idANum]);
+				destId = Integer.parseInt(contents[idBNum]);
 			}//TODO
-			//System.out.println(index+" "+contents[2]+" "+contents[3]);
-			String ci = (contents[1].split(" - ")[0])+"-"+(Integer.parseInt(contents[2])-originId);
-			String cj = (contents[1].split(" - ")[1])+"-"+(Integer.parseInt(contents[3])-destId);
+			String ci = (contents[1].split(" - ")[0])+"-"+(Integer.parseInt(contents[idANum])-originId);
+			String cj = (contents[1].split(" - ")[1])+"-"+(Integer.parseInt(contents[idBNum])-destId);
 			
 			double distance = Double.parseDouble((contents[contents.length-1]));
 			if(!ci.equals(cj)){

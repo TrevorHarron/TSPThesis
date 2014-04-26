@@ -218,9 +218,9 @@ long startTime = System.nanoTime();\\
 \tab double distance = getRouteDistance(result);\\
 \tab result = getMetrics(result,startTime,distance);\\
 \Return result;\\
-}\\
+\}\\
 \end{codebox}
-\tab This is a tour improvement heuristic focusing on trying to find the best route by combining aspects of the shrotest routes. This is clearly not a singularly definitive approach to this problem. To clarify some of the finer points of the of the implementation. The first is that the initial population is simply a list of randomly made routes with the restriction that there are no two routes in the orginal population. This is to better increase the chances that the heuristic will produce a good route. The second thing to focus on is the breeding fuction. What is implemented is called a moon breeding. With this approach, basically 2/3^{rds} of the first parent is used and then the rest is filled in with the second parent. This is done for every pairing of the best canidates before mutations can take place. The number of mutations and chance of mutation are also both random, alloing for at least 1 mutaiton to potentially take place.\\
+\tab This is a tour improvement heuristic focusing on trying to find the best route by combining aspects of the shrotest routes. This is clearly not a singularly definitive approach to this problem. To clarify some of the finer points of the of the implementation. The first is that the initial population is simply a list of randomly made routes with the restriction that there are no two routes in the orginal population. This is to better increase the chances that the heuristic will produce a good route. The second thing to focus on is the breeding fuction. What is implemented is called a moon breeding. With this approach, basically $2/3^{rds}$ of the first parent is used and then the rest is filled in with the second parent. This is done for every pairing of the best canidates before mutations can take place. The number of mutations and chance of mutation are also both random, alloing for at least 1 mutaiton to potentially take place.\\
 \tab In looking at this approach it is clear that there is a good chance for a good route to come out of this hueristic. The main issue lies in the fact that there is no guarentee of a decent result coming from this approach. In addition, the time it takes to run this heuristics is $O(kN^2)$ where k is a non-negliable constant. In short this hueristic has the potential to preform well but also does not make any guarentees of it's preformance making it a good appoach if you have a series of decent routes but not by any means optimal.
 
 \section{Christofides}
@@ -239,12 +239,13 @@ $\proc{public ArrayList$<String>$ solve}()$\{
 \begin{codebox}
 \tab long startTime = System.nanoTime();\\
 \tab ArrayList$<String>$ V = new ArrayList<String>();\\
-\tab \For(String v: graph.getCities().keySet()) V.add(v);\\
+\tab \For(String v: graph.getCities().keySet()) \\
+\tab\tab V.add(v);\\
 \tab long seed = System.nanoTime();\\
 \tab Collections.shuffle(V,new Random(seed));//random start\\
 \tab //make the Tree\\
 \tab Tree mst = makeMST(V.get(0));\\
-\tab ArrayList<String> oddNodes = mst.getOddNodes();\\
+\tab ArrayList$<String>$ oddNodes = mst.getOddNodes();\\
 \tab ArrayList$<Pair<String,String>>$ pairs = getMinimalPairs(oddNodes);\\
 \tab eulerGraph = unionWithTree(pairs, eulerGraph);\\
 \tab ArrayList$<String>$ cycle =  eurlerCycle(eulerGraph, V.get(0));\\
@@ -252,14 +253,14 @@ $\proc{public ArrayList$<String>$ solve}()$\{
 \tab double distance = getRouteDistance(result);\\
 \tab result = getMetrics(result, startTime, distance);\\
 \tab \Return result;\\
-}\\
+\}\\
 \end{codebox}
 \tab As one can see here, the basic layout of the heuristic is relatively straightforward. The complexities arise however upon the inspection of the helper methods. The various methods needed include finding the Minimum Spanning Tree (with the added part of adding the edges of the Tree to a graph), finding the nodes of odd degree, finding the minimum pairs, finding the Euler Cycle, and taking shortcuts to find the final route. As a result of these methods especially the findMinimumPairs the runtime of Christofides heuristic is $O(N^3)$. The space taken up by this heuristic is similar to the others in that it takes O(N) space to hold the MST and new graph. \\
 \tab However, with this trade off of extra time, there is a guaranteed upper bound of any route produced by Christofides to be at most 3/2 times optimal route. This is better than the MST heuristic that has an upper bound of 2 times the optimal length and the other heuristics mentioned that don't have a upper bound. All of that being said, the complexity of implementing this algorithm is non-trivial and neither is the knowledge required to implement it. The complexity comes from the use of several extra functions needed to  complete the heuristic, each one could be a potential point of failure in the implementation. The second aspect required the might be a limitation for implementing this heuristic is the knowledge required to implement or understand it. The concepts needed include minimum spanning trees, minimum pairs, and finding Euler cycles in a graph. While these are not insurmountable levels of knowledge it does take more time for one to be familiar with the concepts before implementing and thus takes more time.\\ 
 
 \chapter{Possible Improvements}
 \tab With all of the heuristics examined it should be noted that given the time constraints of this paper, there are some improvements that could be desired. Some of these include the implementation of some of the helper functions and other's address more of the complexities for implementation in general. The set of possible improvements will then be addressed in a few categories:  alternative helper functions/implementations, the complexities of implementation, complexities in the data. These categories reflect the challenges that one would face in implementing the heuristics described and provides for potential future work in the study of implementing TSP heuristics.\\
-
+\tab More pending.
 
 \chapter{Results}
 Pending\\
