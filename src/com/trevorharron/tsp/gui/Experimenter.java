@@ -15,7 +15,7 @@ import com.trevorharron.tsp.graph.Graph;
 import com.trevorharron.tsp.graph.GraphFactory;
 import com.trevorharron.tsp.graph.GraphSymmetric;
 
-import static com.trevorharron.tsp.data.FileNames.RESULTS;
+import static com.trevorharron.tsp.data.FileNames.RESULTS_CSV;
 import static com.trevorharron.tsp.data.FileNames.ROADS;
 import static com.trevorharron.tsp.data.FileNames.STATES;
 import static com.trevorharron.tsp.data.FileNames.CITIES;
@@ -34,13 +34,13 @@ public class Experimenter {
 		GraphFactory gFactory =  new GraphFactory();
 		int maxTimes = 100;
 		try {
-		
+			fileWriter = new FileWriter(RESULTS_CSV);
+			printW = new PrintWriter(fileWriter);
 			for(int solverNum = SolverFactory.CHRS; solverNum >= SolverFactory.NN; solverNum--){
-				fileWriter = new FileWriter(RESULTS.get(solverNum));
-				printW = new PrintWriter(fileWriter);
 				factory.setChoice(solverNum);
+				System.out.println("Solver: "+solverNum);
 					
-				printW.print("STATE,TIME,MEMORY,DISTANCE\n");
+				printW.print("SOLVER NUMBER,STATE,TIME,MEMORY,DISTANCE\n");
 				printW.flush();
 				for(int fileNum = 0; fileNum<6;fileNum++){
 					if(fileNum != 4){
@@ -65,7 +65,7 @@ public class Experimenter {
 						
 						ArrayList<String> result = solver.solve();
 							
-						printW.print(STATES.get(fileNum)+",");
+						printW.print(solverNum+","+STATES.get(fileNum)+",");
 						int size = result.size();
 						for(int index = result.size()-3; index < result.size(); index++){
 							int currentNum = size-1-index;
@@ -77,7 +77,7 @@ public class Experimenter {
 						printW.print("\n");
 						printW.flush();
 					}
-					printW.print("AVG-"+STATES.get(fileNum)+",");
+					printW.print(solverNum+","+"AVG-"+STATES.get(fileNum)+",");
 					for(int key = 2; key >=0; key--){
 						printW.print(avgs.get(key)/(double)maxTimes);
 						if(key!=3) printW.print(",");
@@ -87,7 +87,7 @@ public class Experimenter {
 					} catch( Exception e){
 						System.out.println("Solver number: "+solverNum);
 						e.printStackTrace();
-						printW.print(STATES.get(fileNum)+",NO solution\n");
+						printW.print(solverNum+","+STATES.get(fileNum)+",N/A,N/A,N/A\n");
 					}
 				}
 				}

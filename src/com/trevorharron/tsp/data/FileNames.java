@@ -64,4 +64,6 @@ public final class FileNames {
 		}
 	};
 	
+	
+	public static String RESULTS_CSV =  path+"results.csv";
 }
