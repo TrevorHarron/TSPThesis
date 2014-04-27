@@ -21,8 +21,12 @@ public class GraphSymmetric implements Graph{
 	}
 	
 	public GraphSymmetric(Graph g){
-		cities = g.getCities();
-		edges =  g.getRoads();
+		cities =  new HashMap<String,Node>();
+		for(String id: cities.keySet())
+			cities.put(id,g.getCity(id));
+		edges = new ArrayList<Edge>();
+		for(Edge e: g.getRoads())
+			edges.add(new Edge(e));
 		originalSize = g.getOriginalSize();
 		finalize();
 	}
@@ -189,6 +193,15 @@ public class GraphSymmetric implements Graph{
 		cities = graph.getCities();
 		originalSize = graph.getOriginalSize();
 		finalize();
+	}
+
+	@Override
+	public void deleteEdge(Edge edge) {
+		
+		int from = cities.get(edge.getFrom()).getReadPos();
+		int to = cities.get(edge.getTo()).getReadPos();
+		
+		roadMatrix[from][to] = null;
 	}
 
 }

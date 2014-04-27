@@ -53,7 +53,7 @@ public class Edge implements Comparable<Edge>{
 	@Override
 	public boolean equals(Object o){
 		if(o instanceof Edge){
-			return o!=null&&(to.equals( ((Edge) o).getTo()) && 
+			return o != null&&(to.equals( ((Edge) o).getTo()) && 
 					from.equals( ((Edge) o).getFrom())) ||
 					to.equals( ((Edge) o).getFrom()) && 
 					from.equals( ((Edge) o).getTo());
@@ -65,15 +65,10 @@ public class Edge implements Comparable<Edge>{
 	public int compareTo(Edge o) {
 		if(distance > o.getDistance())
 			return 1;
-		else if(distance == o.getDistance()){
-			if(to.equals(o.getFrom()))
-				return 1;
-			else if(from.equals(o.getTo()))
-				return -1;
-			else
-				return 0;
-		} else
+		else if(distance < o.getDistance()){
 			return -1;
+		} else
+			return from.compareTo(o.getFrom());
 	}
 	
 	public int hashCode(){

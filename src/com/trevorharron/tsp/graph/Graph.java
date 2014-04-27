@@ -12,7 +12,7 @@ public interface Graph {
 	public HashMap<String, Node> getCities();
 	public Node getCity(String name);
 	
-	public void addEdge(final Edge road);
+	public void addEdge(final Edge edge);
 	public ArrayList<Edge> getRoads();
 	
 	public void resetGraph();
@@ -24,6 +24,8 @@ public interface Graph {
 	public ArrayList<Edge> getRoadsToCity(String name);
 	
 	public Edge getRoad(String from, String to);
+	
+	public void deleteEdge(Edge edge);
 	
 	public void finalize();
 	public int getOriginalSize();

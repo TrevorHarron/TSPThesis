@@ -35,7 +35,7 @@ public class Experimenter {
 		int maxTimes = 100;
 		try {
 		
-			for(int solverNum = 0; solverNum < 5; solverNum++){
+			for(int solverNum = SolverFactory.CHRS; solverNum >= SolverFactory.NN; solverNum--){
 				fileWriter = new FileWriter(RESULTS.get(solverNum));
 				printW = new PrintWriter(fileWriter);
 				factory.setChoice(solverNum);

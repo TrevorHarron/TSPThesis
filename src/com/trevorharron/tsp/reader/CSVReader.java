@@ -21,7 +21,7 @@ public class CSVReader implements DataReader{
 		int destId = -1;
 		for(int index = 1; index <rows.length; index++){
 			row = rows[index];
-			String[] rowContents = row.split("\"");
+			String[] rowContents = new String(row).split("\"");
 			//System.out.println(rowContents);
 			int idANum = 2;
 			int idBNum = 3;

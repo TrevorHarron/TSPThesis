@@ -6,6 +6,7 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Random;
 import java.util.Set;
+import java.util.Stack;
 
 import com.trevorharron.tsp.aux.Pair;
 import com.trevorharron.tsp.aux.Tree;
@@ -36,8 +37,10 @@ public class ChristofidesSolver extends BasicSolver {
 		Tree mst = makeMST(V.get(0));
 		ArrayList<String> oddNodes = mst.getOddNodes();
 		ArrayList<Pair<String,String>> pairs = getMinimalPairs(oddNodes);
+		
 		eulerGraph = unionWithTree(pairs, eulerGraph);
-		ArrayList<String> cycle =  eurlerCycle(eulerGraph, V.get(0));
+		
+		ArrayList<String> cycle =  eulerCycle(eulerGraph,V.get(0));
 		ArrayList<String> result = takeShortcuts(cycle);
 		double distance = getRouteDistance(result);
 		result = getMetrics(result, startTime, distance);
@@ -55,27 +58,26 @@ public class ChristofidesSolver extends BasicSolver {
 		return route;
 	}
 	
-	private ArrayList<String> eurlerCycle(Graph euler, String start) {
+	private ArrayList<String> eulerCycle(Graph euler, String start){
+		Stack<String> stack = new Stack<String>();
+		stack.push(start);
+		ArrayList<String> route = new ArrayList<String>();
 		
-		ArrayList<Edge> used = new ArrayList<Edge>();
-		ArrayList<Edge> edges = eulerGraph.getRoads();
-		String current = start;
-		ArrayList<String> cycle = new ArrayList<String>();
-		cycle.add(current);
-		while(used.size() < edges.size()){
-			ArrayList<Edge> roads = euler.getRoadsFromCity(current);
-			for(Edge e: roads){
-				Edge inverse = euler.getRoad(e.getTo(), e.getFrom());
-				if(!(used.contains(e) || used.contains(inverse))){
-					used.add(e);
-					used.add(inverse);
-					cycle.add(e.getTo());
-					current = e.getTo();
-					break;
-				}
-			}
-		}
-		return cycle;	
+		while(!stack.isEmpty()) {
+			String from = stack.peek();
+			ArrayList<Edge> edges = euler.getRoadsFromCity(from);
+			if(!edges.isEmpty()){
+				
+				String to = edges.get(0).getTo();
+				stack.push(to);
+				
+				Edge inverse = euler.getRoad(to, edges.get(0).getFrom());
+				euler.deleteEdge(edges.get(0));
+				euler.deleteEdge(inverse);
+			} else
+				route.add(stack.pop());			
+		}		
+		return route;
 	}
 	
 	private ArrayList<Pair<String, String>> getMinimalPairs(ArrayList<String> oddNodes) {

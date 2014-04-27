@@ -114,4 +114,10 @@ public class GraphBasic implements Graph {
 		cities =  graph.getCities();
 	}
 
+	@Override
+	public void deleteEdge(Edge edge) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }
