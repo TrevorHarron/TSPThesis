@@ -36,12 +36,11 @@ public class Experimenter {
 		try {
 			fileWriter = new FileWriter(RESULTS_CSV);
 			printW = new PrintWriter(fileWriter);
+			printW.print("SOLVER NUMBER,STATE,NUM CITIES,TIME,MEMORY,DISTANCE\n");
+			printW.flush();
 			for(int solverNum = SolverFactory.CHRS; solverNum >= SolverFactory.NN; solverNum--){
 				factory.setChoice(solverNum);
 				System.out.println("Solver: "+solverNum);
-					
-				printW.print("SOLVER NUMBER,STATE,TIME,MEMORY,DISTANCE\n");
-				printW.flush();
 				for(int fileNum = 0; fileNum<6;fileNum++){
 					if(fileNum != 4){
 					graph = gFactory.getGraph(GraphSymmetric.class);
@@ -49,7 +48,7 @@ public class Experimenter {
 					kml.readFile(CITIES,graph,STATES.get(fileNum));
 					csv.readFile(ROADS.get(fileNum),graph,"");
 					graph.finalize();
-					
+					int numCities =  graph.getCities().keySet().size();
 					@SuppressWarnings("serial")
 					HashMap<Integer,Double> avgs 
 						= new HashMap<Integer,Double>(){{
@@ -65,7 +64,7 @@ public class Experimenter {
 						
 						ArrayList<String> result = solver.solve();
 							
-						printW.print(solverNum+","+STATES.get(fileNum)+",");
+						printW.print(solverNum+","+STATES.get(fileNum)+","+numCities+",");
 						int size = result.size();
 						for(int index = result.size()-3; index < result.size(); index++){
 							int currentNum = size-1-index;
@@ -77,7 +76,7 @@ public class Experimenter {
 						printW.print("\n");
 						printW.flush();
 					}
-					printW.print(solverNum+","+"AVG-"+STATES.get(fileNum)+",");
+					printW.print(solverNum+","+"AVG-"+STATES.get(fileNum)+","+numCities+",");
 					for(int key = 2; key >=0; key--){
 						printW.print(avgs.get(key)/(double)maxTimes);
 						if(key!=3) printW.print(",");
