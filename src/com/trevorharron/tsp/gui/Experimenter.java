@@ -11,14 +11,13 @@ import com.trevorharron.tsp.reader.KMLReader;
 import com.trevorharron.tsp.solvers.Solver;
 import com.trevorharron.tsp.solvers.SolverFactory;
 
+import com.trevorharron.tsp.data.FileNames;
 import com.trevorharron.tsp.graph.Graph;
 import com.trevorharron.tsp.graph.GraphFactory;
 import com.trevorharron.tsp.graph.GraphSymmetric;
 
-import static com.trevorharron.tsp.data.FileNames.RESULTS_CSV;
-import static com.trevorharron.tsp.data.FileNames.ROADS;
 import static com.trevorharron.tsp.data.FileNames.STATES;
-import static com.trevorharron.tsp.data.FileNames.CITIES;
+
 
 public class Experimenter {
 	
@@ -32,9 +31,10 @@ public class Experimenter {
 		FileWriter fileWriter;
 		PrintWriter printW;
 		GraphFactory gFactory =  new GraphFactory();
+		FileNames fn = new FileNames();
 		int maxTimes = 100;
 		try {
-			fileWriter = new FileWriter(RESULTS_CSV);
+			fileWriter = new FileWriter(fn.RESULTS_CSV);
 			printW = new PrintWriter(fileWriter);
 			printW.print("SOLVER NUMBER,STATE,NUM CITIES,TIME,MEMORY,DISTANCE\n");
 			printW.flush();
@@ -45,8 +45,8 @@ public class Experimenter {
 					if(fileNum != 4){
 					graph = gFactory.getGraph(GraphSymmetric.class);
 					System.out.println(STATES.get(fileNum));
-					kml.readFile(CITIES,graph,STATES.get(fileNum));
-					csv.readFile(ROADS.get(fileNum),graph,"");
+					kml.readFile(fn.CITIES,graph,STATES.get(fileNum));
+					csv.readFile(fn.ROADS.get(fileNum),graph,"");
 					graph.finalize();
 					int numCities =  graph.getCities().keySet().size();
 					@SuppressWarnings("serial")
@@ -86,7 +86,7 @@ public class Experimenter {
 					} catch( Exception e){
 						System.out.println("Solver number: "+solverNum);
 						e.printStackTrace();
-						printW.print(solverNum+","+STATES.get(fileNum)+",N/A,N/A,N/A\n");
+						printW.print(solverNum+","+STATES.get(fileNum)+"\n");
 					}
 				}
 				}

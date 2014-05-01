@@ -64,10 +64,11 @@ public class TPSApplet extends Applet{
 		graph = new GraphSymmetric();
 		factory = new SolverFactory();
 		points = new HashMap<String,Pair<Double,Double>>();
+		FileNames fn = new FileNames();
 		
 		try {
-			kml.readFile(FileNames.CITIES,graph,"RI");
-			csv.readFile(FileNames.ROADS.get(0),graph,"RI");	
+			kml.readFile(fn.CITIES,graph,"RI");
+			csv.readFile(fn.ROADS.get(0),graph,"RI");	
 		} catch(Exception e) {
 			e.printStackTrace();
 		}

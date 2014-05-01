@@ -17,9 +17,10 @@ public class ReaderTester {
 		DataReader kml = new KMLReader();
 		DataReader csv = new CSVReader();
 		GraphSymmetric graph = new GraphSymmetric();
+		FileNames fn = new FileNames();
 		try{
-			kml.readFile(FileNames.TEST_KML,graph,"A");
-			csv.readFile(FileNames.TEST_CSV,graph,"A");
+			kml.readFile(fn.TEST_KML,graph,"A");
+			csv.readFile(fn.TEST_CSV,graph,"A");
 			graph.makeRoadMatrix();
 			Solver nn = new NNSolver(graph);
 			System.out.println(nn.solve());

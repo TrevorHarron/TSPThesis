@@ -16,6 +16,7 @@
 
 \parindent=0in
 \parskip=7.2pt
+\openup 1.5em
 
 \begin{document}
 
@@ -157,7 +158,7 @@ $\proc{public ArrayList$<String>$ solve}()$ throws NoSolutionException\{
 \}
 \end{codebox}
 \tab As can be seen above this is also a very intuitive construction heuristic based of the theory that using the shortest edges will help create the shortest route. However, like Nearest Neighbor, this algorithm has no guarantee of a upper bound on the distance returned though the Greedy algorithm averages within 15-20\% of the Held-Karp lower bound\cite{htspc}.\\
-\tab Before moving forward with the analysis of this solution, it should be noted that there are two different graphs here. The first (named graph) is similar to the Nearest-Neighbor approach and is simply is the graph that the solver is working with. The second graph (named pathGraph) is just the vertexes of graph and is used to help simplify the examination of the edges added to the graph in the form of the functions makesCycleLessThanN() and moreThanTwoDegrees(). These functions each take $O(n)$ time in the worst case scenario. The check for making a cycle is simply an iterative linear-search since the graph used (the pathGraph) only has the set of roads in the route making checking for a cycle simply going from one node to the next and seeing if we have seen it before. The process of checking if an edge would increase the degree to be greater than two also relies on the path graph and count the instances that a edge is being used to go to a node and from a node and if the sum of any of counts for a city are more than 2 then returning true. This means that the overall runtime of the algorithm is at most $O(EN)$ where E is the number of Edges that the graph has. Now I say this in the instance that there is no guarantee that in the number of cities N a solution will be found but in iterating over the Edges we find the solution doing $O(N)$ work from the previously mentioned functions for each Edge. It should be noted however, that the sorting of the edges is done int $O(nlogn)$ time and thus in this case is $O(ElogE)$ time and $O(E)$ space used. Therefore the entire algorithm runs in $O(ElogE + NE)$ time and $O(E+N)$ space.\\
+\tab Before moving forward with the analysis of this solution, it should be noted that there are two different graphs here. The first (named graph) is similar to the Nearest-Neighbor approach and is simply is the graph that the solver is working with. The second graph (named pathGraph) is just the vertexes of graph and is used to help simplify the examination of the edges added to the graph in the form of the functions makesCycleLessThanN() and moreThanTwoDegrees(). These functions each take $O(n)$ time in the worst case scenario. The check for making a cycle is simply an iterative linear-search since the graph used (the pathGraph) only has the set of roads in the route making checking for a cycle simply going from one node to the next and seeing if we have seen it before. The process of checking if an edge would increase the degree to be greater than two also relies on the path graph and count the instances that a edge is being used to go to a node and from a node and if the sum of any of counts for a city are more than 2 then returning true. This means that the overall runtime of the algorithm is at most $O(N^2)$ where E is the number of Edges that the graph has. Now I say this in the instance that there is no guarantee that in the number of cities N a solution will be found but in iterating over the Edges we find the solution doing $O(N)$ work from the previously mentioned functions for each Edge. It should be noted however, that the sorting of the edges is done int $O(nlogn)$ time and thus in this case is $O(ElogE)$ time and $O(E)$ space used. Therefore the entire algorithm runs in $O(ElogE + N^2)$ or $O(N^2)$ time and $O(E+N)$ space.\\
 \tab From this approach a few things are especially reverent, the first is that since we are looking at the same set of sorted roads each time the solver is run, while the start of the route may change, the amount of time, distance and space stays relatively static. This provides for a consistency guarantee that might be desirable in some instances. The amount of overhead knowledge that is required by this algorithm is also very small, all that is required for the helper functions is some knowledge of graph theory with some simple algorithms related to finding cycles. If you are also constructing the actual graph (as was done above) then this task become even simpler to accomplish. Overall, this is a simple algorithm to also implement but it should be no surprise that the developer would need to not only have the Edges implement a comparable interface but also ensure that the destructive behaviors of the algorithm do not affect the graph as a whole.
 
 \section{Minimum Spanning Tree}
@@ -166,7 +167,7 @@ $\proc{public ArrayList$<String>$ solve}()$ throws NoSolutionException\{
 $\proc{MSTHeuristic}(G)$:
 \begin{codebox}
 \li T $\gets$ make a MST of G
-\li \Return the inorder transversal of T
+\li \Return the depth-first transversal of T
 \end{codebox}
 This is a little more complicated in practice as seen in the Java Implementation:\\
 $\proc{public ArrayList$<String>$ solve}()$ throws NoSolutionException \{
@@ -208,13 +209,13 @@ And the Java implementation below:\\
 $\proc{public ArrayList$<String>$ solve}()$\{
 \begin{codebox}
 long startTime = System.nanoTime();\\
-\tab ArrayList<ArrayList<String>> population =  makePopulation();\\
+\tab ArrayLis$<$ArrayList<String$>>$ population =  makePopulation();\\
 \tab\For(int k = 0; $k < 500;$ k++)\{\\
-\tab\tab ArrayList<ArrayList<String>> parents = darwinsTheory(population);\\
+\tab\tab ArrayList$<$ArrayList<String$>>$ parents = darwinsTheory(population);\\
 \tab\tab population = breed(parents, population.size());\\
 \tab\tab population =  mutate(population);\End\\
 \tab\}\\
-\tab ArrayList<String> result = findBest(population);\\
+\tab ArrayList$<$String$>$ result = findBest(population);\\
 \tab double distance = getRouteDistance(result);\\
 \tab result = getMetrics(result,startTime,distance);\\
 \Return result;\\
@@ -283,14 +284,43 @@ $\proc{public ArrayList$<String>$ solve}()$\{
 \tab Overall, the improvements that could have been implemented instead of the implementations that are used in the course of this paper. The improvements would include the use of different algorithms in the heuristics, better coding practices in general, and even other languages. However, most of the improvements re outside of the scope of the paper in terms of time and content. With the discussion of improvements acknowledged, the next logical step is to discuss the actual results of the hueristics.
 
 \chapter{Results}
-\tab It is clear fromthe previous sectoins that there is a level of complexity in each of the implementations there is a level of algorithmic complexity and implementation complexity that should be considered. This leaves the question however of how does this translate in to quantifiable comparisons between the different heuristics? To help with examining the overal preformance of the heuristics several charts have been displayed and each one will be explained in detail. Each of these charts comes from running the heuristics on five different states with a different numbers of cities for each. The charts that will be examined are the bar-and-whisker (box) plot and several line charts. The bar and whisker plots for those that do not knwo what they are or hwo to read them look at not only the average of the data gathered but also the distribution of that data. The line charts represent the scaling of the heuristic's time multiplied by the distance over the number of cities as well as the space consumption multiplied by the distance. These measurements are meant to show the overall efficiency of the heuristics in terms of the time and the space and how those heuristics compare overall. The final set of charts goes over the amount of time that the heuristic uses by the distance so that as potential implementers, there can b an idea of what the expected distances for a given heuristic would be.\\
-plot1 & plot2\\
-explination\\
-plot3 & 4\\
-explination\\
-bar and whisker\\
+\tab It is clear from the previous sections that there is a level of complexity in each of the implementations there is a level of algorithmic complexity and implementation complexity that should be considered. This leaves the question however of how does this translate in to quantifiable comparisons between the different heuristics? To help with examining the overal preformance of the heuristics several charts have been displayed and each one will be explained in detail. Each of these charts comes from running the heuristics on five different states with a different numbers of cities for each. The charts that will be examined are the bar-and-whisker (box) plot and several line charts. The bar and whisker plots for those that do not knwo what they are or hwo to read them look at not only the average of the data gathered but also the distribution of that data. The line charts represent the scaling of the heuristic's time multiplied by the distance over the number of cities as well as the space consumption multiplied by the distance. These measurements are meant to show the overall efficiency of the heuristics in terms of the time and the space and how those heuristics compare overall. The final set of charts goes over the amount of time that the heuristic uses by the distance so that as potential implementers, there can b an idea of what the expected distances for a given heuristic would be.\\
+\tab To confirm the differences in the data there were t-tests run on each of the metrics (distance, time and space). Each of these t-tests were taken in relation from one heuristic to the others and had values of below $.29$ if not significantly less. This helps show that the data from each of the heuristics is different enough to suggest a strong difference and validity in the results.\\
+\tab Below in figure 5:1 there is bar and whisker plots with and without the genetic algorithm respectively. Each of these graphs shows the distribution in the distances the routes provide interms  of the number of cities they were given.  From what can be seen below: it is clear that overall, the heuristics come up with similar distances and distributions with a few outliers to be noted. The first is that the genetic algorithm was not preforming very well or consistantly and the second is that due to the determinism of the Greedy heuristics there is no distribution though it is hardly reliable since there are some cases where it will not find a route (in this case the state of Delaware with 83 cities). Before moving on to other heuristics it is importnats to note that there is no correlation between the number of cities and the distances of the routes found. This is reflected in the fact taht there can be more cities densely packed together shortening the network distances of the edges.\\
+\begin{figure}[t]
+	\begin{center}
+	\caption{The top plot has all of the heuristics with the botthom all but the Genetic hueristic.}
+	\includegraphics[width=.95\textwidth]{box_w_gen}
+	\includegraphics[width=.95\textwidth]{box_wo_gen}
+	\end{center}
+\end{figure}
+\tab Upon inspecting these graphs it is clear to see that the algorithm that consistantly finds the shortest distance is the Christofides algorithm. This is to be expected given the upper bound guarentees of distance that the hueristic provides. As for the second best algorithm, there seems to be a toss up in terms of distances between the various other heuristics. The two more consistant algorithms were the Minimum Spanning Tree (MST) and the Greedy Heuristic. In terms of actutal average distance the Nearest Neighbor was comparable to both the MST and the Christofides heursitics. This suggests that the various approaches preform similarly and that the upper bound guarentees are a set of insurances but not a hardline for how the hueristic with preform in the real world. \\
+\begin{figure}[t!]
+	\begin{center}
+	\caption{The top plot has all of the heuristics and the their runtime  and the bottom shows has all but their memory use.}
+	\includegraphics[width=.95\textwidth]{time_numcities}
+	\includegraphics[width=.95\textwidth]{mem_numcities}
+	\end{center}
+\end{figure}
+\tab Needless to stay ther are more comparisions that need to be made to see how these heuristics preformed overall. The next set of graphs is based on the usage of the memory (in Kilobytes KB) and the time (in seconds) of each of the heuristics. For the sake of simplicity the mean average for the time and space measurement have been plotted on figure 5:2.\\
+\tab For the amount of time that the heuristics run in there are a few intersting items to be observed. First is that Nearest Neighbor heuristic consitantly has a runtime of near zero and stays close to that regardless of the number of cities. This is parculiar since it means that with a single pass through the data that it finds a solution instead of having to do several extra functions at each iteration. As for the next two heuristics MST and Christofides, there is clearly more time used and this can be described two ways. The first is that the algorithmic complexities are higher than the NN aproach by a factor of $\log(n)$. While this does not seem like a lot it clearly has an impact on the actual runtime of the heuritics. With the Genetic heuristic then also took a lot of time. This comes from the constant amount of iterations that heuristis always runs reguardless of if the heuristic as found a good solution or not. While in the long run the other heuristics should take more time than the offset of the constant but apparently for the states that were used in the test, this is not the case. This is interesting in that it means that there could be room for improving the stopping point of the Genetic hueristic. Finally, the other item that should be observed is the amount of time that it takes for the Greedy heuristic to run. The interest stems from the fact that the algorithmic complexity is $O(N^2)$ just like the Nearest Neighbor heuristic but takes vastly more time than Nearest Neighbor. This could be because the heuristic has to take more iterations to find the solution and for iteration checking the degrees and if a cycle is made. The fact that there are two steps in each iteration allows for and extra amount of work that was not present in the other constuction heuristics. It also is telling that the approach apparently expends the entirety of the number of iterations to find the solution hence the running times of the heuristics.\\
+\begin{figure}[h!]
+	\begin{center}
+	\caption{The top plot has all of the heuristics and the their runtime times the distance and the bottom shows has all but their memory use times their distance.}
+	\includegraphics[width=.95\textwidth]{timexdistance_numcities}
+	\includegraphics[width=.95\textwidth]{memxdistance_numcities}
+	\end{center}
+\end{figure}
+\tab In regards to the memory usage the methods used were described in chapter 2, however the spikes in Nearest Neighbor and MST are supposedly due to the startup memory that is need at start up in running the heuristics. What is interesting here though is that the algorithmic space complexity is $O(N+E)$ or $O(N)$ for each of the heuristics and that the usage of memory conforms to this. This is seen through the slight parabolic curves of the the heuristics. The non linear curve could easily be explained by the amount of memory that the graph takes up for each heuristic $O(N^2)$. The consistant slope of each of these heuristics is due to the fact that the hueristics are all adding a similar amount to the memory usage as a whole. As for the early spikes in the Nearest Neighbor heuristic and the Minimum Spanning Tree heuristic, it can only be supposed that this phenomeon is due to the overhead of startup. That being said obviously there should be mroe investigation into this phenomenon, but in examining the individual characteristics it appears to be a single outlier that skews the whole mean. All and all, in terms of the memory usage all of the heuristics are similar enough to eachother in terms of average value that there is not a clear advangtage of one heuristic over the others.\\
+\tab Figure 5:3 help bring the various heuristics into a sharper focus in terms of which are more useful in implementation than the others. This is attempted by looking at in essence the ratio of the distace and the time and memory used for each heuristic. The result is that thier is a greater separation of the heuritics than in the previous figures. The result of thsi separation allows for a more indepth inspection of the the various heuristics and their overall preformace across multiple metrics. For instance, while the genetic heuristic is in the relatively similar postion as in figure 5:1, the Greedy heusristic becomes distinct in looking at the product of time and distance. Interestingly, The other three heuristics are pretty similar to eachother but with Nearest Neighbor having the best ratio of distance and time. In terms of memory and distance, with the exception of genetic heuristics the heuristics are pretty similar. The difference in the gentic heuristic can be seen from the fact that the distances are on adverage significantly more than the others. Overall, it is clear that from an actual distance, runtime,a nd memory perspective that MST, Christofides, and Nearest Neighbor are the strongest heuristics.
 \chapter{Conclusions}
-Pending\\
+\tab NN\\
+\tab Greedy \\
+\tab MST
+\tab From just looking at the distribution of route distances and time and space usage, it is clear that the genetic algorithms are far from perfect and while they do almsot as well as the other heuristics on smaller numbers of cities are not the ideal approach. This is said based on the average distance and the distribution of distances, the ammount of time used which was the second worst among the heuristics and that the fact that the memor usage was on par with the results of the other heuristics.\\
+\tab Christofides
+\chapter{Acknowledgements}
+Pending
 \bibliography{Thesis}
 
 \end{document}
