@@ -1,22 +1,23 @@
 \contentsline {chapter}{\numberline {1}Introduction}{6}
-\contentsline {chapter}{\numberline {2}The Data and Methodologies}{19}
-\contentsline {section}{\numberline {2.1}The Data}{19}
-\contentsline {section}{\numberline {2.2}Data Preprocessing}{21}
-\contentsline {section}{\numberline {2.3}Methods}{24}
-\contentsline {chapter}{\numberline {3}Algorithms}{27}
-\contentsline {section}{\numberline {3.1}Conventions of Pseudo-code}{27}
-\contentsline {section}{\numberline {3.2}Nearest Neighbor}{27}
-\contentsline {section}{\numberline {3.3}Greedy}{31}
-\contentsline {section}{\numberline {3.4}Minimum Spanning Tree}{35}
-\contentsline {section}{\numberline {3.5}Genetic Algorithms}{38}
-\contentsline {section}{\numberline {3.6}Christofides}{40}
-\contentsline {chapter}{\numberline {4}Possible Improvements}{44}
-\contentsline {section}{\numberline {4.1}General Improvements}{45}
-\contentsline {section}{\numberline {4.2}Nearest Neighbor and Greedy}{47}
-\contentsline {section}{\numberline {4.3}Minimum Spanning Tree}{48}
-\contentsline {section}{\numberline {4.4}Genetic Algorithms}{49}
-\contentsline {section}{\numberline {4.5}Christofides}{50}
-\contentsline {section}{\numberline {4.6}Commentary on Implementation}{52}
-\contentsline {chapter}{\numberline {5}Results}{55}
-\contentsline {chapter}{\numberline {6}Conclusions}{62}
-\contentsline {chapter}{Bibliography}{69}
+\contentsline {chapter}{\numberline {2}The Data and Methodologies}{15}
+\contentsline {section}{\numberline {2.1}The Data}{15}
+\contentsline {section}{\numberline {2.2}Data Preprocessing}{16}
+\contentsline {section}{\numberline {2.3}Methods}{19}
+\contentsline {chapter}{\numberline {3}Heuristics}{22}
+\contentsline {section}{\numberline {3.1}Introduction and Conventions of Pseudo-code}{22}
+\contentsline {section}{\numberline {3.2}Nearest Neighbor}{22}
+\contentsline {section}{\numberline {3.3}Greedy}{25}
+\contentsline {section}{\numberline {3.4}Minimum Spanning Tree}{29}
+\contentsline {section}{\numberline {3.5}Genetic Algorithms}{32}
+\contentsline {section}{\numberline {3.6}Christofides}{34}
+\contentsline {chapter}{\numberline {4}Possible Improvements}{37}
+\contentsline {section}{\numberline {4.1}General Improvements}{37}
+\contentsline {section}{\numberline {4.2}Nearest Neighbor and Greedy}{39}
+\contentsline {section}{\numberline {4.3}Minimum Spanning Tree}{40}
+\contentsline {section}{\numberline {4.4}Genetic Algorithms}{42}
+\contentsline {section}{\numberline {4.5}Christofides}{42}
+\contentsline {section}{\numberline {4.6}Commentary on Implementation}{44}
+\contentsline {chapter}{\numberline {5}Results}{47}
+\contentsline {chapter}{\numberline {6}Conclusions}{54}
+\contentsline {chapter}{\numberline {A}The Use of Java}{61}
+\contentsline {chapter}{Bibliography}{63}

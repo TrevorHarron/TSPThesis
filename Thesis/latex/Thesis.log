@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.4.1)  1 MAY 2014 22:27
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.4.1)  14 MAY 2014 16:23
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -277,20 +277,20 @@ Chapter 1.
 [6
 
 
-] [7] [8] [9] [10] [11] [12] [13] [14] [15] [16] [17] [18]
+] [7] [8] [9] [10] [11] [12] [13] [14]
 Chapter 2.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <14.4> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 55.
-[19
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 53.
+[15
 
-] [20]
-Underfull \hbox (badness 10000) in paragraph at lines 62--66
+]
+Underfull \hbox (badness 10000) in paragraph at lines 61--65
 
  []
 
-[21] [22] [23] [24] [25] [26]
+[16] [17] [18] [19] [20] [21]
 Chapter 3.
-[27
+[22
 
 ]
 LaTeX Font Info:    Try loading font information for OMS+ptm on input line 91.
@@ -299,124 +299,142 @@ File: omsptm.fd
 )
 LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <12> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 91.
-
-Warning: Indentation ends at level 1 in codebox on page 28.
-[28]
-Warning: Indentation ends at level -1 in codebox on page 29.
-[29] [30] [31] [32] [33] [34]
+ [23] [24]
+[25] [26] [27] [28]
 Underfull \hbox (badness 10000) in paragraph at lines 173--174
 
  []
 
-[35] [36] [37] [38] [39] [40]
-Warning: Indentation ends at level 1 in codebox on page 41.
-[41] [42] [43]
+[29] [30] [31]
+Warning: Indentation ends at level 1 in codebox on page 32.
+Warning: Indentation ends at level -1 in codebox on page 32.
+[32] [33]
+Underfull \hbox (badness 10000) in paragraph at lines 249--250
+
+ []
+
+[34]
+Warning: Indentation ends at level 1 in codebox on page 35.
+[35] [36]
 Chapter 4.
 
-Underfull \hbox (badness 10000) in paragraph at lines 273--274
+Underfull \hbox (badness 10000) in paragraph at lines 277--278
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 275--278
+Underfull \hbox (badness 10000) in paragraph at lines 279--282
 
  []
 
-[44
+[37
 
-] [45] [46]
-Underfull \hbox (badness 10000) in paragraph at lines 279--280
-
- []
-
-[47]
-Underfull \hbox (badness 10000) in paragraph at lines 281--283
+] [38]
+Underfull \hbox (badness 10000) in paragraph at lines 283--284
 
  []
 
-[48]
-Underfull \hbox (badness 10000) in paragraph at lines 284--285
+[39]
+Underfull \hbox (badness 10000) in paragraph at lines 285--287
 
  []
 
-[49]
-Underfull \hbox (badness 10000) in paragraph at lines 286--289
+[40]
+Underfull \hbox (badness 10000) in paragraph at lines 288--289
 
  []
 
-[50] [51] [52] [53] [54]
+[41]
+Underfull \hbox (badness 10000) in paragraph at lines 290--293
+
+ []
+
+[42] [43] [44] [45] [46]
 Chapter 5.
-<box_w_gen.png, id=182, 795.97375pt x 381.425pt>
+<box_w_gen.png, id=156, 795.97375pt x 381.425pt>
 File: box_w_gen.png Graphic file (type png)
  <use box_w_gen.png>
-Package pdftex.def Info: box_w_gen.png used on input line 301.
+Package pdftex.def Info: box_w_gen.png used on input line 305.
 (pdftex.def)             Requested size: 398.20662pt x 190.81679pt.
 
-<box_wo_gen.png, id=183, 795.97375pt x 381.425pt>
+<box_wo_gen.png, id=157, 795.97375pt x 381.425pt>
 File: box_wo_gen.png Graphic file (type png)
  <use box_wo_gen.png>
-Package pdftex.def Info: box_wo_gen.png used on input line 302.
+Package pdftex.def Info: box_wo_gen.png used on input line 306.
 (pdftex.def)             Requested size: 398.20662pt x 190.81679pt.
 
-<time_numcities.png, id=184, 795.97375pt x 381.425pt>
+<time_numcities.png, id=158, 795.97375pt x 381.425pt>
 File: time_numcities.png Graphic file (type png)
  <use time_numcities.png>
-Package pdftex.def Info: time_numcities.png used on input line 309.
+Package pdftex.def Info: time_numcities.png used on input line 313.
 (pdftex.def)             Requested size: 398.20662pt x 190.81679pt.
 
-<mem_numcities.png, id=185, 795.97375pt x 381.425pt>
+<mem_numcities.png, id=159, 795.97375pt x 381.425pt>
 File: mem_numcities.png Graphic file (type png)
  <use mem_numcities.png>
-Package pdftex.def Info: mem_numcities.png used on input line 310.
+Package pdftex.def Info: mem_numcities.png used on input line 314.
 (pdftex.def)             Requested size: 398.20662pt x 190.81679pt.
 
-<timexdistance_numcities.png, id=186, 795.97375pt x 381.425pt>
+<timexdistance_numcities.png, id=160, 795.97375pt x 381.425pt>
 File: timexdistance_numcities.png Graphic file (type png)
 
 <use timexdistance_numcities.png>
-Package pdftex.def Info: timexdistance_numcities.png used on input line 318.
+Package pdftex.def Info: timexdistance_numcities.png used on input line 322.
 (pdftex.def)             Requested size: 398.20662pt x 190.81679pt.
 
-<memxdistance_numcities.png, id=187, 795.97375pt x 381.425pt>
+<memxdistance_numcities.png, id=161, 795.97375pt x 381.425pt>
 File: memxdistance_numcities.png Graphic file (type png)
 
 <use memxdistance_numcities.png>
-Package pdftex.def Info: memxdistance_numcities.png used on input line 319.
+Package pdftex.def Info: memxdistance_numcities.png used on input line 323.
 (pdftex.def)             Requested size: 398.20662pt x 190.81679pt.
- [55
+ [47
 
-] [56] [57 <./box_w_gen.png (PNG copy)> <./box_wo_gen.png (PNG copy)>] [58 <./t
+] [48] [49 <./box_w_gen.png (PNG copy)> <./box_wo_gen.png (PNG copy)>] [50 <./t
 ime_numcities.png (PNG copy)> <./mem_numcities.png (PNG copy)>]
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[59] [60 <./timexdistance_numcities.png (PNG copy)> <./memxdistance_numcities.p
-ng (PNG copy)>] [61]
+[51] [52 <./timexdistance_numcities.png (PNG copy)> <./memxdistance_numcities.p
+ng (PNG copy)>] [53]
 Chapter 6.
-[62
+[54
 
-] [63] [64] [65] [66] [67] (./Thesis.bbl [68]
+] [55] [56] [57] [58] [59] [60]
+Appendix A.
+
+Underfull \hbox (badness 10000) in paragraph at lines 345--346
+
+ []
+
+[61
+
+] (./Thesis.bbl [62]
 Missing character: There is no â in font ptmr7t!
 Missing character: There is no € in font ptmr7t!
 Missing character: There is no “ in font ptmr7t!
 Missing character: There is no â in font ptmr7t!
 Missing character: There is no € in font ptmr7t!
 Missing character: There is no “ in font ptmr7t!
- [69
+ [63
 
-]) [70] (./Thesis.aux)
+]
+Missing character: There is no â in font ptmr7t!
+Missing character: There is no € in font ptmr7t!
+Missing character: There is no “ in font ptmr7t!
+) [64] (./Thesis.aux)
 
 LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 2948 strings out of 495031
- 41671 string characters out of 6181532
- 143039 words of memory out of 5000000
- 6092 multiletter control sequences out of 15000+600000
+ 2951 strings out of 495031
+ 41687 string characters out of 6181532
+ 125290 words of memory out of 5000000
+ 6095 multiletter control sequences out of 15000+600000
  21929 words of font info for 50 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 38i,7n,23p,2965b,289s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 38i,7n,23p,2884b,289s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texliv
 e/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texm
 f-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/
@@ -426,10 +444,10 @@ lic/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/am
 sfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a
 .pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/shar
 e/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on Thesis.pdf (70 pages, 369224 bytes).
+Output written on Thesis.pdf (64 pages, 363881 bytes).
 PDF statistics:
- 273 PDF objects out of 1000 (max. 8388607)
- 184 compressed objects within 2 object streams
+ 254 PDF objects out of 1000 (max. 8388607)
+ 171 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
  31 words of extra memory for PDF output out of 10000 (max. 10000000)
 

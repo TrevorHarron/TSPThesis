@@ -1,0 +1,730 @@
+ObjectID,Name,OriginID,Destinatio,Destinat_1,Total_Leng
+1,Woonsocket - Woonsocket,2152,1,1,      0.00000000000
+2,Woonsocket - Cumberland Hill,2152,2,2,   6357.33621888000
+3,Woonsocket - Valley Falls,2152,3,3,  12251.01181860000
+4,Woonsocket - Harrisville,2152,4,4,  16295.33445180000
+5,Woonsocket - Greenville,2152,9,5,  17292.10843510000
+6,Woonsocket - Providence,2152,12,6,  19078.35596800000
+7,Woonsocket - North Providence,2152,8,7,  20591.52426410000
+8,Woonsocket - Harmony,2152,10,8,  20843.52607850000
+9,Woonsocket - Pawtucket,2152,6,9,  23013.43815670000
+10,Woonsocket - Pascoag,2152,7,10,  23169.82190180000
+11,Woonsocket - Central Falls,2152,5,11,  23301.05552690000
+12,Woonsocket - Cranston,2152,13,12,  24294.25231550000
+13,Woonsocket - Warwick,2152,17,13,  30254.64108100000
+14,Woonsocket - East Providence,2152,11,14,  32322.06355700000
+15,Woonsocket - West Warwick,2152,18,15,  39043.89061040000
+16,Woonsocket - Barrington,2152,14,16,  42100.63260110000
+17,Woonsocket - East Greenwich,2152,19,17,  43867.70925820000
+18,Woonsocket - Bristol,2152,15,18,  51159.89422800000
+19,Woonsocket - Tiverton,2152,16,19,  65105.16217300000
+20,Woonsocket - Wakefield,2152,24,20,  65988.82395500000
+21,Woonsocket - Kingston,2152,22,21,  67750.69804240001
+22,Woonsocket - Hope Valley,2152,23,22,  67797.67010680000
+23,Woonsocket - West Kingston,2152,21,23,  68789.30255640000
+24,Woonsocket - Newport,2152,20,24,  71306.29470400000
+25,Woonsocket - Ashaway,2152,25,25,  77941.30168020001
+26,Woonsocket - Westerly,2152,27,26,  88793.89231480000
+27,Woonsocket - Bradford,2152,26,27,  91209.86060669999
+28,Cumberland Hill - Cumberland Hill,2153,2,1,      0.00000000000
+29,Cumberland Hill - Valley Falls,2153,3,2,   5893.67559974000
+30,Cumberland Hill - Woonsocket,2153,1,3,   6357.33621888000
+31,Cumberland Hill - Greenville,2153,9,4,  13969.32089370000
+32,Cumberland Hill - Providence,2153,12,5,  15755.56842670000
+33,Cumberland Hill - North Providence,2153,8,6,  17268.73672270000
+34,Cumberland Hill - Harmony,2153,10,7,  17520.73853720000
+35,Cumberland Hill - Pawtucket,2153,6,8,  19690.65061540000
+36,Cumberland Hill - Central Falls,2153,5,9,  19978.26798560000
+37,Cumberland Hill - Cranston,2153,13,10,  20971.46477420000
+38,Cumberland Hill - Harrisville,2153,4,11,  22652.67067070000
+39,Cumberland Hill - Warwick,2153,17,12,  26931.85353960000
+40,Cumberland Hill - Pascoag,2153,7,13,  27528.59670380000
+41,Cumberland Hill - East Providence,2153,11,14,  28999.27601560000
+42,Cumberland Hill - West Warwick,2153,18,15,  35721.10306900000
+43,Cumberland Hill - Barrington,2153,14,16,  38777.84505980000
+44,Cumberland Hill - East Greenwich,2153,19,17,  40544.92171690000
+45,Cumberland Hill - Bristol,2153,15,18,  47837.10668660000
+46,Cumberland Hill - Tiverton,2153,16,19,  61782.37463160000
+47,Cumberland Hill - Wakefield,2153,24,20,  62666.03641370000
+48,Cumberland Hill - Kingston,2153,22,21,  64427.91050110000
+49,Cumberland Hill - Hope Valley,2153,23,22,  64474.88256550000
+50,Cumberland Hill - West Kingston,2153,21,23,  65466.51501500000
+51,Cumberland Hill - Newport,2153,20,24,  67983.50716260000
+52,Cumberland Hill - Ashaway,2153,25,25,  74618.51413880000
+53,Cumberland Hill - Westerly,2153,27,26,  85471.10477340000
+54,Cumberland Hill - Bradford,2153,26,27,  87887.07306530001
+55,Valley Falls - Valley Falls,2154,3,1,      0.00000000000
+56,Valley Falls - Cumberland Hill,2154,2,2,   5893.67559974000
+57,Valley Falls - Woonsocket,2154,1,3,  12251.01181860000
+58,Valley Falls - Central Falls,2154,5,4,  18073.65927650000
+59,Valley Falls - Pawtucket,2154,6,5,  18361.27664670000
+60,Valley Falls - Providence,2154,12,6,  19667.14840710000
+61,Valley Falls - Greenville,2154,9,7,  19862.99649340000
+62,Valley Falls - North Providence,2154,8,8,  21888.46409180000
+63,Valley Falls - Harmony,2154,10,9,  23414.41413690000
+64,Valley Falls - Cranston,2154,13,10,  24883.04475460000
+65,Valley Falls - East Providence,2154,11,11,  25398.71878390000
+66,Valley Falls - Harrisville,2154,4,12,  28546.34627040000
+67,Valley Falls - Warwick,2154,17,13,  30843.43352010000
+68,Valley Falls - Pascoag,2154,7,14,  33422.27230360000
+69,Valley Falls - Barrington,2154,14,15,  35177.28782810000
+70,Valley Falls - West Warwick,2154,18,16,  39632.68304950000
+71,Valley Falls - Bristol,2154,15,17,  44236.54945490000
+72,Valley Falls - East Greenwich,2154,19,18,  44456.50169730000
+73,Valley Falls - Tiverton,2154,16,19,  58181.81740000000
+74,Valley Falls - Newport,2154,20,20,  64382.94993100000
+75,Valley Falls - Wakefield,2154,24,21,  66577.61639410000
+76,Valley Falls - Kingston,2154,22,22,  68339.49048160001
+77,Valley Falls - Hope Valley,2154,23,23,  68386.46254600000
+78,Valley Falls - West Kingston,2154,21,24,  69378.09499550000
+79,Valley Falls - Ashaway,2154,25,25,  78530.09411930000
+80,Valley Falls - Westerly,2154,27,26,  89382.68475390000
+81,Valley Falls - Bradford,2154,26,27,  91798.65304580001
+82,Harrisville - Harrisville,2155,4,1,      0.00000000000
+83,Harrisville - Pascoag,2155,7,2,   6874.48744998000
+84,Harrisville - Harmony,2155,10,3,  13282.94170530000
+85,Harrisville - Woonsocket,2155,1,4,  16295.33445180000
+86,Harrisville - Greenville,2155,9,5,  16834.35934870000
+87,Harrisville - Cumberland Hill,2155,2,6,  22652.67067070000
+88,Harrisville - North Providence,2155,8,7,  25479.36076460000
+89,Harrisville - Valley Falls,2155,3,8,  28546.34627040000
+90,Harrisville - Providence,2155,12,9,  30486.15275270000
+91,Harrisville - Pawtucket,2155,6,10,  34421.23494140000
+92,Harrisville - Central Falls,2155,5,11,  34708.85231160000
+93,Harrisville - Cranston,2155,13,12,  35702.04910020000
+94,Harrisville - Warwick,2155,17,13,  38458.42959450000
+95,Harrisville - East Providence,2155,11,14,  43729.86034160000
+96,Harrisville - West Warwick,2155,18,15,  45259.92451840000
+97,Harrisville - East Greenwich,2155,19,16,  50083.74316620000
+98,Harrisville - Barrington,2155,14,17,  53508.42938580000
+99,Harrisville - Hope Valley,2155,23,18,  55508.17995150000
+100,Harrisville - Bristol,2155,15,19,  62567.69101260000
+101,Harrisville - Ashaway,2155,25,20,  65651.81152480000
+102,Harrisville - Wakefield,2155,24,21,  72204.85786300000
+103,Harrisville - Kingston,2155,22,22,  73966.73195040000
+104,Harrisville - West Kingston,2155,21,23,  75005.33646429999
+105,Harrisville - Westerly,2155,27,24,  76504.40215939999
+106,Harrisville - Tiverton,2155,16,25,  76512.95895760000
+107,Harrisville - Newport,2155,20,26,  82714.09148860000
+108,Harrisville - Bradford,2155,26,27,  84046.55048619999
+109,Central Falls - Central Falls,2156,5,1,      0.00000000000
+110,Central Falls - Pawtucket,2156,6,2,    287.61737019200
+111,Central Falls - Providence,2156,12,3,   7008.17586229000
+112,Central Falls - East Providence,2156,11,4,   9021.00803003000
+113,Central Falls - North Providence,2156,8,5,   9229.49154697000
+114,Central Falls - Cranston,2156,13,6,  12224.07220980000
+115,Central Falls - Greenville,2156,9,7,  17874.49296280000
+116,Central Falls - Valley Falls,2156,3,8,  18073.65927650000
+117,Central Falls - Warwick,2156,17,9,  18184.46097520000
+118,Central Falls - Barrington,2156,14,10,  18799.57707420000
+119,Central Falls - Cumberland Hill,2156,2,11,  19978.26798560000
+120,Central Falls - Harmony,2156,10,12,  21425.91060630000
+121,Central Falls - Woonsocket,2156,1,13,  23301.05552690000
+122,Central Falls - West Warwick,2156,18,14,  26973.71050470000
+123,Central Falls - Bristol,2156,15,15,  27858.83870100000
+124,Central Falls - Pascoag,2156,7,16,  31433.76877300000
+125,Central Falls - East Greenwich,2156,19,17,  31797.52915250000
+126,Central Falls - Harrisville,2156,4,18,  34708.85231160000
+127,Central Falls - Tiverton,2156,16,19,  41804.10664600000
+128,Central Falls - Newport,2156,20,20,  48005.23917710000
+129,Central Falls - Wakefield,2156,24,21,  53918.64384930000
+130,Central Falls - Kingston,2156,22,22,  55680.51793670000
+131,Central Falls - Hope Valley,2156,23,23,  55727.49000110000
+132,Central Falls - West Kingston,2156,21,24,  56719.12245060000
+133,Central Falls - Ashaway,2156,25,25,  65871.12157439999
+134,Central Falls - Westerly,2156,27,26,  76723.71220900000
+135,Central Falls - Bradford,2156,26,27,  79139.68050100000
+136,Pawtucket - Pawtucket,2157,6,1,      0.00000000000
+137,Pawtucket - Central Falls,2157,5,2,    287.61737019200
+138,Pawtucket - Providence,2157,12,3,   6720.55849209000
+139,Pawtucket - North Providence,2157,8,4,   8941.87417678000
+140,Pawtucket - East Providence,2157,11,5,   9308.62540022000
+141,Pawtucket - Cranston,2157,13,6,  11936.45483960000
+142,Pawtucket - Greenville,2157,9,7,  17586.87559260000
+143,Pawtucket - Warwick,2157,17,8,  17896.84360500000
+144,Pawtucket - Valley Falls,2157,3,9,  18361.27664670000
+145,Pawtucket - Barrington,2157,14,10,  19087.19444440000
+146,Pawtucket - Cumberland Hill,2157,2,11,  19690.65061540000
+147,Pawtucket - Harmony,2157,10,12,  21138.29323610000
+148,Pawtucket - Woonsocket,2157,1,13,  23013.43815670000
+149,Pawtucket - West Warwick,2157,18,14,  26686.09313450000
+150,Pawtucket - Bristol,2157,15,15,  28146.45607120000
+151,Pawtucket - Pascoag,2157,7,16,  31146.15140280000
+152,Pawtucket - East Greenwich,2157,19,17,  31509.91178230000
+153,Pawtucket - Harrisville,2157,4,18,  34421.23494140000
+154,Pawtucket - Tiverton,2157,16,19,  42091.72401620000
+155,Pawtucket - Newport,2157,20,20,  48292.85654720000
+156,Pawtucket - Wakefield,2157,24,21,  53631.02647910000
+157,Pawtucket - Kingston,2157,22,22,  55392.90056650000
+158,Pawtucket - Hope Valley,2157,23,23,  55439.87263090000
+159,Pawtucket - West Kingston,2157,21,24,  56431.50508050000
+160,Pawtucket - Ashaway,2157,25,25,  65583.50420430000
+161,Pawtucket - Westerly,2157,27,26,  76436.09483890000
+162,Pawtucket - Bradford,2157,26,27,  78852.06313080000
+163,Pascoag - Pascoag,2158,7,1,      0.00000000000
+164,Pascoag - Harrisville,2158,4,2,   6874.48744998000
+165,Pascoag - Harmony,2158,10,3,  10007.85816670000
+166,Pascoag - Greenville,2158,9,4,  13559.27581010000
+167,Pascoag - North Providence,2158,8,5,  22204.27722600000
+168,Pascoag - Woonsocket,2158,1,6,  23169.82190180000
+169,Pascoag - Providence,2158,12,7,  27211.06921410000
+170,Pascoag - Cumberland Hill,2158,2,8,  27528.59670380000
+171,Pascoag - Pawtucket,2158,6,9,  31146.15140280000
+172,Pascoag - Central Falls,2158,5,10,  31433.76877300000
+173,Pascoag - Cranston,2158,13,11,  32426.96556160000
+174,Pascoag - Valley Falls,2158,3,12,  33422.27230360000
+175,Pascoag - Warwick,2158,17,13,  35183.34605590000
+176,Pascoag - East Providence,2158,11,14,  40454.77680300000
+177,Pascoag - West Warwick,2158,18,15,  41984.84097980000
+178,Pascoag - East Greenwich,2158,19,16,  46808.65962760000
+179,Pascoag - Barrington,2158,14,17,  50233.34584720000
+180,Pascoag - Hope Valley,2158,23,18,  52233.09641290000
+181,Pascoag - Bristol,2158,15,19,  59292.60747400000
+182,Pascoag - Ashaway,2158,25,20,  62376.72798620000
+183,Pascoag - Wakefield,2158,24,21,  68929.77432440000
+184,Pascoag - Kingston,2158,22,22,  70691.64841179999
+185,Pascoag - West Kingston,2158,21,23,  71730.25292570000
+186,Pascoag - Westerly,2158,27,24,  73229.31862080000
+187,Pascoag - Tiverton,2158,16,25,  73237.87541900000
+188,Pascoag - Newport,2158,20,26,  79439.00795000000
+189,Pascoag - Bradford,2158,26,27,  80771.46694760000
+190,North Providence - North Providence,2159,8,1,      0.00000000000
+191,North Providence - Providence,2159,12,2,   5006.79198805000
+192,North Providence - Greenville,2159,9,3,   8645.00141587000
+193,North Providence - Pawtucket,2159,6,4,   8941.87417678000
+194,North Providence - Central Falls,2159,5,5,   9229.49154697000
+195,North Providence - Cranston,2159,13,6,  10222.68833560000
+196,North Providence - Harmony,2159,10,7,  12196.41905930000
+197,North Providence - Warwick,2159,17,8,  16183.07710100000
+198,North Providence - Cumberland Hill,2159,2,9,  17268.73672270000
+199,North Providence - East Providence,2159,11,10,  18250.49957700000
+200,North Providence - Woonsocket,2159,1,11,  20591.52426410000
+201,North Providence - Valley Falls,2159,3,12,  21888.46409180000
+202,North Providence - Pascoag,2159,7,13,  22204.27722600000
+203,North Providence - West Warwick,2159,18,14,  24972.32663040000
+204,North Providence - Harrisville,2159,4,15,  25479.36076460000
+205,North Providence - Barrington,2159,14,16,  28029.06862120000
+206,North Providence - East Greenwich,2159,19,17,  29796.14527820000
+207,North Providence - Bristol,2159,15,18,  37088.33024800000
+208,North Providence - Tiverton,2159,16,19,  51033.59819300000
+209,North Providence - Wakefield,2159,24,20,  51917.25997510000
+210,North Providence - Kingston,2159,22,21,  53679.13406250000
+211,North Providence - Hope Valley,2159,23,22,  53726.10612690000
+212,North Providence - West Kingston,2159,21,23,  54717.73857640000
+213,North Providence - Newport,2159,20,24,  57234.73072400000
+214,North Providence - Ashaway,2159,25,25,  63869.73770020000
+215,North Providence - Westerly,2159,27,26,  74722.32833480000
+216,North Providence - Bradford,2159,26,27,  77138.29662670000
+217,Greenville - Greenville,2160,9,1,      0.00000000000
+218,Greenville - Harmony,2160,10,2,   3551.41764346000
+219,Greenville - North Providence,2160,8,3,   8645.00141587000
+220,Greenville - Pascoag,2160,7,4,  13559.27581010000
+221,Greenville - Providence,2160,12,5,  13651.79340390000
+222,Greenville - Cumberland Hill,2160,2,6,  13969.32089370000
+223,Greenville - Harrisville,2160,4,7,  16834.35934870000
+224,Greenville - Woonsocket,2160,1,8,  17292.10843510000
+225,Greenville - Pawtucket,2160,6,9,  17586.87559260000
+226,Greenville - Central Falls,2160,5,10,  17874.49296280000
+227,Greenville - Cranston,2160,13,11,  18867.68975140000
+228,Greenville - Valley Falls,2160,3,12,  19862.99649340000
+229,Greenville - Warwick,2160,17,13,  21624.07024580000
+230,Greenville - East Providence,2160,11,14,  26895.50099290000
+231,Greenville - West Warwick,2160,18,15,  28425.56516960000
+232,Greenville - East Greenwich,2160,19,16,  33249.38381740000
+233,Greenville - Barrington,2160,14,17,  36674.07003700000
+234,Greenville - Bristol,2160,15,18,  45733.33166390000
+235,Greenville - Wakefield,2160,24,19,  55370.49851430000
+236,Greenville - Kingston,2160,22,20,  57132.37260170000
+237,Greenville - Hope Valley,2160,23,21,  57179.34466610000
+238,Greenville - West Kingston,2160,21,22,  58170.97711560000
+239,Greenville - Tiverton,2160,16,23,  59678.59960890000
+240,Greenville - Newport,2160,20,24,  65879.73213990001
+241,Greenville - Ashaway,2160,25,25,  67322.97623940000
+242,Greenville - Westerly,2160,27,26,  78175.56687400000
+243,Greenville - Bradford,2160,26,27,  80591.53516590000
+244,Harmony - Harmony,2161,10,1,      0.00000000000
+245,Harmony - Greenville,2161,9,2,   3551.41764346000
+246,Harmony - Pascoag,2161,7,3,  10007.85816670000
+247,Harmony - North Providence,2161,8,4,  12196.41905930000
+248,Harmony - Harrisville,2161,4,5,  13282.94170530000
+249,Harmony - Providence,2161,12,6,  17203.21104740000
+250,Harmony - Cumberland Hill,2161,2,7,  17520.73853720000
+251,Harmony - Woonsocket,2161,1,8,  20843.52607850000
+252,Harmony - Pawtucket,2161,6,9,  21138.29323610000
+253,Harmony - Central Falls,2161,5,10,  21425.91060630000
+254,Harmony - Cranston,2161,13,11,  22419.10739490000
+255,Harmony - Valley Falls,2161,3,12,  23414.41413690000
+256,Harmony - Warwick,2161,17,13,  25175.48788920000
+257,Harmony - East Providence,2161,11,14,  30446.91863630000
+258,Harmony - West Warwick,2161,18,15,  31976.98281310000
+259,Harmony - East Greenwich,2161,19,16,  36800.80146090000
+260,Harmony - Barrington,2161,14,17,  40225.48768050000
+261,Harmony - Bristol,2161,15,18,  49284.74930730000
+262,Harmony - Hope Valley,2161,23,19,  55918.29433350000
+263,Harmony - Wakefield,2161,24,20,  58921.91615770000
+264,Harmony - Kingston,2161,22,21,  60683.79024510000
+265,Harmony - West Kingston,2161,21,22,  61722.39475910000
+266,Harmony - Tiverton,2161,16,23,  63230.01725230000
+267,Harmony - Ashaway,2161,25,24,  66061.92590680000
+268,Harmony - Newport,2161,20,25,  69431.14978340000
+269,Harmony - Westerly,2161,27,26,  76914.51654139999
+270,Harmony - Bradford,2161,26,27,  84142.95280940000
+271,East Providence - East Providence,2162,11,1,      0.00000000000
+272,East Providence - Central Falls,2162,5,2,   9021.00803003000
+273,East Providence - Pawtucket,2162,6,3,   9308.62540022000
+274,East Providence - Barrington,2162,14,4,   9778.56904417000
+275,East Providence - Providence,2162,12,5,  16029.18389230000
+276,East Providence - North Providence,2162,8,6,  18250.49957700000
+277,East Providence - Bristol,2162,15,7,  18837.83067100000
+278,East Providence - Cranston,2162,13,8,  21245.08023980000
+279,East Providence - Valley Falls,2162,3,9,  25398.71878390000
+280,East Providence - Greenville,2162,9,10,  26895.50099290000
+281,East Providence - Warwick,2162,17,11,  27205.46900530000
+282,East Providence - Cumberland Hill,2162,2,12,  28999.27601560000
+283,East Providence - Harmony,2162,10,13,  30446.91863630000
+284,East Providence - Woonsocket,2162,1,14,  32322.06355700000
+285,East Providence - Tiverton,2162,16,15,  32783.09861600000
+286,East Providence - West Warwick,2162,18,16,  35994.71853470000
+287,East Providence - Newport,2162,20,17,  38984.23114700000
+288,East Providence - Pascoag,2162,7,18,  40454.77680300000
+289,East Providence - East Greenwich,2162,19,19,  40818.53718250000
+290,East Providence - Harrisville,2162,4,20,  43729.86034160000
+291,East Providence - Wakefield,2162,24,21,  62939.65187930000
+292,East Providence - Kingston,2162,22,22,  64701.52596670000
+293,East Providence - Hope Valley,2162,23,23,  64748.49803110000
+294,East Providence - West Kingston,2162,21,24,  65740.13048070000
+295,East Providence - Ashaway,2162,25,25,  74892.12960450001
+296,East Providence - Westerly,2162,27,26,  85744.72023910000
+297,East Providence - Bradford,2162,26,27,  88160.68853100001
+298,Providence - Providence,2163,12,1,      0.00000000000
+299,Providence - North Providence,2163,8,2,   5006.79198805000
+300,Providence - Cranston,2163,13,3,   5215.89634751000
+301,Providence - Pawtucket,2163,6,4,   6720.55849209000
+302,Providence - Central Falls,2163,5,5,   7008.17586229000
+303,Providence - Warwick,2163,17,6,  11176.28511290000
+304,Providence - Greenville,2163,9,7,  13651.79340390000
+305,Providence - Cumberland Hill,2163,2,8,  15755.56842670000
+306,Providence - East Providence,2163,11,9,  16029.18389230000
+307,Providence - Harmony,2163,10,10,  17203.21104740000
+308,Providence - Woonsocket,2163,1,11,  19078.35596800000
+309,Providence - Valley Falls,2163,3,12,  19667.14840710000
+310,Providence - West Warwick,2163,18,13,  19965.53464240000
+311,Providence - East Greenwich,2163,19,14,  24789.35329020000
+312,Providence - Barrington,2163,14,15,  25807.75293650000
+313,Providence - Pascoag,2163,7,16,  27211.06921410000
+314,Providence - Harrisville,2163,4,17,  30486.15275270000
+315,Providence - Bristol,2163,15,18,  34867.01456330000
+316,Providence - Wakefield,2163,24,19,  46910.46798700000
+317,Providence - Kingston,2163,22,20,  48672.34207440000
+318,Providence - Hope Valley,2163,23,21,  48719.31413880000
+319,Providence - Tiverton,2163,16,22,  48812.28250830000
+320,Providence - West Kingston,2163,21,23,  49710.94658840000
+321,Providence - Newport,2163,20,24,  55013.41503930000
+322,Providence - Ashaway,2163,25,25,  58862.94571220000
+323,Providence - Westerly,2163,27,26,  69715.53634680000
+324,Providence - Bradford,2163,26,27,  72131.50463870000
+325,Cranston - Cranston,2164,13,1,      0.00000000000
+326,Cranston - Providence,2164,12,2,   5215.89634751000
+327,Cranston - Warwick,2164,17,3,   5960.38876544000
+328,Cranston - North Providence,2164,8,4,  10222.68833560000
+329,Cranston - Pawtucket,2164,6,5,  11936.45483960000
+330,Cranston - Central Falls,2164,5,6,  12224.07220980000
+331,Cranston - West Warwick,2164,18,7,  14749.63829490000
+332,Cranston - Greenville,2164,9,8,  18867.68975140000
+333,Cranston - East Greenwich,2164,19,9,  19573.45694270000
+334,Cranston - Cumberland Hill,2164,2,10,  20971.46477420000
+335,Cranston - East Providence,2164,11,11,  21245.08023980000
+336,Cranston - Harmony,2164,10,12,  22419.10739490000
+337,Cranston - Woonsocket,2164,1,13,  24294.25231550000
+338,Cranston - Valley Falls,2164,3,14,  24883.04475460000
+339,Cranston - Barrington,2164,14,15,  31023.64928400000
+340,Cranston - Pascoag,2164,7,16,  32426.96556160000
+341,Cranston - Harrisville,2164,4,17,  35702.04910020000
+342,Cranston - Bristol,2164,15,18,  40082.91091080000
+343,Cranston - Wakefield,2164,24,19,  41694.57163950000
+344,Cranston - Kingston,2164,22,20,  43456.44572690000
+345,Cranston - Hope Valley,2164,23,21,  43503.41779130000
+346,Cranston - West Kingston,2164,21,22,  44495.05024090000
+347,Cranston - Newport,2164,20,23,  52646.34481790000
+348,Cranston - Ashaway,2164,25,24,  53647.04936470000
+349,Cranston - Tiverton,2164,16,25,  54028.17885580000
+350,Cranston - Westerly,2164,27,26,  64499.63999930000
+351,Cranston - Bradford,2164,26,27,  66915.60829120000
+352,Barrington - Barrington,2165,14,1,      0.00000000000
+353,Barrington - Bristol,2165,15,2,   9059.26162684000
+354,Barrington - East Providence,2165,11,3,   9778.56904417000
+355,Barrington - Central Falls,2165,5,4,  18799.57707420000
+356,Barrington - Pawtucket,2165,6,5,  19087.19444440000
+357,Barrington - Tiverton,2165,16,6,  23004.52957190000
+358,Barrington - Providence,2165,12,7,  25807.75293650000
+359,Barrington - North Providence,2165,8,8,  28029.06862120000
+360,Barrington - Newport,2165,20,9,  29205.66210290000
+361,Barrington - Cranston,2165,13,10,  31023.64928400000
+362,Barrington - Valley Falls,2165,3,11,  35177.28782810000
+363,Barrington - Greenville,2165,9,12,  36674.07003700000
+364,Barrington - Warwick,2165,17,13,  36984.03804940000
+365,Barrington - Cumberland Hill,2165,2,14,  38777.84505980000
+366,Barrington - Harmony,2165,10,15,  40225.48768050000
+367,Barrington - Woonsocket,2165,1,16,  42100.63260110000
+368,Barrington - West Warwick,2165,18,17,  45773.28757890000
+369,Barrington - Pascoag,2165,7,18,  50233.34584720000
+370,Barrington - East Greenwich,2165,19,19,  50597.10622670000
+371,Barrington - Harrisville,2165,4,20,  53508.42938580000
+372,Barrington - Wakefield,2165,24,21,  55159.60412930000
+373,Barrington - Kingston,2165,22,22,  56921.47821670000
+374,Barrington - West Kingston,2165,21,23,  57960.08273060000
+375,Barrington - Hope Valley,2165,23,24,  74527.06707530000
+376,Barrington - Bradford,2165,26,25,  80380.64078089999
+377,Barrington - Ashaway,2165,25,26,  84670.69864860000
+378,Barrington - Westerly,2165,27,27,  87922.78910780000
+379,Bristol - Bristol,2166,15,1,      0.00000000000
+380,Bristol - Barrington,2166,14,2,   9059.26162684000
+381,Bristol - Tiverton,2166,16,3,  13945.26794500000
+382,Bristol - East Providence,2166,11,4,  18837.83067100000
+383,Bristol - Newport,2166,20,5,  20146.40047600000
+384,Bristol - Central Falls,2166,5,6,  27858.83870100000
+385,Bristol - Pawtucket,2166,6,7,  28146.45607120000
+386,Bristol - Providence,2166,12,8,  34867.01456330000
+387,Bristol - North Providence,2166,8,9,  37088.33024800000
+388,Bristol - Cranston,2166,13,10,  40082.91091080000
+389,Bristol - Valley Falls,2166,3,11,  44236.54945490000
+390,Bristol - Greenville,2166,9,12,  45733.33166390000
+391,Bristol - Warwick,2166,17,13,  46043.29967630000
+392,Bristol - Wakefield,2166,24,14,  46100.34250240000
+393,Bristol - Cumberland Hill,2166,2,15,  47837.10668660000
+394,Bristol - Kingston,2166,22,16,  47862.21658980000
+395,Bristol - West Kingston,2166,21,17,  48900.82110380000
+396,Bristol - Harmony,2166,10,18,  49284.74930730000
+397,Bristol - Woonsocket,2166,1,19,  51159.89422800000
+398,Bristol - West Warwick,2166,18,20,  54832.54920570000
+399,Bristol - East Greenwich,2166,19,21,  55791.96732120000
+400,Bristol - Pascoag,2166,7,22,  59292.60747400000
+401,Bristol - Harrisville,2166,4,23,  62567.69101260000
+402,Bristol - Bradford,2166,26,24,  71321.37915410000
+403,Bristol - Hope Valley,2166,23,25,  72277.90719200000
+404,Bristol - Westerly,2166,27,26,  78863.52748090000
+405,Bristol - Ashaway,2166,25,27,  82421.53876530001
+406,Tiverton - Tiverton,2167,16,1,      0.00000000000
+407,Tiverton - Bristol,2167,15,2,  13945.26794500000
+408,Tiverton - Newport,2167,20,3,  19616.31474540000
+409,Tiverton - Barrington,2167,14,4,  23004.52957190000
+410,Tiverton - East Providence,2167,11,5,  32783.09861600000
+411,Tiverton - Central Falls,2167,5,6,  41804.10664600000
+412,Tiverton - Pawtucket,2167,6,7,  42091.72401620000
+413,Tiverton - Wakefield,2167,24,8,  45570.25677180000
+414,Tiverton - Kingston,2167,22,9,  47332.13085920000
+415,Tiverton - West Kingston,2167,21,10,  48370.73537310000
+416,Tiverton - Providence,2167,12,11,  48812.28250830000
+417,Tiverton - North Providence,2167,8,12,  51033.59819300000
+418,Tiverton - Cranston,2167,13,13,  54028.17885580000
+419,Tiverton - East Greenwich,2167,19,14,  55261.88159060000
+420,Tiverton - Valley Falls,2167,3,15,  58181.81740000000
+421,Tiverton - Greenville,2167,9,16,  59678.59960890000
+422,Tiverton - Warwick,2167,17,17,  59988.56762130000
+423,Tiverton - West Warwick,2167,18,18,  60578.16825710000
+424,Tiverton - Cumberland Hill,2167,2,19,  61782.37463160000
+425,Tiverton - Harmony,2167,10,20,  63230.01725230000
+426,Tiverton - Woonsocket,2167,1,21,  65105.16217300000
+427,Tiverton - Bradford,2167,26,22,  70791.29342340000
+428,Tiverton - Hope Valley,2167,23,23,  71747.82146130000
+429,Tiverton - Pascoag,2167,7,24,  73237.87541900000
+430,Tiverton - Harrisville,2167,4,25,  76512.95895760000
+431,Tiverton - Westerly,2167,27,26,  78333.44175030000
+432,Tiverton - Ashaway,2167,25,27,  81891.45303460000
+433,Warwick - Warwick,2168,17,1,      0.00000000000
+434,Warwick - Cranston,2168,13,2,   5960.38876544000
+435,Warwick - West Warwick,2168,18,3,   8789.24952944000
+436,Warwick - Providence,2168,12,4,  11176.28511290000
+437,Warwick - East Greenwich,2168,19,5,  13613.06817730000
+438,Warwick - North Providence,2168,8,6,  16183.07710100000
+439,Warwick - Pawtucket,2168,6,7,  17896.84360500000
+440,Warwick - Central Falls,2168,5,8,  18184.46097520000
+441,Warwick - Greenville,2168,9,9,  21624.07024580000
+442,Warwick - Harmony,2168,10,10,  25175.48788920000
+443,Warwick - Cumberland Hill,2168,2,11,  26931.85353960000
+444,Warwick - East Providence,2168,11,12,  27205.46900530000
+445,Warwick - Woonsocket,2168,1,13,  30254.64108100000
+446,Warwick - Valley Falls,2168,3,14,  30843.43352010000
+447,Warwick - Pascoag,2168,7,15,  35183.34605590000
+448,Warwick - Wakefield,2168,24,16,  35734.18287410000
+449,Warwick - Barrington,2168,14,17,  36984.03804940000
+450,Warwick - Kingston,2168,22,18,  37496.05696150000
+451,Warwick - Hope Valley,2168,23,19,  37543.02902590000
+452,Warwick - Harrisville,2168,4,20,  38458.42959450000
+453,Warwick - West Kingston,2168,21,21,  38534.66147540000
+454,Warwick - Bristol,2168,15,22,  46043.29967630000
+455,Warwick - Newport,2168,20,23,  46685.95605250000
+456,Warwick - Ashaway,2168,25,24,  47686.66059920000
+457,Warwick - Westerly,2168,27,25,  58539.25123380000
+458,Warwick - Tiverton,2168,16,26,  59988.56762130000
+459,Warwick - Bradford,2168,26,27,  60955.21952570000
+460,West Warwick - West Warwick,2169,18,1,      0.00000000000
+461,West Warwick - East Greenwich,2169,19,2,   7888.96563649000
+462,West Warwick - Warwick,2169,17,3,   8789.24952944000
+463,West Warwick - Cranston,2169,13,4,  14749.63829490000
+464,West Warwick - Providence,2169,12,5,  19965.53464240000
+465,West Warwick - North Providence,2169,8,6,  24972.32663040000
+466,West Warwick - Pawtucket,2169,6,7,  26686.09313450000
+467,West Warwick - Central Falls,2169,5,8,  26973.71050470000
+468,West Warwick - Greenville,2169,9,9,  28425.56516960000
+469,West Warwick - Hope Valley,2169,23,10,  28753.77949640000
+470,West Warwick - Wakefield,2169,24,11,  30010.08033330000
+471,West Warwick - Kingston,2169,22,12,  31771.95442070000
+472,West Warwick - Harmony,2169,10,13,  31976.98281310000
+473,West Warwick - West Kingston,2169,21,14,  32810.55893470000
+474,West Warwick - Cumberland Hill,2169,2,15,  35721.10306900000
+475,West Warwick - East Providence,2169,11,16,  35994.71853470000
+476,West Warwick - Ashaway,2169,25,17,  38897.41106980000
+477,West Warwick - Woonsocket,2169,1,18,  39043.89061040000
+478,West Warwick - Valley Falls,2169,3,19,  39632.68304950000
+479,West Warwick - Newport,2169,20,20,  40961.85351170000
+480,West Warwick - Pascoag,2169,7,21,  41984.84097980000
+481,West Warwick - Harrisville,2169,4,22,  45259.92451840000
+482,West Warwick - Barrington,2169,14,23,  45773.28757890000
+483,West Warwick - Westerly,2169,27,24,  49750.00170440000
+484,West Warwick - Bristol,2169,15,25,  54832.54920570000
+485,West Warwick - Bradford,2169,26,26,  55231.11698500000
+486,West Warwick - Tiverton,2169,16,27,  60578.16825710000
+487,East Greenwich - East Greenwich,2170,19,1,      0.00000000000
+488,East Greenwich - West Warwick,2170,18,2,   7888.96563649000
+489,East Greenwich - Warwick,2170,17,3,  13613.06817730000
+490,East Greenwich - Cranston,2170,13,4,  19573.45694270000
+491,East Greenwich - Wakefield,2170,24,5,  24693.79366680000
+492,East Greenwich - Providence,2170,12,6,  24789.35329020000
+493,East Greenwich - Kingston,2170,22,7,  26455.66775420000
+494,East Greenwich - West Kingston,2170,21,8,  27494.27226810000
+495,East Greenwich - North Providence,2170,8,9,  29796.14527820000
+496,East Greenwich - Hope Valley,2170,23,10,  31284.60987550000
+497,East Greenwich - Pawtucket,2170,6,11,  31509.91178230000
+498,East Greenwich - Central Falls,2170,5,12,  31797.52915250000
+499,East Greenwich - Greenville,2170,9,13,  33249.38381740000
+500,East Greenwich - Newport,2170,20,14,  35645.56684520000
+501,East Greenwich - Harmony,2170,10,15,  36800.80146090000
+502,East Greenwich - Cumberland Hill,2170,2,16,  40544.92171690000
+503,East Greenwich - East Providence,2170,11,17,  40818.53718250000
+504,East Greenwich - Ashaway,2170,25,18,  41428.24144880000
+505,East Greenwich - Woonsocket,2170,1,19,  43867.70925820000
+506,East Greenwich - Valley Falls,2170,3,20,  44456.50169730000
+507,East Greenwich - Pascoag,2170,7,21,  46808.65962760000
+508,East Greenwich - Bradford,2170,26,22,  49914.83031850000
+509,East Greenwich - Harrisville,2170,4,23,  50083.74316620000
+510,East Greenwich - Barrington,2170,14,24,  50597.10622670000
+511,East Greenwich - Westerly,2170,27,25,  52280.83208340000
+512,East Greenwich - Tiverton,2170,16,26,  55261.88159060000
+513,East Greenwich - Bristol,2170,15,27,  55791.96732120000
+514,Newport - Newport,2171,20,1,      0.00000000000
+515,Newport - Tiverton,2171,16,2,  19616.31474540000
+516,Newport - Bristol,2171,15,3,  20146.40047600000
+517,Newport - Wakefield,2171,24,4,  25953.94202640000
+518,Newport - Kingston,2171,22,5,  27715.81611380000
+519,Newport - West Kingston,2171,21,6,  28754.42062770000
+520,Newport - Barrington,2171,14,7,  29205.66210290000
+521,Newport - East Greenwich,2171,19,8,  35645.56684520000
+522,Newport - East Providence,2171,11,9,  38984.23114700000
+523,Newport - West Warwick,2171,18,10,  40961.85351170000
+524,Newport - Warwick,2171,17,11,  46685.95605250000
+525,Newport - Central Falls,2171,5,12,  48005.23917710000
+526,Newport - Pawtucket,2171,6,13,  48292.85654720000
+527,Newport - Bradford,2171,26,14,  51174.97867810000
+528,Newport - Hope Valley,2171,23,15,  52131.50671590000
+529,Newport - Cranston,2171,13,16,  52646.34481790000
+530,Newport - Providence,2171,12,17,  55013.41503930000
+531,Newport - North Providence,2171,8,18,  57234.73072400000
+532,Newport - Westerly,2171,27,19,  58717.12700490000
+533,Newport - Ashaway,2171,25,20,  62275.13828930000
+534,Newport - Valley Falls,2171,3,21,  64382.94993100000
+535,Newport - Greenville,2171,9,22,  65879.73213990001
+536,Newport - Cumberland Hill,2171,2,23,  67983.50716260000
+537,Newport - Harmony,2171,10,24,  69431.14978340000
+538,Newport - Woonsocket,2171,1,25,  71306.29470400000
+539,Newport - Pascoag,2171,7,26,  79439.00795000000
+540,Newport - Harrisville,2171,4,27,  82714.09148860000
+541,West Kingston - West Kingston,2172,21,1,      0.00000000000
+542,West Kingston - Kingston,2172,22,2,   1038.60451393000
+543,West Kingston - Wakefield,2172,24,3,   2800.47860135000
+544,West Kingston - Bradford,2172,26,4,  22420.55805030000
+545,West Kingston - East Greenwich,2172,19,5,  27494.27226810000
+546,West Kingston - Newport,2172,20,6,  28754.42062770000
+547,West Kingston - Westerly,2172,27,7,  29962.70637720000
+548,West Kingston - West Warwick,2172,18,8,  32810.55893470000
+549,West Kingston - Warwick,2172,17,9,  38534.66147540000
+550,West Kingston - Ashaway,2172,25,10,  40815.29701180000
+551,West Kingston - Hope Valley,2172,23,11,  43980.21213890000
+552,West Kingston - Cranston,2172,13,12,  44495.05024090000
+553,West Kingston - Tiverton,2172,16,13,  48370.73537310000
+554,West Kingston - Bristol,2172,15,14,  48900.82110380000
+555,West Kingston - Providence,2172,12,15,  49710.94658840000
+556,West Kingston - North Providence,2172,8,16,  54717.73857640000
+557,West Kingston - Pawtucket,2172,6,17,  56431.50508050000
+558,West Kingston - Central Falls,2172,5,18,  56719.12245060000
+559,West Kingston - Barrington,2172,14,19,  57960.08273060000
+560,West Kingston - Greenville,2172,9,20,  58170.97711560000
+561,West Kingston - Harmony,2172,10,21,  61722.39475910000
+562,West Kingston - Cumberland Hill,2172,2,22,  65466.51501500000
+563,West Kingston - East Providence,2172,11,23,  65740.13048070000
+564,West Kingston - Woonsocket,2172,1,24,  68789.30255640000
+565,West Kingston - Valley Falls,2172,3,25,  69378.09499550000
+566,West Kingston - Pascoag,2172,7,26,  71730.25292570000
+567,West Kingston - Harrisville,2172,4,27,  75005.33646429999
+568,Kingston - Kingston,2173,22,1,      0.00000000000
+569,Kingston - West Kingston,2173,21,2,   1038.60451393000
+570,Kingston - Wakefield,2173,24,3,   1761.87408742000
+571,Kingston - Bradford,2173,26,4,  23459.16256430000
+572,Kingston - East Greenwich,2173,19,5,  26455.66775420000
+573,Kingston - Newport,2173,20,6,  27715.81611380000
+574,Kingston - Westerly,2173,27,7,  31001.31089110000
+575,Kingston - West Warwick,2173,18,8,  31771.95442070000
+576,Kingston - Warwick,2173,17,9,  37496.05696150000
+577,Kingston - Ashaway,2173,25,10,  41853.90152570000
+578,Kingston - Hope Valley,2173,23,11,  42941.60762490000
+579,Kingston - Cranston,2173,13,12,  43456.44572690000
+580,Kingston - Tiverton,2173,16,13,  47332.13085920000
+581,Kingston - Bristol,2173,15,14,  47862.21658980000
+582,Kingston - Providence,2173,12,15,  48672.34207440000
+583,Kingston - North Providence,2173,8,16,  53679.13406250000
+584,Kingston - Pawtucket,2173,6,17,  55392.90056650000
+585,Kingston - Central Falls,2173,5,18,  55680.51793670000
+586,Kingston - Barrington,2173,14,19,  56921.47821670000
+587,Kingston - Greenville,2173,9,20,  57132.37260170000
+588,Kingston - Harmony,2173,10,21,  60683.79024510000
+589,Kingston - Cumberland Hill,2173,2,22,  64427.91050110000
+590,Kingston - East Providence,2173,11,23,  64701.52596670000
+591,Kingston - Woonsocket,2173,1,24,  67750.69804240001
+592,Kingston - Valley Falls,2173,3,25,  68339.49048160001
+593,Kingston - Pascoag,2173,7,26,  70691.64841179999
+594,Kingston - Harrisville,2173,4,27,  73966.73195040000
+595,Hope Valley - Hope Valley,2174,23,1,      0.00000000000
+596,Hope Valley - Ashaway,2174,25,2,  10143.63157330000
+597,Hope Valley - Westerly,2174,27,3,  20996.22220790000
+598,Hope Valley - Bradford,2174,26,4,  28538.37053480000
+599,Hope Valley - West Warwick,2174,18,5,  28753.77949640000
+600,Hope Valley - East Greenwich,2174,19,6,  31284.60987550000
+601,Hope Valley - Warwick,2174,17,7,  37543.02902590000
+602,Hope Valley - Wakefield,2174,24,8,  41179.73353750000
+603,Hope Valley - Kingston,2174,22,9,  42941.60762490000
+604,Hope Valley - Cranston,2174,13,10,  43503.41779130000
+605,Hope Valley - West Kingston,2174,21,11,  43980.21213890000
+606,Hope Valley - Providence,2174,12,12,  48719.31413880000
+607,Hope Valley - Newport,2174,20,13,  52131.50671590000
+608,Hope Valley - Pascoag,2174,7,14,  52233.09641290000
+609,Hope Valley - North Providence,2174,8,15,  53726.10612690000
+610,Hope Valley - Pawtucket,2174,6,16,  55439.87263090000
+611,Hope Valley - Harrisville,2174,4,17,  55508.17995150000
+612,Hope Valley - Central Falls,2174,5,18,  55727.49000110000
+613,Hope Valley - Harmony,2174,10,19,  55918.29433350000
+614,Hope Valley - Greenville,2174,9,20,  57179.34466610000
+615,Hope Valley - Cumberland Hill,2174,2,21,  64474.88256550000
+616,Hope Valley - East Providence,2174,11,22,  64748.49803110000
+617,Hope Valley - Woonsocket,2174,1,23,  67797.67010680000
+618,Hope Valley - Valley Falls,2174,3,24,  68386.46254600000
+619,Hope Valley - Tiverton,2174,16,25,  71747.82146130000
+620,Hope Valley - Bristol,2174,15,26,  72277.90719200000
+621,Hope Valley - Barrington,2174,14,27,  74527.06707530000
+622,Wakefield - Wakefield,2175,24,1,      0.00000000000
+623,Wakefield - Kingston,2175,22,2,   1761.87408742000
+624,Wakefield - West Kingston,2175,21,3,   2800.47860135000
+625,Wakefield - East Greenwich,2175,19,4,  24693.79366680000
+626,Wakefield - Bradford,2175,26,5,  25221.03665170000
+627,Wakefield - Newport,2175,20,6,  25953.94202640000
+628,Wakefield - West Warwick,2175,18,7,  30010.08033330000
+629,Wakefield - Westerly,2175,27,8,  32763.18497850000
+630,Wakefield - Warwick,2175,17,9,  35734.18287410000
+631,Wakefield - Hope Valley,2175,23,10,  41179.73353750000
+632,Wakefield - Cranston,2175,13,11,  41694.57163950000
+633,Wakefield - Ashaway,2175,25,12,  43615.77561310000
+634,Wakefield - Tiverton,2175,16,13,  45570.25677180000
+635,Wakefield - Bristol,2175,15,14,  46100.34250240000
+636,Wakefield - Providence,2175,12,15,  46910.46798700000
+637,Wakefield - North Providence,2175,8,16,  51917.25997510000
+638,Wakefield - Pawtucket,2175,6,17,  53631.02647910000
+639,Wakefield - Central Falls,2175,5,18,  53918.64384930000
+640,Wakefield - Barrington,2175,14,19,  55159.60412930000
+641,Wakefield - Greenville,2175,9,20,  55370.49851430000
+642,Wakefield - Harmony,2175,10,21,  58921.91615770000
+643,Wakefield - Cumberland Hill,2175,2,22,  62666.03641370000
+644,Wakefield - East Providence,2175,11,23,  62939.65187930000
+645,Wakefield - Woonsocket,2175,1,24,  65988.82395500000
+646,Wakefield - Valley Falls,2175,3,25,  66577.61639410000
+647,Wakefield - Pascoag,2175,7,26,  68929.77432440000
+648,Wakefield - Harrisville,2175,4,27,  72204.85786300000
+649,Ashaway - Ashaway,2176,25,1,      0.00000000000
+650,Ashaway - Hope Valley,2176,23,2,  10143.63157330000
+651,Ashaway - Westerly,2176,27,3,  10852.59063460000
+652,Ashaway - Bradford,2176,26,4,  18394.73896140000
+653,Ashaway - West Warwick,2176,18,5,  38897.41106980000
+654,Ashaway - West Kingston,2176,21,6,  40815.29701180000
+655,Ashaway - East Greenwich,2176,19,7,  41428.24144880000
+656,Ashaway - Kingston,2176,22,8,  41853.90152570000
+657,Ashaway - Wakefield,2176,24,9,  43615.77561310000
+658,Ashaway - Warwick,2176,17,10,  47686.66059920000
+659,Ashaway - Cranston,2176,13,11,  53647.04936470000
+660,Ashaway - Providence,2176,12,12,  58862.94571220000
+661,Ashaway - Newport,2176,20,13,  62275.13828930000
+662,Ashaway - Pascoag,2176,7,14,  62376.72798620000
+663,Ashaway - North Providence,2176,8,15,  63869.73770020000
+664,Ashaway - Pawtucket,2176,6,16,  65583.50420430000
+665,Ashaway - Harrisville,2176,4,17,  65651.81152480000
+666,Ashaway - Central Falls,2176,5,18,  65871.12157439999
+667,Ashaway - Harmony,2176,10,19,  66061.92590680000
+668,Ashaway - Greenville,2176,9,20,  67322.97623940000
+669,Ashaway - Cumberland Hill,2176,2,21,  74618.51413880000
+670,Ashaway - East Providence,2176,11,22,  74892.12960450001
+671,Ashaway - Woonsocket,2176,1,23,  77941.30168020001
+672,Ashaway - Valley Falls,2176,3,24,  78530.09411930000
+673,Ashaway - Tiverton,2176,16,25,  81891.45303460000
+674,Ashaway - Bristol,2176,15,26,  82421.53876530001
+675,Ashaway - Barrington,2176,14,27,  84670.69864860000
+676,Bradford - Bradford,2177,26,1,      0.00000000000
+677,Bradford - Westerly,2177,27,2,   7542.14832682000
+678,Bradford - Ashaway,2177,25,3,  18394.73896140000
+679,Bradford - West Kingston,2177,21,4,  22420.55805030000
+680,Bradford - Kingston,2177,22,5,  23459.16256430000
+681,Bradford - Wakefield,2177,24,6,  25221.03665170000
+682,Bradford - Hope Valley,2177,23,7,  28538.37053480000
+683,Bradford - East Greenwich,2177,19,8,  49914.83031850000
+684,Bradford - Newport,2177,20,9,  51174.97867810000
+685,Bradford - West Warwick,2177,18,10,  55231.11698500000
+686,Bradford - Warwick,2177,17,11,  60955.21952570000
+687,Bradford - Cranston,2177,13,12,  66915.60829120000
+688,Bradford - Tiverton,2177,16,13,  70791.29342340000
+689,Bradford - Bristol,2177,15,14,  71321.37915410000
+690,Bradford - Providence,2177,12,15,  72131.50463870000
+691,Bradford - North Providence,2177,8,16,  77138.29662670000
+692,Bradford - Pawtucket,2177,6,17,  78852.06313080000
+693,Bradford - Central Falls,2177,5,18,  79139.68050100000
+694,Bradford - Barrington,2177,14,19,  80380.64078089999
+695,Bradford - Greenville,2177,9,20,  80591.53516590000
+696,Bradford - Pascoag,2177,7,21,  80771.46694760000
+697,Bradford - Harrisville,2177,4,22,  84046.55048619999
+698,Bradford - Harmony,2177,10,23,  84142.95280940000
+699,Bradford - Cumberland Hill,2177,2,24,  87887.07306530001
+700,Bradford - East Providence,2177,11,25,  88160.68853100001
+701,Bradford - Woonsocket,2177,1,26,  91209.86060669999
+702,Bradford - Valley Falls,2177,3,27,  91798.65304580001
+703,Westerly - Westerly,2178,27,1,      0.00000000000
+704,Westerly - Bradford,2178,26,2,   7542.14832682000
+705,Westerly - Ashaway,2178,25,3,  10852.59063460000
+706,Westerly - Hope Valley,2178,23,4,  20996.22220790000
+707,Westerly - West Kingston,2178,21,5,  29962.70637720000
+708,Westerly - Kingston,2178,22,6,  31001.31089110000
+709,Westerly - Wakefield,2178,24,7,  32763.18497850000
+710,Westerly - West Warwick,2178,18,8,  49750.00170440000
+711,Westerly - East Greenwich,2178,19,9,  52280.83208340000
+712,Westerly - Warwick,2178,17,10,  58539.25123380000
+713,Westerly - Newport,2178,20,11,  58717.12700490000
+714,Westerly - Cranston,2178,13,12,  64499.63999930000
+715,Westerly - Providence,2178,12,13,  69715.53634680000
+716,Westerly - Pascoag,2178,7,14,  73229.31862080000
+717,Westerly - North Providence,2178,8,15,  74722.32833480000
+718,Westerly - Pawtucket,2178,6,16,  76436.09483890000
+719,Westerly - Harrisville,2178,4,17,  76504.40215939999
+720,Westerly - Central Falls,2178,5,18,  76723.71220900000
+721,Westerly - Harmony,2178,10,19,  76914.51654139999
+722,Westerly - Greenville,2178,9,20,  78175.56687400000
+723,Westerly - Tiverton,2178,16,21,  78333.44175030000
+724,Westerly - Bristol,2178,15,22,  78863.52748090000
+725,Westerly - Cumberland Hill,2178,2,23,  85471.10477340000
+726,Westerly - East Providence,2178,11,24,  85744.72023910000
+727,Westerly - Barrington,2178,14,25,  87922.78910780000
+728,Westerly - Woonsocket,2178,1,26,  88793.89231480000
+729,Westerly - Valley Falls,2178,3,27,  89382.68475390000

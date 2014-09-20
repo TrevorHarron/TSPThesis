@@ -63,4 +63,23 @@ Valenzuela, Christine L. and Jones, Antonia J.
 \newblock http://citeseerx.ist.psu.edu
 
 
+\bibitem{cai}
+Garey, R. Michael, Johnson, S. David.
+\newblock Computers and Intractability A Guide to the Theory of NP-Completeness.
+\newblock 1979, Bell Telephone Labratories, Inc.
+
+\bibitem{dyn}
+Bellman, Richard.
+\newblock Dynamic Programming Treatment of the Travelling Salesman Problem, 
+\newblock{\em J. Assoc. Comput}. 
+\newblock 61–63, 1962.
+
+\bibitem{karp}
+Karp, R. M. 
+\newblock Reducibility Among Combinatorial Problems. 
+\newblock{\em Complexity of Computer Computations}.
+\newblock (Ed. R. E. Miller and J. W. Thatcher). 
+\newblock New York: Plenum Press, pp. 85-103, 1972. 
+
+
 \end{thebibliography}

@@ -4,14 +4,12 @@ import java.util.ArrayList;
 
 import com.trevorharron.tsp.graph.Graph;
 
-public class BasicSolver implements Solver {
+public abstract class BasicSolver implements Solver {
 	
 	protected Graph graph;
 
 	@Override
-	public ArrayList<String> solve(){
-		return new ArrayList<String>();
-	}
+	public abstract ArrayList<String> solve();
 
 	@Override
 	public void setGraph(Graph graph) {
